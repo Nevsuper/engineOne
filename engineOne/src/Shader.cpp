@@ -2,6 +2,7 @@
 #include<fstream>
 #include<sstream>
 #include<iostream>
+#include <glm/gtc/type_ptr.hpp> // for value_ptr
 #include "glUtils.h"
 
 Shader::Shader(ShaderType type) noexcept
@@ -34,7 +35,7 @@ Shader::Shader(Shader&& other) noexcept
 
 Shader& Shader::operator=(Shader&& other) noexcept
 {
-	if (this != &other) 
+	if (this != &other)
 	{
 		SafeDeleteGLShader(m_ID);
 
@@ -59,12 +60,12 @@ bool Shader::loadFromFile(const std::string& filePath)
 	file.close();
 	auto src = buffer.str();
 	return loadFromString(src);
-	
+
 }
 
 bool Shader::loadFromString(const std::string& shaderSrc)
 {
-	const char* sources[] = { shaderSrc.c_str()};
+	const char* sources[] = { shaderSrc.c_str() };
 	glShaderSource(m_ID, 1, sources, nullptr);
 	glCompileShader(m_ID);
 	return checkCompileStatus();
@@ -98,7 +99,7 @@ ShaderProgram::~ShaderProgram() noexcept
 	SafeDeleteGLProgram(m_ID);
 }
 
-ShaderProgram::ShaderProgram(ShaderProgram&& other) noexcept 
+ShaderProgram::ShaderProgram(ShaderProgram&& other) noexcept
 	: m_ID(other.m_ID)
 {
 	other.m_ID = 0;
@@ -138,7 +139,7 @@ ShaderProgram::ShaderProgram(Shader& vertexShader, Shader& fragmentShader)
 
 ShaderProgram& ShaderProgram::operator=(ShaderProgram&& other) noexcept
 {
-	if (this != &other) 
+	if (this != &other)
 	{
 		SafeDeleteGLProgram(m_ID);
 
@@ -182,4 +183,72 @@ bool ShaderProgram::checkLinkStatus()
 		return false;
 	}
 	return true;
+}
+
+void ShaderProgram::SetUniform1f(const std::string& uniformName, float v) noexcept
+{
+	glProgramUniform1f(m_ID,GetUniformLocation(uniformName), v);
+}
+
+void ShaderProgram::SetUniform2f(const std::string& uniformName, float v0, float v1) noexcept
+{
+	glProgramUniform2f(m_ID, GetUniformLocation(uniformName), v0, v1);
+}
+
+void ShaderProgram::SetUniform3f(const std::string& uniformName, float v0, float v1, float v2) noexcept
+{
+	glProgramUniform3f(m_ID, GetUniformLocation(uniformName), v0, v1, v2);
+}
+
+void ShaderProgram::SetUniform4f(const std::string& uniformName, float v0, float v1, float v2, float v3) noexcept
+{
+	glProgramUniform4f(m_ID, GetUniformLocation(uniformName), v0, v1, v2, v3);
+}
+
+
+
+void ShaderProgram::SetUniformVec2(const std::string& uniformName, const glm::vec2& vec) noexcept
+{
+	glProgramUniform2fv(m_ID,GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
+}
+
+void ShaderProgram::SetUniformVec3(const std::string& uniformName, const glm::vec3& vec) noexcept
+{
+	glProgramUniform3fv(m_ID,GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
+}
+
+void ShaderProgram::SetUniformVec4(const std::string& uniformName, const glm::vec4& vec) noexcept
+{
+	glProgramUniform4fv(m_ID,GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
+}
+
+void ShaderProgram::SetUniformMat2(const std::string& uniformName, const glm::mat2& mat) noexcept
+{
+	glProgramUniformMatrix2fv(m_ID,GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
+void ShaderProgram::SetUniformMat3(const std::string& uniformName, const glm::mat3& mat) noexcept
+{
+	glProgramUniformMatrix3fv(m_ID,GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
+void ShaderProgram::SetUniformMat4(const std::string& uniformName, const glm::mat4& mat) noexcept
+{
+	glProgramUniformMatrix4fv(m_ID,GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
+unsigned int ShaderProgram::GetUniformLocation(const std::string& uniformName) noexcept
+{
+	if (m_UniformCache.find(uniformName) != m_UniformCache.end())
+	{
+		return m_UniformCache[uniformName];
+	}
+	auto loc = glGetUniformLocation(m_ID, uniformName.c_str());
+	if (loc == -1)
+	{
+		std::cerr << "uniform" << uniformName << "  does not exist " << std::endl;
+		return -1;
+	}
+	m_UniformCache[uniformName] = loc;
+	return loc;
 }

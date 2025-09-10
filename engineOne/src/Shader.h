@@ -3,6 +3,7 @@
 #include<unordered_map>
 
 #include<glad/gl.h>
+#include<glm/glm.hpp>
 #include "utils.h"
 
 enum class ShaderType : GLenum
@@ -95,11 +96,24 @@ public:
 
 
 	bool checkLinkStatus();
+
+	void SetUniform1f(const std::string& uniformName, float v) noexcept;
+	void SetUniform2f(const std::string& uniformName, float v0,float v1) noexcept;
+	void SetUniform3f(const std::string& uniformName, float v0,float v1, float v2) noexcept;
+	void SetUniform4f(const std::string& uniformName, float v0,float v1, float v2,float v3) noexcept;
+
+	void SetUniformVec2(const std::string& uniformName, const glm::vec2& vec) noexcept;
+	void SetUniformVec3(const std::string& uniformName, const glm::vec3& vec) noexcept;
+	void SetUniformVec4(const std::string& uniformName, const glm::vec4& vec) noexcept;
+	// specify array size
+	void SetUniformMat2(const std::string& uniformName, const glm::mat2& mat) noexcept;
+	void SetUniformMat3(const std::string& uniformName, const glm::mat3& mat) noexcept;
+	void SetUniformMat4(const std::string& uniformName, const glm::mat4& mat) noexcept;
 private:
-	unsigned getUniformLocation();
+	unsigned int GetUniformLocation(const std::string& uniformName) noexcept;
 private:
 	unsigned int m_ID;
-	std::unordered_map<std::string,unsigned int> m_UniformCache
+	std::unordered_map<std::string, int> m_UniformCache;
 };
 
 

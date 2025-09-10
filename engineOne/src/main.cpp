@@ -1,12 +1,21 @@
 #include<Windows.h>
 #include<iostream>
-
+#include<random>
+#include<array>
 #include<glad/gl.h>
 #include<glad/wgl.h>
+#define GLM_ENABLE_EXPERIMENTAL
+#include<glm/glm.hpp>
+#include<glm/gtc/matrix_transform.hpp>
 
 #include"Shader.h"
+#include "Camera.h"
 #include"VertexArray.h"
 #include "Buffer.h"
+
+#include "keyCodes.h"
+#include "Window.h"
+#include "GLLoader.h"
 #define RETURN_FAIL_IF_FAILED(cond,msg) \
 	if(!(cond)) \
 {\
@@ -24,129 +33,48 @@
 	return -1;\
 }
 
-bool hasAVX2() {
-	int cpuInfo[4];
-	__cpuid(cpuInfo, 0);                // highest supported function
-	if (cpuInfo[0] < 7) return false;   // no extended features
 
-	__cpuidex(cpuInfo, 7, 0);           // call leaf 7
-	return (cpuInfo[1] & (1 << 5)) != 0; // EBX bit 5 = AVX2
+
+bool isKeyPressed(int vKey)
+{
+	return (GetAsyncKeyState(vKey) & (short)0x8000) != 0;
 }
 
-bool check_sse41() {
-	int cpuInfo[4];
 
-	__cpuid(cpuInfo, 1);
-	return (cpuInfo[2] & (1 << 19)) != 0; // ECX bit 19 = SSE
-}
 
-LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 
 int main()
 {
-	if(!hasAVX2())
-	{
-		MessageBox(NULL, "CPU does not support AVX2. The application will exit.", "Error", MB_OK | MB_ICONERROR);
-		return -1;
-	}
-	if(!check_sse41())
-	{
-		MessageBox(NULL, "CPU does not support SSE4.1. The application will exit.", "Error", MB_OK | MB_ICONERROR);
-		return -1;
-	}
-	const char* windowClassName = "Sample Window Class";
+	
+	const char* windowClassName = "kkppOOK";
+	const char* fakeWindowClassName = "tttkkppOOK";
 
 	HINSTANCE hInstance = GetModuleHandle(nullptr);
 
 	WNDCLASS wc{};
-	wc.lpfnWndProc = WndProc;
 	wc.hInstance = hInstance;
 	wc.lpszClassName = windowClassName;
-	wc.lpfnWndProc = WndProc;
+	wc.lpfnWndProc = Window::StaticWndProc;
 	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-	wc.style = CS_OWNDC;
+	wc.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
 
 	RETURN_FAIL_IF_FAILED(RegisterClass(&wc), "Failed to register window class");
 
-	HWND hDummyWindow = CreateWindow(
-		windowClassName,
-		"Fake Window",
-		WS_OVERLAPPEDWINDOW,
-		0, 0,
-		0, 0,
-		nullptr,
-		nullptr,
-		hInstance,
-		nullptr
-	);
+	bool isLoaded = loadModernOpenGLFunctions();
 
-	RETURN_FAIL_IF_FAILED(hDummyWindow != nullptr, "Failed to create dummy window");
+	RETURN_FAIL_IF_FAILED(isLoaded == true, "Failed to load modern OpenGL functions");
 
-	HDC hDummyDC = GetDC(hDummyWindow);
-	RETURN_FAIL_IF_FAILED(hDummyDC != nullptr, "Failed to get device context");
-
-	//create opwngl context
-	PIXELFORMATDESCRIPTOR dummyPFD{};
-	dummyPFD.nSize = sizeof(PIXELFORMATDESCRIPTOR);
-	dummyPFD.nVersion = 1;
-	dummyPFD.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
-	dummyPFD.iPixelType = PFD_TYPE_RGBA;
-	dummyPFD.cColorBits = 32;
-	dummyPFD.cDepthBits = 24;
-	dummyPFD.iLayerType = PFD_MAIN_PLANE;
-	int dummyPixelFormat = ChoosePixelFormat(hDummyDC, &dummyPFD);
-	RETURN_FAIL_IF_FAILED(dummyPixelFormat != 0, "Failed to choose pixel format");
-	RETURN_FAIL_IF_FAILED(SetPixelFormat(hDummyDC, dummyPixelFormat, &dummyPFD) == TRUE, "Failed to set pixel format");
-
-
-	HGLRC hDummyRC = wglCreateContext(hDummyDC);
-	RETURN_FAIL_IF_FAILED(hDummyRC != nullptr, "Failed to create dummy OpenGL context");
-	RETURN_FAIL_IF_FAILED(wglMakeCurrent(hDummyDC, hDummyRC) == TRUE, "Failed to make dummy OpenGL context current");
-
-
-	auto dummyContextCleanup = [&]()
-		{
-			wglMakeCurrent(NULL, NULL);
-			wglDeleteContext(hDummyRC);
-			//we using cs_owndc so no need to delete dc
-			DestroyWindow(hDummyWindow);
-		};
-
-
-	CLEANUP_AND_RETURN_FAIL_IF_FAILED(gladLoaderLoadWGL(hDummyDC) != 0, "Failed to load WGL", dummyContextCleanup());
-
-	//load gl now
-	CLEANUP_AND_RETURN_FAIL_IF_FAILED(gladLoaderLoadGL() != 0, "Failed to load OpenGL", dummyContextCleanup());
-
-	dummyContextCleanup();
-
-	DWORD windowStyle = WS_OVERLAPPEDWINDOW | WS_VISIBLE;
 	const int windowWidth = 800;
 	const int windowHeight = 600;
-	RECT windowRect = { 0, 0, windowWidth, windowHeight };
-	AdjustWindowRect(&windowRect, windowStyle, FALSE);
+	
+	Window window(hInstance, windowClassName, "OpenGL Window", windowWidth, windowHeight,WS_OVERLAPPEDWINDOW );
+	RETURN_FAIL_IF_FAILED(window.isCreated() == true, "Failed to create window");
 
-	HWND hWnd = CreateWindow(
-		windowClassName,
-		"Sample Window",
-		windowStyle,
-		CW_USEDEFAULT, CW_USEDEFAULT,
-		windowRect.right - windowRect.left,
-		windowRect.bottom - windowRect.top,
-		nullptr,
-		nullptr,
-		hInstance,
-		nullptr
-	);
 
-	RETURN_FAIL_IF_FAILED(hWnd != nullptr, "Failed to create window");
-
-	ShowWindow(hWnd, SW_SHOW);
-	UpdateWindow(hWnd);
-
-	HDC hDC = GetDC(hWnd);
+	HDC hDC = window.GetDeviceContext();
 
 	int pixelFormatAttribs[] =
 	{
@@ -187,8 +115,7 @@ int main()
 		{
 			wglMakeCurrent(NULL, NULL);
 			wglDeleteContext(hGLRC);
-			gladLoaderUnloadGL();
-			DestroyWindow(hWnd);
+			unloadModernOpenGLFunctions();
 		};
 
 	CLEANUP_AND_RETURN_FAIL_IF_FAILED(wglMakeCurrent(hDC, hGLRC) == TRUE, "Failed to make OpenGL context current", cleanupGL());
@@ -197,37 +124,98 @@ int main()
 	std::cout << "OpenGL Vendor: " << glGetString(GL_VENDOR) << std::endl;
 	std::cout << "OpenGL Renderer: " << glGetString(GL_RENDERER) << std::endl;
 	glViewport(0, 0, windowWidth, windowHeight);
-	bool running = true;
 
-
-
-	MSG msg{};
-
-	LARGE_INTEGER	frequency, start, end;
-	QueryPerformanceFrequency(&frequency);
-	double timeAccumulator = 0.0;
-	int frameCount = 0;
 
 #pragma region triangle geometry
 
-	float vertices[] = {
-		//positions
-		 0.0f, 0.5f,
-		-0.5f,-0.5f,
-		0.5f,-0.5f
+	// 8 unique vertices for a cube
+	std::array vertices{
+		-1.0f, -1.0f,  1.0f,  // 0: front-bottom-left
+		 1.0f, -1.0f,  1.0f,  // 1: front-bottom-right
+		 1.0f,  1.0f,  1.0f,  // 2: front-top-right
+		-1.0f,  1.0f,  1.0f,  // 3: front-top-left
+		-1.0f, -1.0f, -1.0f,  // 4: back-bottom-left
+		 1.0f, -1.0f, -1.0f,  // 5: back-bottom-right
+		 1.0f,  1.0f, -1.0f,  // 6: back-top-right
+		-1.0f,  1.0f, -1.0f   // 7: back-top-left
 	};
 
-	unsigned int indices[] = {
-		0,1,2
+	// Indices for the cube (12 triangles)
+	std::array indices
+	{
+		// Front face
+		0u, 1u, 2u,
+		2u, 3u, 0u,
+
+		// Back face
+		5u, 4u, 7u,
+		7u, 6u, 5u,
+
+		// Left face
+		4u, 0u, 3u,
+		3u, 7u, 4u,
+
+		// Right face
+		1u, 5u, 6u,
+		6u, 2u, 1u,
+
+		// Top face
+		3u, 2u, 6u,
+		6u, 7u, 3u,
+
+		// Bottom face
+		4u, 5u, 1u,
+		1u, 0u, 4u
 	};
+
+	float aspect = static_cast<float>(windowWidth) / static_cast<float>(windowHeight);
+	CameraFPS camera(90.0f, aspect, 0.1f, 100.0f);
+
+	float cameraSpeed = 10.5f; // units per second
+	float cameraAnglularSpeed = 15.0f; // degrees per second
+
+	auto handleInput = [&](float dt)
+		{
+			if (isKeyPressed(keyCode::key_w))
+				camera.MoveForward(dt * cameraSpeed);
+			if (isKeyPressed(keyCode::key_a))
+				camera.MoveRight(-dt * cameraSpeed);
+			if (isKeyPressed(keyCode::key_s))
+				camera.MoveForward(-dt * cameraSpeed);
+			if (isKeyPressed(keyCode::key_d))
+				camera.MoveRight(dt * cameraSpeed);
+
+			if (isKeyPressed(keyCode::key_space))
+				camera.MoveUp(dt * cameraSpeed);
+			if (isKeyPressed(keyCode::key_c))
+				camera.MoveUp(-dt * cameraSpeed);
+
+			if (isKeyPressed(keyCode::key_arrow_left))
+				camera.Yaw(-dt * cameraAnglularSpeed);
+			if (isKeyPressed(keyCode::key_arrow_right))
+				camera.Yaw(dt * cameraAnglularSpeed);
+			if (isKeyPressed(keyCode::key_arrow_up))
+				camera.Pitch(-dt * cameraAnglularSpeed);
+			if (isKeyPressed(keyCode::key_arrow_down))
+				camera.Pitch(dt * cameraAnglularSpeed);
+
+			if (isKeyPressed(keyCode::key_r))
+				camera.RestPosAndOrient();
+
+			if(isKeyPressed(keyCode::key_esc))
+				window.Close();
+
+		};
+
+	auto model = glm::mat4(1.0f);
 
 	{
 
 		VertexArray VAO;
 		VAO.Bind();
-		VertexBuffer VBO(vertices, sizeof(vertices));
-		VAO.addAttribute(0, 2, GLType::Float, false, 2 * sizeof(float), (void*)0);
-		IndexBuffer EBO(indices, sizeof(indices));
+		VertexBuffer VBO(vertices.data(), sizeof(vertices));
+		VAO.addAttribute(0, 3, GLType::Float, false, 3 * sizeof(float), (void*)0);
+		IndexBuffer EBO(indices.data(), sizeof(indices));
 		EBO.Bind();
 		VAO.Unbind();
 		VBO.Unbind();
@@ -238,18 +226,20 @@ int main()
 		ShaderProgram Shader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 		Shader.Bind();
 		wglSwapIntervalEXT(0);
+
+		LARGE_INTEGER	frequency, start, end;
+		QueryPerformanceFrequency(&frequency);
+		double timeAccumulator = 0.0;
+		int frameCount = 0;
 		QueryPerformanceCounter(&start);
-		while (running)
+		float r = 1.0f, g = 1.0f, b = 1.0f;
+		std::random_device rd;
+		std::mt19937 generator(rd());
+		std::uniform_real_distribution<float> dist(0.0f, 1.0f);
+		Shader.SetUniformMat4("u_Projection", camera.GetProjectionMatrix());
+		while (!window.ShouldClose())
 		{
-			while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-			{
-				if (msg.message == WM_QUIT)
-				{
-					running = false;
-				}
-				TranslateMessage(&msg);
-				DispatchMessage(&msg);
-			}
+			window.ProcessMessages();
 			QueryPerformanceCounter(&end);
 			double deltaTime = static_cast<double>(end.QuadPart - start.QuadPart) / frequency.QuadPart;
 			start = end;
@@ -261,13 +251,24 @@ int main()
 				std::cout.flush();
 				frameCount = 0;
 				timeAccumulator = 0.0;
+				r = dist(generator);
+				g = dist(generator);
+				b = dist(generator);
 			}
+
+			handleInput(static_cast<float>(deltaTime));
+			//rotate cube
+			Shader.SetUniform4f("u_Color", r, g, b, 1.0f);
+
 			//Rendering code goes here
 			glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
+			glDepthFunc(GL_LESS);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			Shader.Bind();
 			VAO.Bind();
-			glDrawElements(GL_TRIANGLES, 3, GLTypeToGLenum(GLType::UnsignedInt), reinterpret_cast<const void*>(0));
+			Shader.SetUniformMat4("u_View", camera.GetViewMatrix());
+			Shader.SetUniformMat4("u_Model", model);
+			glDrawElements(GL_TRIANGLES, std::size(indices), GLTypeToGLenum(GLType::UnsignedInt), reinterpret_cast<const void*>(0));
 			SwapBuffers(hDC);
 		}
 
@@ -279,16 +280,3 @@ int main()
 }
 
 
-
-LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
-{
-
-	//quit upon wm_close
-	switch (msg)
-	{
-	case WM_CLOSE:
-		PostQuitMessage(0);
-		return 0;
-	}
-	return DefWindowProc(hwnd, msg, wParam, lParam);
-}
