@@ -7,15 +7,17 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include<glm/glm.hpp>
 #include<glm/gtc/matrix_transform.hpp>
-
+#include<stb_image.h>
 #include"Shader.h"
 #include "Camera.h"
 #include"VertexArray.h"
 #include "Buffer.h"
+#include "Texture.h"
 
 #include "keyCodes.h"
 #include "Window.h"
 #include "GLLoader.h"
+#include "Timer.h"
 #define RETURN_FAIL_IF_FAILED(cond,msg) \
 	if(!(cond)) \
 {\
@@ -34,34 +36,50 @@
 }
 
 
+void APIENTRY OpenGLDebugCallback(
+	GLenum source, GLenum type, GLuint id, GLenum severity,
+	GLsizei length, const GLchar * message, const void* userParam) {
+	// Filter out non-critical messages (optional)
+	if (type == GL_DEBUG_TYPE_OTHER || severity == GL_DEBUG_SEVERITY_LOW)
+		return;
+
+	// Output debug message
+	fprintf(stderr, "OpenGL Debug Message:\n"
+		"  Source: 0x%X\n  Type: 0x%X\n  ID: %d\n  Severity: 0x%X\n"
+		"  Message: %s\n\n",
+		source, type, id, severity, message);
+}
 
 bool isKeyPressed(int vKey)
 {
 	return (GetAsyncKeyState(vKey) & (short)0x8000) != 0;
 }
 
-
-
-
-
-int main()
+bool RegisterWindowClass(HINSTANCE hInstance, const char* className, WNDPROC wndProc)
 {
-	
-	const char* windowClassName = "kkppOOK";
-	const char* fakeWindowClassName = "tttkkppOOK";
-
-	HINSTANCE hInstance = GetModuleHandle(nullptr);
-
 	WNDCLASS wc{};
 	wc.hInstance = hInstance;
-	wc.lpszClassName = windowClassName;
-	wc.lpfnWndProc = Window::StaticWndProc;
+	wc.lpszClassName = className;
+	wc.lpfnWndProc = wndProc;
 	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-	wc.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
+	wc.style = CS_OWNDC;
+	if (!RegisterClass(&wc))
+	{
+		return false;
+	}
+	return true;
+}
 
-	RETURN_FAIL_IF_FAILED(RegisterClass(&wc), "Failed to register window class");
+int main()
+{
+
+	const char* windowClassName = "kkppOOK";
+	HINSTANCE hInstance = GetModuleHandle(nullptr);
+
+
+	RETURN_FAIL_IF_FAILED(RegisterWindowClass(hInstance, windowClassName, Window::StaticWndProc), "Failed to register window class");
 
 	bool isLoaded = loadModernOpenGLFunctions();
 
@@ -69,8 +87,8 @@ int main()
 
 	const int windowWidth = 800;
 	const int windowHeight = 600;
-	
-	Window window(hInstance, windowClassName, "OpenGL Window", windowWidth, windowHeight,WS_OVERLAPPEDWINDOW );
+
+	Window window(hInstance, windowClassName, "OpenGL Window", windowWidth, windowHeight, WS_OVERLAPPEDWINDOW);
 	RETURN_FAIL_IF_FAILED(window.isCreated() == true, "Failed to create window");
 
 
@@ -102,6 +120,7 @@ int main()
 	{
 		WGL_CONTEXT_MAJOR_VERSION_ARB, 4,
 		WGL_CONTEXT_MINOR_VERSION_ARB, 6,
+		WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_DEBUG_BIT_ARB, // Request debug context
 		WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
 		0 // End of attributes list
 	};
@@ -118,6 +137,11 @@ int main()
 			unloadModernOpenGLFunctions();
 		};
 
+	
+
+	// Test message
+	glDebugMessageInsert(GL_DEBUG_SOURCE_APPLICATION, GL_DEBUG_TYPE_MARKER,
+		1, GL_DEBUG_SEVERITY_NOTIFICATION, -1, "Hello OpenGL Debug!");
 	CLEANUP_AND_RETURN_FAIL_IF_FAILED(wglMakeCurrent(hDC, hGLRC) == TRUE, "Failed to make OpenGL context current", cleanupGL());
 	//print opengl version, venndor name,and rendere
 	std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
@@ -125,70 +149,110 @@ int main()
 	std::cout << "OpenGL Renderer: " << glGetString(GL_RENDERER) << std::endl;
 	glViewport(0, 0, windowWidth, windowHeight);
 
+	// Enable debug output
+	glEnable(GL_DEBUG_OUTPUT);
+	glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS); // Optional: Ensure callbacks are synchronous
+	glDebugMessageCallback(OpenGLDebugCallback, nullptr);
 
+	// Control which messages are reported (optional)
+	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 #pragma region triangle geometry
 
-	// 8 unique vertices for a cube
-	std::array vertices{
-		-1.0f, -1.0f,  1.0f,  // 0: front-bottom-left
-		 1.0f, -1.0f,  1.0f,  // 1: front-bottom-right
-		 1.0f,  1.0f,  1.0f,  // 2: front-top-right
-		-1.0f,  1.0f,  1.0f,  // 3: front-top-left
-		-1.0f, -1.0f, -1.0f,  // 4: back-bottom-left
-		 1.0f, -1.0f, -1.0f,  // 5: back-bottom-right
-		 1.0f,  1.0f, -1.0f,  // 6: back-top-right
-		-1.0f,  1.0f, -1.0f   // 7: back-top-left
+	struct Vertex
+	{
+		float x, y, z;  // Position
+		float u, v;     // Texture coordinates
+	};
+
+	constexpr auto vertices = std::array{
+		// Front face (z = 0.5)
+		Vertex{ -0.5f, -0.5f,  0.5f,   0.0f, 0.0f },
+		Vertex{  0.5f, -0.5f,  0.5f,   1.0f, 0.0f },
+		Vertex{  0.5f,  0.5f,  0.5f,   1.0f, 1.0f },
+		Vertex{ -0.5f,  0.5f,  0.5f,   0.0f, 1.0f },
+
+		// Back face (z = -0.5)
+		Vertex{  0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
+		Vertex{ -0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
+		Vertex{ -0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
+		Vertex{  0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
+
+		// Left face (x = -0.5)
+		Vertex{ -0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
+		Vertex{ -0.5f, -0.5f,  0.5f,   1.0f, 0.0f },
+		Vertex{ -0.5f,  0.5f,  0.5f,   1.0f, 1.0f },
+		Vertex{ -0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
+
+		// Right face (x = 0.5)
+		Vertex{  0.5f, -0.5f,  0.5f,   0.0f, 0.0f },
+		Vertex{  0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
+		Vertex{  0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
+		Vertex{  0.5f,  0.5f,  0.5f,   0.0f, 1.0f },
+
+		// Top face (y = 0.5)
+		Vertex{ -0.5f,  0.5f,  0.5f,   0.0f, 0.0f },
+		Vertex{  0.5f,  0.5f,  0.5f,   1.0f, 0.0f },
+		Vertex{  0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
+		Vertex{ -0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
+
+		// Bottom face (y = -0.5)
+		Vertex{ -0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
+		Vertex{  0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
+		Vertex{  0.5f, -0.5f,  0.5f,   1.0f, 1.0f },
+		Vertex{ -0.5f, -0.5f,  0.5f,   0.0f, 1.0f },
 	};
 
 	// Indices for the cube (12 triangles)
-	std::array indices
-	{
+	constexpr auto indices = std::array{
 		// Front face
 		0u, 1u, 2u,
 		2u, 3u, 0u,
 
 		// Back face
-		5u, 4u, 7u,
-		7u, 6u, 5u,
+		4u, 5u, 6u,
+		6u, 7u, 4u,
 
 		// Left face
-		4u, 0u, 3u,
-		3u, 7u, 4u,
+		8u, 9u,10u,
+	   10u,11u, 8u,
 
-		// Right face
-		1u, 5u, 6u,
-		6u, 2u, 1u,
+	   // Right face
+	  12u,13u,14u,
+	  14u,15u,12u,
 
-		// Top face
-		3u, 2u, 6u,
-		6u, 7u, 3u,
+	  // Top face
+	 16u,17u,18u,
+	 18u,19u,16u,
 
-		// Bottom face
-		4u, 5u, 1u,
-		1u, 0u, 4u
+	 // Bottom face
+	20u,21u,22u,
+	22u,23u,20u
 	};
 
-	float aspect = static_cast<float>(windowWidth) / static_cast<float>(windowHeight);
-	CameraFPS camera(90.0f, aspect, 0.1f, 100.0f);
 
-	float cameraSpeed = 10.5f; // units per second
-	float cameraAnglularSpeed = 15.0f; // degrees per second
+	float aspect = static_cast<float>(windowWidth) / static_cast<float>(windowHeight);
+	CameraFPS camera(glm::degrees(50.0f), aspect, 0.1f, 100.0f);
+
+	float cameraSpeed = 5.5f; // units per second
+	float cameraAnglularSpeed = 25.0f; // degrees per second
 
 	auto handleInput = [&](float dt)
 		{
+
+
 			if (isKeyPressed(keyCode::key_w))
 				camera.MoveForward(dt * cameraSpeed);
 			if (isKeyPressed(keyCode::key_a))
-				camera.MoveRight(-dt * cameraSpeed);
+				camera.MoveRight(dt * cameraSpeed);
 			if (isKeyPressed(keyCode::key_s))
 				camera.MoveForward(-dt * cameraSpeed);
 			if (isKeyPressed(keyCode::key_d))
-				camera.MoveRight(dt * cameraSpeed);
+				camera.MoveRight(-dt * cameraSpeed);
 
 			if (isKeyPressed(keyCode::key_space))
-				camera.MoveUp(dt * cameraSpeed);
-			if (isKeyPressed(keyCode::key_c))
 				camera.MoveUp(-dt * cameraSpeed);
+			if (isKeyPressed(keyCode::key_c))
+				camera.MoveUp(dt * cameraSpeed);
 
 			if (isKeyPressed(keyCode::key_arrow_left))
 				camera.Yaw(-dt * cameraAnglularSpeed);
@@ -202,8 +266,12 @@ int main()
 			if (isKeyPressed(keyCode::key_r))
 				camera.RestPosAndOrient();
 
-			if(isKeyPressed(keyCode::key_esc))
+			if (isKeyPressed(keyCode::key_esc))
 				window.Close();
+
+			/*std::cout << "Camera pos" << camera.GetViewMatrix()[3].x << ", "
+				<< camera.GetViewMatrix()[3].y << ", "
+				<< camera.GetViewMatrix()[3].z << "\n";*/
 
 		};
 
@@ -211,10 +279,43 @@ int main()
 
 	{
 
+		int width, height, channels;
+		stbi_set_flip_vertically_on_load(true); // flip vertically to match OpenGL
+		unsigned char* data = stbi_load("assets/textures/rubiks.jpg", &width, &height, &channels, 0);
+
+		if (!data)
+		{
+			//clenbaup
+			std::cerr << "Failed to load texture: assets/textures/rubiks.jpg" << std::endl;
+			std::cerr << "Reason: " << stbi_failure_reason() << std::endl;
+			cleanupGL();
+			return -1;
+		}
+
+		TextureInternalFormat format;
+		switch (channels)
+		{
+		case 1: format = TextureInternalFormat::R8; break;        // grayscale
+		case 2: format = TextureInternalFormat::RG8; break;         // grayscale + alpha or similar
+		case 3: format = TextureInternalFormat::RGB8; break;        // RGB
+		case 4: format = TextureInternalFormat::RGBA8; break;       // RGBA
+		default:
+			std::cerr << "Unsupported number of channels: " << channels << "\n";
+			stbi_image_free(data);
+			cleanupGL();
+			return -1;
+		}
+
+
+
+		Texture2D texture(width, height, data, pixelDataType::UNSIGNEDBYTE, format);
+		stbi_image_free(data);
 		VertexArray VAO;
 		VAO.Bind();
 		VertexBuffer VBO(vertices.data(), sizeof(vertices));
-		VAO.addAttribute(0, 3, GLType::Float, false, 3 * sizeof(float), (void*)0);
+		VBO.Bind();
+		VAO.addAttribute(0, 3, GLType::Float, false, sizeof(Vertex), (void*)0);
+		VAO.addAttribute(1, 2, GLType::Float, false, sizeof(Vertex), reinterpret_cast<const void*>(3 * sizeof(float)));
 		IndexBuffer EBO(indices.data(), sizeof(indices));
 		EBO.Bind();
 		VAO.Unbind();
@@ -227,30 +328,31 @@ int main()
 		Shader.Bind();
 		wglSwapIntervalEXT(0);
 
-		LARGE_INTEGER	frequency, start, end;
-		QueryPerformanceFrequency(&frequency);
-		double timeAccumulator = 0.0;
-		int frameCount = 0;
-		QueryPerformanceCounter(&start);
+
 		float r = 1.0f, g = 1.0f, b = 1.0f;
 		std::random_device rd;
 		std::mt19937 generator(rd());
 		std::uniform_real_distribution<float> dist(0.0f, 1.0f);
 		Shader.SetUniformMat4("u_Projection", camera.GetProjectionMatrix());
+		Timer timer, fpsTimer;
+		int frameCount = 0;
+		glEnable(GL_CULL_FACE);
+		glCullFace(GL_BACK);
+		glDepthFunc(GL_LESS);
+		glEnable(GL_DEPTH_TEST);
 		while (!window.ShouldClose())
 		{
 			window.ProcessMessages();
-			QueryPerformanceCounter(&end);
-			double deltaTime = static_cast<double>(end.QuadPart - start.QuadPart) / frequency.QuadPart;
-			start = end;
-			timeAccumulator += deltaTime;
+
+			double deltaTime = timer.elapsedAndReset();
 			frameCount++;
-			if (timeAccumulator >= 1.0) {
-				double fps = frameCount / timeAccumulator;   // average FPS
+			auto fpsTime = fpsTimer.elapsed();
+			if (fpsTime >= 1.0) {
+				double fps = frameCount / fpsTime;   // average FPS
 				std::cout << "FPS: " << fps << "\r";
 				std::cout.flush();
 				frameCount = 0;
-				timeAccumulator = 0.0;
+				fpsTimer.reset();
 				r = dist(generator);
 				g = dist(generator);
 				b = dist(generator);
@@ -258,14 +360,15 @@ int main()
 
 			handleInput(static_cast<float>(deltaTime));
 			//rotate cube
-			Shader.SetUniform4f("u_Color", r, g, b, 1.0f);
+			/*Shader.SetUniform4f("u_Color", r, g, b, 1.0f);*/
 
 			//Rendering code goes here
-			glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
-			glDepthFunc(GL_LESS);
+			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			Shader.Bind();
 			VAO.Bind();
+			texture.Bind();
 			Shader.SetUniformMat4("u_View", camera.GetViewMatrix());
 			Shader.SetUniformMat4("u_Model", model);
 			glDrawElements(GL_TRIANGLES, std::size(indices), GLTypeToGLenum(GLType::UnsignedInt), reinterpret_cast<const void*>(0));
