@@ -3,7 +3,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/rotate_vector.hpp>
 CameraFPS::CameraFPS(float fov, float aspect, float zNear, float zFar) noexcept
-	:m_Position(0.0f, 0.0f, -3.0f),
+	:m_Position(0.0f, 0.0f, 3.0f),
 	m_Front(0.0f, 0.0f, -1.0f),
 	m_Up(0.0f, 1.0f, 0.0f),
 	m_Right(1.0f, 0.0f, 0.0f),
@@ -66,12 +66,13 @@ void CameraFPS::MoveUp(float distance) noexcept
 
 void CameraFPS::UpdateProjection(float fov, float aspect, float zNear, float zFar) noexcept
 {
+	assert(aspect > 0.0f && "Aspect ratio must be greater than zero");
 	m_Projection = glm::perspective(fov, aspect, zNear, zFar);
 }
 
 void CameraFPS::RestPosAndOrient() noexcept
 {
-	m_Position = glm::vec3(0.0f, 0.0f, -5.0f);
+	m_Position = glm::vec3(0.0f, 0.0f, 5.0f);
 	m_Front = glm::vec3(0.0f, 0.0f, -1.0f);
 	m_Up = glm::vec3(0.0f, 1.0f, 0.0f);
 	m_Right = glm::vec3(1.0f, 0.0f, 0.0f);

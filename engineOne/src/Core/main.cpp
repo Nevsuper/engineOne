@@ -8,6 +8,8 @@
 #include<glm/glm.hpp>
 #include<glm/gtc/matrix_transform.hpp>
 #include<stb_image.h>
+#define TINYOBJLOADER_USE_MAPBOX_EARCUT
+#include<tiny_obj_loader.h>
 #include"Shader.h"
 #include "Camera.h"
 #include"VertexArray.h"
@@ -85,8 +87,8 @@ int main()
 
 	RETURN_FAIL_IF_FAILED(isLoaded == true, "Failed to load modern OpenGL functions");
 
-	const int windowWidth = 800;
-	const int windowHeight = 600;
+	const int windowWidth = 1200;
+	const int windowHeight = 900;
 
 	Window window(hInstance, windowClassName, "OpenGL Window", windowWidth, windowHeight, WS_OVERLAPPEDWINDOW);
 	RETURN_FAIL_IF_FAILED(window.isCreated() == true, "Failed to create window");
@@ -119,6 +121,7 @@ int main()
 	int contextAttribs[] =
 	{
 		WGL_CONTEXT_MAJOR_VERSION_ARB, 4,
+		WGL_CONTEXT_MINOR_VERSION_ARB, 5,
 		WGL_CONTEXT_MINOR_VERSION_ARB, 5,
 		WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_DEBUG_BIT_ARB, // Request debug context
 		WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
@@ -160,81 +163,135 @@ int main()
 
 	struct Vertex
 	{
-		float x, y, z;  // Position
+		glm::vec3 position; // 3D position
 		float u, v;     // Texture coordinates
 	};
 
-	constexpr auto vertices = std::array{
-		// Front face (z = 0.5)
-		Vertex{ -0.5f, -0.5f,  0.5f,   0.0f, 0.0f },
-		Vertex{  0.5f, -0.5f,  0.5f,   1.0f, 0.0f },
-		Vertex{  0.5f,  0.5f,  0.5f,   1.0f, 1.0f },
-		Vertex{ -0.5f,  0.5f,  0.5f,   0.0f, 1.0f },
+	//constexpr auto vertices = std::array{
+	//	// Front face (z = 0.5)
+	//	Vertex{ -0.5f, -0.5f,  0.5f,   0.0f, 0.0f },
+	//	Vertex{  0.5f, -0.5f,  0.5f,   1.0f, 0.0f },
+	//	Vertex{  0.5f,  0.5f,  0.5f,   1.0f, 1.0f },
+	//	Vertex{ -0.5f,  0.5f,  0.5f,   0.0f, 1.0f },
 
-		// Back face (z = -0.5)
-		Vertex{  0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
-		Vertex{ -0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
-		Vertex{ -0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
-		Vertex{  0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
+	//	// Back face (z = -0.5)
+	//	Vertex{  0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
+	//	Vertex{ -0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
+	//	Vertex{ -0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
+	//	Vertex{  0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
 
-		// Left face (x = -0.5)
-		Vertex{ -0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
-		Vertex{ -0.5f, -0.5f,  0.5f,   1.0f, 0.0f },
-		Vertex{ -0.5f,  0.5f,  0.5f,   1.0f, 1.0f },
-		Vertex{ -0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
+	//	// Left face (x = -0.5)
+	//	Vertex{ -0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
+	//	Vertex{ -0.5f, -0.5f,  0.5f,   1.0f, 0.0f },
+	//	Vertex{ -0.5f,  0.5f,  0.5f,   1.0f, 1.0f },
+	//	Vertex{ -0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
 
-		// Right face (x = 0.5)
-		Vertex{  0.5f, -0.5f,  0.5f,   0.0f, 0.0f },
-		Vertex{  0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
-		Vertex{  0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
-		Vertex{  0.5f,  0.5f,  0.5f,   0.0f, 1.0f },
+	//	// Right face (x = 0.5)
+	//	Vertex{  0.5f, -0.5f,  0.5f,   0.0f, 0.0f },
+	//	Vertex{  0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
+	//	Vertex{  0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
+	//	Vertex{  0.5f,  0.5f,  0.5f,   0.0f, 1.0f },
 
-		// Top face (y = 0.5)
-		Vertex{ -0.5f,  0.5f,  0.5f,   0.0f, 0.0f },
-		Vertex{  0.5f,  0.5f,  0.5f,   1.0f, 0.0f },
-		Vertex{  0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
-		Vertex{ -0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
+	//	// Top face (y = 0.5)
+	//	Vertex{ -0.5f,  0.5f,  0.5f,   0.0f, 0.0f },
+	//	Vertex{  0.5f,  0.5f,  0.5f,   1.0f, 0.0f },
+	//	Vertex{  0.5f,  0.5f, -0.5f,   1.0f, 1.0f },
+	//	Vertex{ -0.5f,  0.5f, -0.5f,   0.0f, 1.0f },
 
-		// Bottom face (y = -0.5)
-		Vertex{ -0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
-		Vertex{  0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
-		Vertex{  0.5f, -0.5f,  0.5f,   1.0f, 1.0f },
-		Vertex{ -0.5f, -0.5f,  0.5f,   0.0f, 1.0f },
-	};
+	//	// Bottom face (y = -0.5)
+	//	Vertex{ -0.5f, -0.5f, -0.5f,   0.0f, 0.0f },
+	//	Vertex{  0.5f, -0.5f, -0.5f,   1.0f, 0.0f },
+	//	Vertex{  0.5f, -0.5f,  0.5f,   1.0f, 1.0f },
+	//	Vertex{ -0.5f, -0.5f,  0.5f,   0.0f, 1.0f },
+	//};
 
-	// Indices for the cube (12 triangles)
-	constexpr auto indices = std::array{
-		// Front face
-		0u, 1u, 2u,
-		2u, 3u, 0u,
+	//// Indices for the cube (12 triangles)
+	//constexpr auto indices = std::array{
+	//	// Front face
+	//	0u, 1u, 2u,
+	//	2u, 3u, 0u,
 
-		// Back face
-		4u, 5u, 6u,
-		6u, 7u, 4u,
+	//	// Back face
+	//	4u, 5u, 6u,
+	//	6u, 7u, 4u,
 
-		// Left face
-		8u, 9u,10u,
-	   10u,11u, 8u,
+	//	// Left face
+	//	8u, 9u,10u,
+	//   10u,11u, 8u,
 
-	   // Right face
-	  12u,13u,14u,
-	  14u,15u,12u,
+	//   // Right face
+	//  12u,13u,14u,
+	//  14u,15u,12u,
 
-	  // Top face
-	 16u,17u,18u,
-	 18u,19u,16u,
+	//  // Top face
+	// 16u,17u,18u,
+	// 18u,19u,16u,
 
-	 // Bottom face
-	20u,21u,22u,
-	22u,23u,20u
-	};
+	// // Bottom face
+	//20u,21u,22u,
+	//22u,23u,20u
+	//};
+
+	std::string inputfile = "assets/models/viking_room.obj";
+	tinyobj::ObjReaderConfig reader_config;
+	reader_config.triangulate = true; // Triangulate faces;
+
+	tinyobj::ObjReader reader;
+
+
+
+	if (!reader.ParseFromFile(inputfile, reader_config)) {
+		if (!reader.Error().empty()) {
+			std::cerr << "TinyObjReader: " << reader.Error();
+		}
+		cleanupGL();
+		exit(1);
+	}
+	if (!reader.Warning().empty()) {
+		std::cout << "TinyObjReader: " << reader.Warning();
+	}
+	
+	auto& attrib = reader.GetAttrib();
+	auto& shapes = reader.GetShapes();
+	auto& materials = reader.GetMaterials();
+
+	std::vector<Vertex> vertices;
+	std::vector<uint32_t> indices;
+
+	for(const auto &shape : shapes)
+	{
+		for (const auto& index : shape.mesh.indices) 
+		{
+			Vertex vertex{};
+			vertex.position = glm::vec3(
+				attrib.vertices[3 * index.vertex_index + 0],
+				attrib.vertices[3 * index.vertex_index + 1],
+				attrib.vertices[3 * index.vertex_index + 2]
+			);
+			if (index.texcoord_index >= 0)
+			{
+				vertex.u = attrib.texcoords[2 * index.texcoord_index + 0];
+				vertex.v = attrib.texcoords[2 * index.texcoord_index + 1];
+			}
+			else
+			{
+				// No texcoord available  set default
+			/*	std::cout << "No texture coordinate available for vertex " << index.vertex_index << "\n";*/
+				vertex.u = 0.0f;
+				vertex.v = 0.0f;
+			}
+
+			vertices.push_back(vertex);
+			indices.push_back(static_cast<uint32_t>(indices.size()));
+		}
+	}
 
 
 	float aspect = static_cast<float>(windowWidth) / static_cast<float>(windowHeight);
-	CameraFPS camera(glm::degrees(50.0f), aspect, 0.1f, 100.0f);
+	CameraFPS camera(glm::radians(60.0f), aspect, 0.1f, 100.0f);
 
-	float cameraSpeed = 5.5f; // units per second
-	float cameraAnglularSpeed = 25.0f; // degrees per second
+	float cameraSpeed = 1.5f; // units per second
+	float cameraAnglularSpeed = 30.0f; // degrees per second
 
 	auto handleInput = [&](float dt)
 		{
@@ -243,25 +300,31 @@ int main()
 			if (isKeyPressed(keyCode::key_w))
 				camera.MoveForward(dt * cameraSpeed);
 			if (isKeyPressed(keyCode::key_a))
-				camera.MoveRight(dt * cameraSpeed);
+				camera.MoveRight(-dt * cameraSpeed);
 			if (isKeyPressed(keyCode::key_s))
 				camera.MoveForward(-dt * cameraSpeed);
 			if (isKeyPressed(keyCode::key_d))
-				camera.MoveRight(-dt * cameraSpeed);
+				camera.MoveRight(dt * cameraSpeed);
 
 			if (isKeyPressed(keyCode::key_space))
-				camera.MoveUp(-dt * cameraSpeed);
-			if (isKeyPressed(keyCode::key_c))
 				camera.MoveUp(dt * cameraSpeed);
+			if (isKeyPressed(keyCode::key_c))
+				camera.MoveUp(-dt * cameraSpeed);
 
 			if (isKeyPressed(keyCode::key_arrow_left))
-				camera.Yaw(-dt * cameraAnglularSpeed);
-			if (isKeyPressed(keyCode::key_arrow_right))
 				camera.Yaw(dt * cameraAnglularSpeed);
+			if (isKeyPressed(keyCode::key_arrow_right))
+				camera.Yaw(-dt * cameraAnglularSpeed);
 			if (isKeyPressed(keyCode::key_arrow_up))
-				camera.Pitch(-dt * cameraAnglularSpeed);
-			if (isKeyPressed(keyCode::key_arrow_down))
 				camera.Pitch(dt * cameraAnglularSpeed);
+			if (isKeyPressed(keyCode::key_arrow_down))
+				camera.Pitch(-dt * cameraAnglularSpeed);
+
+			if(isKeyPressed(keyCode::key_q))
+				camera.Roll(-dt * cameraAnglularSpeed);
+			if (isKeyPressed(keyCode::key_e))
+				camera.Roll(dt * cameraAnglularSpeed);
+	
 
 			if (isKeyPressed(keyCode::key_r))
 				camera.RestPosAndOrient();
@@ -276,17 +339,20 @@ int main()
 		};
 
 	auto model = glm::mat4(1.0f);
+	//make z axis up
+	model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 
 	{
 
 		int width, height, channels;
 		stbi_set_flip_vertically_on_load(true); // flip vertically to match OpenGL
-		unsigned char* data = stbi_load("assets/textures/rubiks.jpg", &width, &height, &channels, 0);
+		unsigned char* data = stbi_load("assets/textures/viking_room.png", &width, &height, &channels, 0);
 
 		if (!data)
 		{
 			//clenbaup
-			std::cerr << "Failed to load texture: assets/textures/rubiks.jpg" << std::endl;
+			std::cerr << "Failed to load texture: assets/textures/viking_room.png" << std::endl;
 			std::cerr << "Reason: " << stbi_failure_reason() << std::endl;
 			cleanupGL();
 			return -1;
@@ -312,11 +378,11 @@ int main()
 		stbi_image_free(data);
 		VertexArray VAO;
 		VAO.Bind();
-		VertexBuffer VBO(vertices.data(), sizeof(vertices));
+		VertexBuffer VBO(vertices.data(), vertices.size() * sizeof(Vertex));
 		VBO.Bind();
 		VAO.addAttribute(0, 3, GLType::Float, false, sizeof(Vertex), (void*)0);
 		VAO.addAttribute(1, 2, GLType::Float, false, sizeof(Vertex), reinterpret_cast<const void*>(3 * sizeof(float)));
-		IndexBuffer EBO(indices.data(), sizeof(indices));
+		IndexBuffer EBO(indices.data(), indices.size() * sizeof(indices[0]));
 		EBO.Bind();
 		VAO.Unbind();
 		VBO.Unbind();
@@ -327,13 +393,14 @@ int main()
 		ShaderProgram Shader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 		Shader.Bind();
 		wglSwapIntervalEXT(0);
-
+	
 
 		float r = 1.0f, g = 1.0f, b = 1.0f;
 		std::random_device rd;
 		std::mt19937 generator(rd());
 		std::uniform_real_distribution<float> dist(0.0f, 1.0f);
 		Shader.SetUniformMat4("u_Projection", camera.GetProjectionMatrix());
+		//Shader.SetUniformMat4("u_Projection", pj);
 		Timer timer, fpsTimer;
 		int frameCount = 0;
 		glEnable(GL_CULL_FACE);
@@ -363,7 +430,7 @@ int main()
 			/*Shader.SetUniform4f("u_Color", r, g, b, 1.0f);*/
 
 			//Rendering code goes here
-			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			Shader.Bind();
@@ -371,7 +438,7 @@ int main()
 			texture.Bind();
 			Shader.SetUniformMat4("u_View", camera.GetViewMatrix());
 			Shader.SetUniformMat4("u_Model", model);
-			glDrawElements(GL_TRIANGLES, std::size(indices), GLTypeToGLenum(GLType::UnsignedInt), reinterpret_cast<const void*>(0));
+			glDrawElements(GL_TRIANGLES, indices.size(), GLTypeToGLenum(GLType::UnsignedInt), reinterpret_cast<const void*>(0));
 			SwapBuffers(hDC);
 		}
 
