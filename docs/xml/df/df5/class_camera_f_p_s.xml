@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="df/df5/class_camera_f_p_s" kind="class" language="C++" prot="public">
+    <compoundname>CameraFPS</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="df/df5/class_camera_f_p_s_1a49eca6a385a8f20e9d4ed6f299c72a60" prot="private" static="no" mutable="no">
+        <type>glm::mat4</type>
+        <definition>glm::mat4 CameraFPS::m_View</definition>
+        <argsstring></argsstring>
+        <name>m_View</name>
+        <qualifiedname>CameraFPS::m_View</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="30" column="11" bodyfile="engineOne/src/Core/Camera.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/df5/class_camera_f_p_s_1a83a99cab7c60f095dfd545cab12e004f" prot="private" static="no" mutable="no">
+        <type>glm::mat4</type>
+        <definition>glm::mat4 CameraFPS::m_Projection</definition>
+        <argsstring></argsstring>
+        <name>m_Projection</name>
+        <qualifiedname>CameraFPS::m_Projection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="30" column="18" bodyfile="engineOne/src/Core/Camera.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/df5/class_camera_f_p_s_1a20590aed3e2695019a458c0b454d18bd" prot="private" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 CameraFPS::m_Position</definition>
+        <argsstring></argsstring>
+        <name>m_Position</name>
+        <qualifiedname>CameraFPS::m_Position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="31" column="11" bodyfile="engineOne/src/Core/Camera.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/df5/class_camera_f_p_s_1a5c5bd9fe54877ad833638a6b1c44879c" prot="private" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 CameraFPS::m_Front</definition>
+        <argsstring></argsstring>
+        <name>m_Front</name>
+        <qualifiedname>CameraFPS::m_Front</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="32" column="11" bodyfile="engineOne/src/Core/Camera.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/df5/class_camera_f_p_s_1a243bb878488da424eec5d98c84ead440" prot="private" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 CameraFPS::m_Up</definition>
+        <argsstring></argsstring>
+        <name>m_Up</name>
+        <qualifiedname>CameraFPS::m_Up</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="33" column="11" bodyfile="engineOne/src/Core/Camera.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/df5/class_camera_f_p_s_1a43fef419e36f6659a662045004fc3400" prot="private" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 CameraFPS::m_Right</definition>
+        <argsstring></argsstring>
+        <name>m_Right</name>
+        <qualifiedname>CameraFPS::m_Right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="34" column="11" bodyfile="engineOne/src/Core/Camera.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a73afdbecd268405f855ff66808c44cf5" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>CameraFPS::CameraFPS</definition>
+        <argsstring>(float fov=60.0f, float aspect=4.0f/3.0f, float zNear=0.1f, float zFar=100.0f) noexcept</argsstring>
+        <name>CameraFPS</name>
+        <qualifiedname>CameraFPS::CameraFPS</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>fov</declname>
+          <defval>60.0f</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>aspect</declname>
+          <defval>4.0f/3.0f</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zNear</declname>
+          <defval>0.1f</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zFar</declname>
+          <defval>100.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="8" column="1" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="5" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a0faf66c7f4ae93c9543f7cca2c301f09" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::MoveTo</definition>
+        <argsstring>(const glm::vec3 &amp;position) noexcept</argsstring>
+        <name>MoveTo</name>
+        <qualifiedname>CameraFPS::MoveTo</qualifiedname>
+        <param>
+          <type>const glm::vec3 &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="10" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="17" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a1357e4bec663d39e064cc43c462c1409" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::Translate</definition>
+        <argsstring>(const glm::vec3 &amp;displacement) noexcept</argsstring>
+        <name>Translate</name>
+        <qualifiedname>CameraFPS::Translate</qualifiedname>
+        <param>
+          <type>const glm::vec3 &amp;</type>
+          <declname>displacement</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="11" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="23" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1aac58586bc06f955e05ce6d8e56b82904" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::Yaw</definition>
+        <argsstring>(float angle) noexcept</argsstring>
+        <name>Yaw</name>
+        <qualifiedname>CameraFPS::Yaw</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="13" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a596d67ec383cb0491b277577b4df9dea" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::Pitch</definition>
+        <argsstring>(float angle) noexcept</argsstring>
+        <name>Pitch</name>
+        <qualifiedname>CameraFPS::Pitch</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="14" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="38" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a6acbfb944b45bdd23bdace3f2d6e0e7b" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::Roll</definition>
+        <argsstring>(float angle) noexcept</argsstring>
+        <name>Roll</name>
+        <qualifiedname>CameraFPS::Roll</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="15" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="45" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1abf827d2e4916ae3599638bc1525c3215" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::MoveForward</definition>
+        <argsstring>(float distance) noexcept</argsstring>
+        <name>MoveForward</name>
+        <qualifiedname>CameraFPS::MoveForward</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>distance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="17" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a10a619f78307b4737c0d250dfa4e5efa" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::MoveRight</definition>
+        <argsstring>(float distance) noexcept</argsstring>
+        <name>MoveRight</name>
+        <qualifiedname>CameraFPS::MoveRight</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>distance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="18" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a94e64c9d1584297c9b2f1183225227d7" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::MoveUp</definition>
+        <argsstring>(float distance) noexcept</argsstring>
+        <name>MoveUp</name>
+        <qualifiedname>CameraFPS::MoveUp</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>distance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="19" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a6b78180e5f8f62c259b0f8cbbf769aff" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::UpdateProjection</definition>
+        <argsstring>(float fov, float aspect, float zNear, float zFar) noexcept</argsstring>
+        <name>UpdateProjection</name>
+        <qualifiedname>CameraFPS::UpdateProjection</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>fov</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>aspect</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zNear</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zFar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="21" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="67" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1af6d1dca8c65d0a6f0607d1a66f64c196" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const glm::mat4 &amp;</type>
+        <definition>const glm::mat4 &amp; CameraFPS::GetViewMatrix</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetViewMatrix</name>
+        <qualifiedname>CameraFPS::GetViewMatrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="23" column="17" bodyfile="engineOne/src/Core/Camera.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1ae83575e8db6d77bbcf781a80cfab566a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const glm::mat4 &amp;</type>
+        <definition>const glm::mat4 &amp; CameraFPS::GetProjectionMatrix</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetProjectionMatrix</name>
+        <qualifiedname>CameraFPS::GetProjectionMatrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="24" column="17" bodyfile="engineOne/src/Core/Camera.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1ae55c5ace197b3e37294ee8ca22ecdc22" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::RestPosAndOrient</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>RestPosAndOrient</name>
+        <qualifiedname>CameraFPS::RestPosAndOrient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="26" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="73" bodyend="80"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="df/df5/class_camera_f_p_s_1a2dcdbbd5437a819aafe8a78c18cdf059" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFPS::RecalculateView</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>RecalculateView</name>
+        <qualifiedname>CameraFPS::RecalculateView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Camera.h" line="28" column="6" bodyfile="engineOne/src/Core/Camera.cpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Camera.h" line="4" column="1" bodyfile="engineOne/src/Core/Camera.h" bodystart="5" bodyend="36"/>
+    <listofallmembers>
+      <member refid="df/df5/class_camera_f_p_s_1a73afdbecd268405f855ff66808c44cf5" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>CameraFPS</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1ae83575e8db6d77bbcf781a80cfab566a" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>GetProjectionMatrix</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1af6d1dca8c65d0a6f0607d1a66f64c196" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>GetViewMatrix</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a5c5bd9fe54877ad833638a6b1c44879c" prot="private" virt="non-virtual"><scope>CameraFPS</scope><name>m_Front</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a20590aed3e2695019a458c0b454d18bd" prot="private" virt="non-virtual"><scope>CameraFPS</scope><name>m_Position</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a83a99cab7c60f095dfd545cab12e004f" prot="private" virt="non-virtual"><scope>CameraFPS</scope><name>m_Projection</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a43fef419e36f6659a662045004fc3400" prot="private" virt="non-virtual"><scope>CameraFPS</scope><name>m_Right</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a243bb878488da424eec5d98c84ead440" prot="private" virt="non-virtual"><scope>CameraFPS</scope><name>m_Up</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a49eca6a385a8f20e9d4ed6f299c72a60" prot="private" virt="non-virtual"><scope>CameraFPS</scope><name>m_View</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1abf827d2e4916ae3599638bc1525c3215" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>MoveForward</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a10a619f78307b4737c0d250dfa4e5efa" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>MoveRight</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a0faf66c7f4ae93c9543f7cca2c301f09" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>MoveTo</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a94e64c9d1584297c9b2f1183225227d7" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>MoveUp</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a596d67ec383cb0491b277577b4df9dea" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>Pitch</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a2dcdbbd5437a819aafe8a78c18cdf059" prot="private" virt="non-virtual"><scope>CameraFPS</scope><name>RecalculateView</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1ae55c5ace197b3e37294ee8ca22ecdc22" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>RestPosAndOrient</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a6acbfb944b45bdd23bdace3f2d6e0e7b" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>Roll</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a1357e4bec663d39e064cc43c462c1409" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>Translate</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1a6b78180e5f8f62c259b0f8cbbf769aff" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>UpdateProjection</name></member>
+      <member refid="df/df5/class_camera_f_p_s_1aac58586bc06f955e05ce6d8e56b82904" prot="public" virt="non-virtual"><scope>CameraFPS</scope><name>Yaw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

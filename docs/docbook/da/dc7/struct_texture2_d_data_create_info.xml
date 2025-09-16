@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_texture2_d_data_create_info" xml:lang="en-US">
+<title>Texture2DDataCreateInfo Struct Reference</title>
+<indexterm><primary>Texture2DDataCreateInfo</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_texture2_d_data_create_info_1ac257ba77b494b45538fcd1d628c9fa3e"/>int <emphasis role="strong">width</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_texture2_d_data_create_info_1a557697234bcca9b423c8dc9d151b27f8"/>int <emphasis role="strong">height</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_texture2_d_data_create_info_1a454a378542fe56b987184115d8980ed6"/>void * <emphasis role="strong">data</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_texture2_d_data_create_info_1ab3bbe51998d4c6a8014e24c41a128865"/>pixelDataType <emphasis role="strong">type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_texture2_d_data_create_info_1ab9b6fa23909e84cd88de2128a99535eb"/>TextureInternalFormat <emphasis role="strong">internalFormat</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_texture2_d_data_create_info_1ad2242c3cbbb986e05000d9144169a3d8"/>int <emphasis role="strong">mipLevels</emphasis> = 1</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+engineOne/src/Core/Texture.h</section>

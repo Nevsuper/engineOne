@@ -1,0 +1,627 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="de/dbf/_texture_8h" kind="file" language="C++">
+    <compoundname>Texture.h</compoundname>
+    <includes local="no">glad/gl.h</includes>
+    <includes refid="d3/d77/gl_types_8h" local="yes">glTypes.h</includes>
+    <includes refid="d5/d60/utils_8h" local="yes">utils.h</includes>
+    <includedby refid="d9/da3/_application_8h" local="yes">engineOne/src/Core/Application.h</includedby>
+    <includedby refid="da/d26/_texture_8cpp" local="yes">engineOne/src/Core/Texture.cpp</includedby>
+    <includedby refid="df/d0a/main_8cpp" local="yes">engineOne/src/Core/main.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>engineOne/src/Core/Texture.h</label>
+        <link refid="de/dbf/_texture_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>glTypes.h</label>
+        <link refid="d3/d77/gl_types_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>utils.h</label>
+        <link refid="d5/d60/utils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>glad/gl.h</label>
+      </node>
+      <node id="5">
+        <label>type_traits</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>engineOne/src/Core/Application.h</label>
+        <link refid="d9/da3/_application_8h_source"/>
+      </node>
+      <node id="1">
+        <label>engineOne/src/Core/Texture.h</label>
+        <link refid="de/dbf/_texture_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="da/dc7/struct_texture2_d_data_create_info" prot="public">Texture2DDataCreateInfo</innerclass>
+    <innerclass refid="de/dd0/class_texture2_d" prot="public">Texture2D</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272dd" prot="public" static="no" strong="yes">
+        <type>GLenum</type>
+        <name>TextureInternalFormat</name>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272ddacfff813d86d447fa2a9c858650ebbb90" prot="public">
+          <name>R8</name>
+          <initializer>= GL_R8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272dda0367a93b9e3e7aa2fbe9802d80298e46" prot="public">
+          <name>RG8</name>
+          <initializer>= GL_RG8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272dda165c6379d01617e12de274a3952efa63" prot="public">
+          <name>RGB8</name>
+          <initializer>= GL_RGB8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272ddab4b279046a02077466fa26cabb00c642" prot="public">
+          <name>RGBA8</name>
+          <initializer>= GL_RGBA8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272dda8dfbaada0d68227f5c299c2aa637df68" prot="public">
+          <name>R16F</name>
+          <initializer>= GL_R16F</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272ddad28539b874a2bc4c5d40f49b375af474" prot="public">
+          <name>RG16F</name>
+          <initializer>= GL_RG16F</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272dda25cd126670bd567a899c64c4e6e8ca7d" prot="public">
+          <name>RGB16F</name>
+          <initializer>= GL_RGB16F</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272ddaa29d843695056f9c171a9eb702d6910a" prot="public">
+          <name>RGBA16F</name>
+          <initializer>= GL_RGBA16F</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272dda25fda16aa10a025ab21b9019b094ef27" prot="public">
+          <name>DEPTH24</name>
+          <initializer>= GL_DEPTH_COMPONENT24</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272dda19f22a1cbc2e2733484acbf9fc1bb4cd" prot="public">
+          <name>DEPTH32F</name>
+          <initializer>= GL_DEPTH_COMPONENT32F</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a6a97d0242263e06dc40949b93a4272dda0768a7b4ae12f44fd7d2b5320256b4b8" prot="public">
+          <name>DEPTH24_STENCIL8</name>
+          <initializer>= GL_DEPTH24_STENCIL8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="7" column="1" bodyfile="engineOne/src/Core/Texture.h" bodystart="8" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="enum" id="de/dbf/_texture_8h_1a31d013a72eb7c7050227d91263d6d564" prot="public" static="no" strong="yes">
+        <type>GLenum</type>
+        <name>TextureBaseFormat</name>
+        <enumvalue id="de/dbf/_texture_8h_1a31d013a72eb7c7050227d91263d6d564aa2d9547b5d3dd9f05984475f7c926da0" prot="public">
+          <name>RED</name>
+          <initializer>= GL_RED</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a31d013a72eb7c7050227d91263d6d564abac953e88f6d79514b0b6fc42eb6f3b7" prot="public">
+          <name>RG</name>
+          <initializer>= GL_RG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a31d013a72eb7c7050227d91263d6d564a889574aebacda6bfd3e534e2b49b8028" prot="public">
+          <name>RGB</name>
+          <initializer>= GL_RGB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a31d013a72eb7c7050227d91263d6d564aea3495a278957dc58165e48a8945469f" prot="public">
+          <name>RGBA</name>
+          <initializer>= GL_RGBA</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a31d013a72eb7c7050227d91263d6d564a57a5e45c013f83ce4c73a6ce97999c57" prot="public">
+          <name>DEPTH_COMPONENT</name>
+          <initializer>= GL_DEPTH_COMPONENT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a31d013a72eb7c7050227d91263d6d564aecaa8fe8cb0e85372f4cc76728c7cf3c" prot="public">
+          <name>DEPTH_STENCIL</name>
+          <initializer>= GL_DEPTH_STENCIL</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="27" column="1" bodyfile="engineOne/src/Core/Texture.h" bodystart="28" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="enum" id="de/dbf/_texture_8h_1a12af08f97ddc0b365bf90ff4e4dcb4fa" prot="public" static="no" strong="yes">
+        <type>GLenum</type>
+        <name>PixelDataType</name>
+        <enumvalue id="de/dbf/_texture_8h_1a12af08f97ddc0b365bf90ff4e4dcb4faa9c0389cdb943fd7826de2b12b7aad11a" prot="public">
+          <name>UNSIGNED_BYTE</name>
+          <initializer>= GL_UNSIGNED_BYTE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a12af08f97ddc0b365bf90ff4e4dcb4faae409eb2ba6eb6801f52763ae370c350e" prot="public">
+          <name>BYTE</name>
+          <initializer>= GL_BYTE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a12af08f97ddc0b365bf90ff4e4dcb4faa765ef1b950ba8455b8992510ffa56895" prot="public">
+          <name>UNSIGNED_SHORT</name>
+          <initializer>= GL_UNSIGNED_SHORT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a12af08f97ddc0b365bf90ff4e4dcb4faaa35c2b02966b1563e5bf7b81b8b0cf77" prot="public">
+          <name>SHORT</name>
+          <initializer>= GL_SHORT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a12af08f97ddc0b365bf90ff4e4dcb4faa9ba5b3da1d35e22e1680ddbe52d36ed5" prot="public">
+          <name>UNSIGNED_INT</name>
+          <initializer>= GL_UNSIGNED_INT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a12af08f97ddc0b365bf90ff4e4dcb4faa53f93baa3057821107c750323892fa92" prot="public">
+          <name>INT</name>
+          <initializer>= GL_INT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a12af08f97ddc0b365bf90ff4e4dcb4faae738c26bf4ce1037fa81b039a915cbf6" prot="public">
+          <name>FLOAT</name>
+          <initializer>= GL_FLOAT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="37" column="1" bodyfile="engineOne/src/Core/Texture.h" bodystart="38" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="enum" id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4" prot="public" static="no" strong="yes">
+        <type>GLenum</type>
+        <name>pixelDataType</name>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a70a76fb22b28069af00cd2d8ea06bca5" prot="public">
+          <name>UNSIGNEDBYTE</name>
+          <initializer>= GL_UNSIGNED_BYTE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4ae409eb2ba6eb6801f52763ae370c350e" prot="public">
+          <name>BYTE</name>
+          <initializer>= GL_BYTE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4aa97a1ebdf2ba09f9484279552fed660a" prot="public">
+          <name>UNSIGNEDSHORT</name>
+          <initializer>= GL_UNSIGNED_SHORT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4aa35c2b02966b1563e5bf7b81b8b0cf77" prot="public">
+          <name>SHORT</name>
+          <initializer>= GL_SHORT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4af031074bb2fca18fc34d6979be064a5d" prot="public">
+          <name>UNSIGNEDINT</name>
+          <initializer>= GL_UNSIGNED_INT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a53f93baa3057821107c750323892fa92" prot="public">
+          <name>INT</name>
+          <initializer>= GL_INT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4ae738c26bf4ce1037fa81b039a915cbf6" prot="public">
+          <name>FLOAT</name>
+          <initializer>= GL_FLOAT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a3a4b3e6cef000364b0cf70bed341af32" prot="public">
+          <name>UNSIGNEDBYTE332</name>
+          <initializer>= GL_UNSIGNED_BYTE_3_3_2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a46115be31ce1b36c59eeac6172295c79" prot="public">
+          <name>UNSIGNEDBYTE233REV</name>
+          <initializer>= GL_UNSIGNED_BYTE_2_3_3_REV</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4aceb262be726e8a118cb5bec972300c88" prot="public">
+          <name>UNSIGNEDSHORT565</name>
+          <initializer>= GL_UNSIGNED_SHORT_5_6_5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a649e1a33babc5823136b94d893c03f72" prot="public">
+          <name>UNSIGNEDSHORT565REV</name>
+          <initializer>= GL_UNSIGNED_SHORT_5_6_5_REV</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4acbfa56a0f69dcf46546bffd82e497e4f" prot="public">
+          <name>UNSIGNEDSHORT4444</name>
+          <initializer>= GL_UNSIGNED_SHORT_4_4_4_4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a10b00c3d3dc1bb43aeb26a5253dcd48d" prot="public">
+          <name>UNSIGNEDSHORT4444REV</name>
+          <initializer>= GL_UNSIGNED_SHORT_4_4_4_4_REV</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a4a0b79c6e8ee3f6e30a535e79391ed87" prot="public">
+          <name>UNSIGNEDSHORT5551</name>
+          <initializer>= GL_UNSIGNED_SHORT_5_5_5_1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a50c568af5a10643d1f9a46a67b1945b8" prot="public">
+          <name>UNSIGNEDSHORT1555REV</name>
+          <initializer>= GL_UNSIGNED_SHORT_1_5_5_5_REV</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4ace27d23f0d7ea51e176e2e7bc8230b0a" prot="public">
+          <name>UNSIGNEDINT8888</name>
+          <initializer>= GL_UNSIGNED_INT_8_8_8_8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4af8ec7ccadba31f132974974781b693ee" prot="public">
+          <name>UNSIGNEDINT8888REV</name>
+          <initializer>= GL_UNSIGNED_INT_8_8_8_8_REV</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4aeef7ec3844c171228b65fd682abb5f77" prot="public">
+          <name>UNSIGNEDINT1010102</name>
+          <initializer>= GL_UNSIGNED_INT_10_10_10_2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="de/dbf/_texture_8h_1a3989a0f4f951326d33ca2426bda45bb4a0899d70b6d7f2d0d00f57b8d42240ce0" prot="public">
+          <name>UNSIGNEDINT2101010REV</name>
+          <initializer>= GL_UNSIGNED_INT_2_10_10_10_REV</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="58" column="1" bodyfile="engineOne/src/Core/Texture.h" bodystart="59" bodyend="80"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="de/dbf/_texture_8h_1ad7a8c48a57b9d08a2966299f87c9f920" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>GLenum</type>
+        <definition>GLenum TextureInternalFormatToGLenum</definition>
+        <argsstring>(TextureInternalFormat format) noexcept</argsstring>
+        <name>TextureInternalFormatToGLenum</name>
+        <param>
+          <type>TextureInternalFormat</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="48" column="25" bodyfile="engineOne/src/Core/Texture.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dbf/_texture_8h_1a64b8ca9109e1ade065d7b84c47ebc5ab" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>GLenum</type>
+        <definition>GLenum TextureBaseFormatToGLenum</definition>
+        <argsstring>(TextureBaseFormat format) noexcept</argsstring>
+        <name>TextureBaseFormatToGLenum</name>
+        <param>
+          <type>TextureBaseFormat</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="53" column="25" bodyfile="engineOne/src/Core/Texture.h" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dbf/_texture_8h_1ab7f681f176c1a7d6c32f4ac27803e3da" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>GLenum</type>
+        <definition>GLenum PixelDataTypeToGLenum</definition>
+        <argsstring>(pixelDataType format) noexcept</argsstring>
+        <name>PixelDataTypeToGLenum</name>
+        <param>
+          <type>pixelDataType</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="82" column="25" bodyfile="engineOne/src/Core/Texture.h" bodystart="82" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;glad/gl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;glTypes.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simplified<sp/>format<sp/>categories</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>TextureInternalFormat<sp/>:<sp/>GLenum</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Basic<sp/>formats</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>R8<sp/>=<sp/>GL_R8,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>RG8<sp/>=<sp/>GL_RG8,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>RGB8<sp/>=<sp/>GL_RGB8,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>RGBA8<sp/>=<sp/>GL_RGBA8,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Float<sp/>formats</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>R16F<sp/>=<sp/>GL_R16F,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>RG16F<sp/>=<sp/>GL_RG16F,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>RGB16F<sp/>=<sp/>GL_RGB16F,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>RGBA16F<sp/>=<sp/>GL_RGBA16F,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Depth<sp/>formats</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>DEPTH24<sp/>=<sp/>GL_DEPTH_COMPONENT24,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>DEPTH32F<sp/>=<sp/>GL_DEPTH_COMPONENT32F,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>DEPTH24_STENCIL8<sp/>=<sp/>GL_DEPTH24_STENCIL8</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>TextureBaseFormat<sp/>:<sp/>GLenum</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>RED<sp/>=<sp/>GL_RED,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>RG<sp/>=<sp/>GL_RG,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>RGB<sp/>=<sp/>GL_RGB,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>RGBA<sp/>=<sp/>GL_RGBA,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>DEPTH_COMPONENT<sp/>=<sp/>GL_DEPTH_COMPONENT,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>DEPTH_STENCIL<sp/>=<sp/>GL_DEPTH_STENCIL</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>PixelDataType<sp/>:<sp/>GLenum</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNED_BYTE<sp/>=<sp/>GL_UNSIGNED_BYTE,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE<sp/>=<sp/>GL_BYTE,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNED_SHORT<sp/>=<sp/>GL_UNSIGNED_SHORT,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>SHORT<sp/>=<sp/>GL_SHORT,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNED_INT<sp/>=<sp/>GL_UNSIGNED_INT,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>INT<sp/>=<sp/>GL_INT,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>FLOAT<sp/>=<sp/>GL_FLOAT</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>GLenum<sp/>TextureInternalFormatToGLenum(TextureInternalFormat<sp/>format)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>enumValue(format);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>GLenum<sp/>TextureBaseFormatToGLenum(TextureBaseFormat<sp/>format)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>enumValue(format);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>pixelDataType<sp/>:<sp/>GLenum</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDBYTE<sp/>=<sp/>GL_UNSIGNED_BYTE,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE<sp/>=<sp/>GL_BYTE,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDSHORT<sp/>=<sp/>GL_UNSIGNED_SHORT,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>SHORT<sp/>=<sp/>GL_SHORT,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDINT<sp/>=<sp/>GL_UNSIGNED_INT,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>INT<sp/>=<sp/>GL_INT,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>FLOAT<sp/>=<sp/>GL_FLOAT,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDBYTE332<sp/>=<sp/>GL_UNSIGNED_BYTE_3_3_2,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDBYTE233REV<sp/>=<sp/>GL_UNSIGNED_BYTE_2_3_3_REV,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDSHORT565<sp/>=<sp/>GL_UNSIGNED_SHORT_5_6_5,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDSHORT565REV<sp/>=<sp/>GL_UNSIGNED_SHORT_5_6_5_REV,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDSHORT4444<sp/>=<sp/>GL_UNSIGNED_SHORT_4_4_4_4,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDSHORT4444REV<sp/>=<sp/>GL_UNSIGNED_SHORT_4_4_4_4_REV,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDSHORT5551<sp/>=<sp/>GL_UNSIGNED_SHORT_5_5_5_1,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDSHORT1555REV<sp/>=<sp/>GL_UNSIGNED_SHORT_1_5_5_5_REV,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDINT8888<sp/>=<sp/>GL_UNSIGNED_INT_8_8_8_8,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDINT8888REV<sp/>=<sp/>GL_UNSIGNED_INT_8_8_8_8_REV,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDINT1010102<sp/>=<sp/>GL_UNSIGNED_INT_10_10_10_2,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>UNSIGNEDINT2101010REV<sp/>=<sp/>GL_UNSIGNED_INT_2_10_10_10_REV</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>GLenum<sp/>PixelDataTypeToGLenum(pixelDataType<sp/>format)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>enumValue(format);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="da/dc7/struct_texture2_d_data_create_info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="da/dc7/struct_texture2_d_data_create_info" kindref="compound">Texture2DDataCreateInfo</ref></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/>height;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>pixelDataType<sp/>type;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>TextureInternalFormat<sp/>internalFormat;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mipLevels<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="96" refid="de/dd0/class_texture2_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Texture2D</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture2D(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data,<sp/>pixelDataType<sp/>type,<sp/>TextureInternalFormat<sp/>internalFormat,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mipLevels<sp/>=<sp/>1)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture2D(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="da/dc7/struct_texture2_d_data_create_info" kindref="compound">Texture2DDataCreateInfo</ref>&amp;<sp/>createInfo)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>~Texture2D()<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//delete<sp/>copy<sp/>constructor<sp/>and<sp/>copy<sp/>assignment<sp/>operator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture2D(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Texture2D&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture2D&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Texture2D&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//move<sp/>constructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture2D(Texture2D&amp;&amp;<sp/>other)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//move<sp/>assignment<sp/>operator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture2D&amp;<sp/>operator=(Texture2D&amp;&amp;<sp/>other)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SubImage(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data,<sp/>pixelDataType<sp/>type,<sp/>TextureBaseFormat<sp/>baseFormat,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>level<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xOfffset<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yOffset<sp/>=<sp/>0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Bind(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slot<sp/>=<sp/>0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Unbind(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slot<sp/>=<sp/>0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m_ID;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="engineOne/src/Core/Texture.h"/>
+  </compounddef>
+</doxygen>

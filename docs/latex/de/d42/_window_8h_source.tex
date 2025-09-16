@@ -1,0 +1,45 @@
+\doxysection{Window.\+h}
+\hypertarget{_window_8h_source}{}\label{_window_8h_source}\index{engineOne/src/Core/Window.h@{engineOne/src/Core/Window.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Window.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Window}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00009\ \ \ \ \ Window(HINSTANCE\ hInstance,\ \textcolor{keyword}{const}\ std::string\&\ windowClassName,\ \textcolor{keyword}{const}\ std::string\&\ title,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ DWORD\ windowStyle);}
+\DoxyCodeLine{00010\ \ \ \ \ \string~Window()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessMessages()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ ShouldClose()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ m\_ShouldClose;\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ HDC\ GetDeviceContext()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \ \{\ \textcolor{keywordflow}{return}\ GetDC(m\_hWnd);\ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ GetWidth()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \ \{\ \textcolor{keywordflow}{return}\ m\_Width;\ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ GetHeight()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \ \{\ \textcolor{keywordflow}{return}\ mHeight;\ \}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ GetAspectRatio()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ m\_AspectRatio;\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ Close()\ \textcolor{keyword}{noexcept}\ \{\ m\_ShouldClose\ =\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ isCreated()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ m\_IsCreated;\ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ m\_IsCreated;\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ LRESULT\ CALLBACK\ StaticWndProc(HWND\ hwnd,\ UINT\ msg,\ WPARAM\ wParam,\ LPARAM\ lParam)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ LRESULT\ HandleMsg(HWND\ hWnd,\ UINT\ msg,\ WPARAM\ wParam,\ LPARAM\ lParam)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ DoesWindowClassExistsAndHavePrivateDCAndUsesCorrectWndProc(\textcolor{keyword}{const}\ std::string\&\ className,\ HINSTANCE\ hInstance\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ HINSTANCE\ m\_hInstance;}
+\DoxyCodeLine{00033\ \ \ \ \ HWND\ m\_hWnd;}
+\DoxyCodeLine{00034\ \ \ \ \ std::string\ windowTitle;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_Width,\ mHeight;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_AspectRatio;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_ShouldClose;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_IsCreated;}
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

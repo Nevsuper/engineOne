@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d6/dfe/class_g_l_loader" kind="class" language="C++" prot="public">
+    <compoundname>GLLoader</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d6/dfe/class_g_l_loader_1ad3ff66061bfb9814f03f74b7daf930e2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GLLoader::m_IsLoaded</definition>
+        <argsstring></argsstring>
+        <name>m_IsLoaded</name>
+        <qualifiedname>GLLoader::m_IsLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.h" line="25" column="6" bodyfile="engineOne/src/Core/GLLoader.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d6/dfe/class_g_l_loader_1a4e17e9ede311272b25695dda2b7cfc14" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>GLLoader::GLLoader</definition>
+        <argsstring>(HINSTANCE hInstance) noexcept</argsstring>
+        <name>GLLoader</name>
+        <qualifiedname>GLLoader::GLLoader</qualifiedname>
+        <param>
+          <type>HINSTANCE</type>
+          <declname>hInstance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.h" line="11" column="8" bodyfile="engineOne/src/Core/GLLoader.h" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dfe/class_g_l_loader_1a2303c0ae0b6a6a45ae6fdc44c516aea4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>GLLoader::~GLLoader</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~GLLoader</name>
+        <qualifiedname>GLLoader::~GLLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.h" line="16" column="1" bodyfile="engineOne/src/Core/GLLoader.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dfe/class_g_l_loader_1aa5a93ab18951a1ecac68ce9d1eca95ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GLLoader::GLLoader</definition>
+        <argsstring>(const GLLoader &amp;)=delete</argsstring>
+        <name>GLLoader</name>
+        <qualifiedname>GLLoader::GLLoader</qualifiedname>
+        <param>
+          <type>const <ref refid="d6/dfe/class_g_l_loader" kindref="compound">GLLoader</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dfe/class_g_l_loader_1a4e23346a55bdda2ce158e6e10c8f47f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d6/dfe/class_g_l_loader" kindref="compound">GLLoader</ref> &amp;</type>
+        <definition>GLLoader &amp; GLLoader::operator=</definition>
+        <argsstring>(const GLLoader &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>GLLoader::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="d6/dfe/class_g_l_loader" kindref="compound">GLLoader</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.h" line="19" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dfe/class_g_l_loader_1a8b5851421dfcfcc5763cc8faf855af17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GLLoader::GLLoader</definition>
+        <argsstring>(GLLoader &amp;&amp;)=delete</argsstring>
+        <name>GLLoader</name>
+        <qualifiedname>GLLoader::GLLoader</qualifiedname>
+        <param>
+          <type><ref refid="d6/dfe/class_g_l_loader" kindref="compound">GLLoader</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dfe/class_g_l_loader_1ad03ababf0a3d93dafcd17eff6750cc42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d6/dfe/class_g_l_loader" kindref="compound">GLLoader</ref> &amp;</type>
+        <definition>GLLoader &amp; GLLoader::operator=</definition>
+        <argsstring>(GLLoader &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>GLLoader::operator=</qualifiedname>
+        <param>
+          <type><ref refid="d6/dfe/class_g_l_loader" kindref="compound">GLLoader</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.h" line="21" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dfe/class_g_l_loader_1ac2bcf88d030f260c7d5602dc5b7dd0b7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GLLoader::isLoaded</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>isLoaded</name>
+        <qualifiedname>GLLoader::isLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.h" line="23" column="6" bodyfile="engineOne/src/Core/GLLoader.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/GLLoader.h" line="8" column="1" bodyfile="engineOne/src/Core/GLLoader.h" bodystart="9" bodyend="26"/>
+    <listofallmembers>
+      <member refid="d6/dfe/class_g_l_loader_1a4e17e9ede311272b25695dda2b7cfc14" prot="public" virt="non-virtual"><scope>GLLoader</scope><name>GLLoader</name></member>
+      <member refid="d6/dfe/class_g_l_loader_1aa5a93ab18951a1ecac68ce9d1eca95ed" prot="public" virt="non-virtual"><scope>GLLoader</scope><name>GLLoader</name></member>
+      <member refid="d6/dfe/class_g_l_loader_1a8b5851421dfcfcc5763cc8faf855af17" prot="public" virt="non-virtual"><scope>GLLoader</scope><name>GLLoader</name></member>
+      <member refid="d6/dfe/class_g_l_loader_1ac2bcf88d030f260c7d5602dc5b7dd0b7" prot="public" virt="non-virtual"><scope>GLLoader</scope><name>isLoaded</name></member>
+      <member refid="d6/dfe/class_g_l_loader_1ad3ff66061bfb9814f03f74b7daf930e2" prot="private" virt="non-virtual"><scope>GLLoader</scope><name>m_IsLoaded</name></member>
+      <member refid="d6/dfe/class_g_l_loader_1a4e23346a55bdda2ce158e6e10c8f47f4" prot="public" virt="non-virtual"><scope>GLLoader</scope><name>operator=</name></member>
+      <member refid="d6/dfe/class_g_l_loader_1ad03ababf0a3d93dafcd17eff6750cc42" prot="public" virt="non-virtual"><scope>GLLoader</scope><name>operator=</name></member>
+      <member refid="d6/dfe/class_g_l_loader_1a2303c0ae0b6a6a45ae6fdc44c516aea4" prot="public" virt="non-virtual"><scope>GLLoader</scope><name>~GLLoader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

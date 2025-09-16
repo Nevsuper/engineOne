@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_render_context" xml:lang="en-US">
+<title>RenderContext Class Reference</title>
+<indexterm><primary>RenderContext</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_render_context_1a390a327bfca909ab798f3d3301ed92e4"/><emphasis role="strong">RenderContext</emphasis> (const <link linkend="_struct_render_context_create_info">RenderContextCreateInfo</link> &amp;createInfo)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_render_context_1abd39c7839c4729b99dbdec8589dad943"/><emphasis role="strong">RenderContext</emphasis> (<link linkend="_class_window">Window</link> &amp;window, int majorVersion=4, int minorVersion=5, bool debug=true)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_render_context_1aa25de2f325e7aa976ac58ae6d9f2119f"/><emphasis role="strong">RenderContext</emphasis> (const <link linkend="_class_render_context">RenderContext</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_render_context_1a4d07f1335930b9ba451f017de97ab4a7"/><link linkend="_class_render_context">RenderContext</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_render_context">RenderContext</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_render_context_1a53ea0c28038121ef807c9d3bbe37f7f9"/>bool <emphasis role="strong">MakeCurrent</emphasis> (<link linkend="_class_window">Window</link> &amp;window) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_render_context_1a65247459bf726fb39eff1060ffe60599"/>void <emphasis role="strong">clearColor</emphasis> (float r, float g, float b, float a) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_render_context_1a487cd2b22faaed0abdfd4070d478854e"/>void <emphasis role="strong">Present</emphasis> () noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_render_context_1a6c73389ff1c0ac18abe1c7ef0266d7ed"/>bool <emphasis role="strong">IsNull</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_render_context_1a48c4a0eb16ff8aef31f8f74006fac755"/><emphasis role="strong">operator bool</emphasis> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/RenderContext.hengineOne/src/Core/RenderContext.cpp</section>

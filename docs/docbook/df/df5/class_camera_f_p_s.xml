@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_camera_f_p_s" xml:lang="en-US">
+<title>CameraFPS Class Reference</title>
+<indexterm><primary>CameraFPS</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1a73afdbecd268405f855ff66808c44cf5"/><emphasis role="strong">CameraFPS</emphasis> (float fov=60.0f, float aspect=4.0f/3.0f, float zNear=0.1f, float zFar=100.0f) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1a0faf66c7f4ae93c9543f7cca2c301f09"/>void <emphasis role="strong">MoveTo</emphasis> (const glm::vec3 &amp;position) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1a1357e4bec663d39e064cc43c462c1409"/>void <emphasis role="strong">Translate</emphasis> (const glm::vec3 &amp;displacement) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1aac58586bc06f955e05ce6d8e56b82904"/>void <emphasis role="strong">Yaw</emphasis> (float angle) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1a596d67ec383cb0491b277577b4df9dea"/>void <emphasis role="strong">Pitch</emphasis> (float angle) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1a6acbfb944b45bdd23bdace3f2d6e0e7b"/>void <emphasis role="strong">Roll</emphasis> (float angle) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1abf827d2e4916ae3599638bc1525c3215"/>void <emphasis role="strong">MoveForward</emphasis> (float distance) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1a10a619f78307b4737c0d250dfa4e5efa"/>void <emphasis role="strong">MoveRight</emphasis> (float distance) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1a94e64c9d1584297c9b2f1183225227d7"/>void <emphasis role="strong">MoveUp</emphasis> (float distance) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1a6b78180e5f8f62c259b0f8cbbf769aff"/>void <emphasis role="strong">UpdateProjection</emphasis> (float fov, float aspect, float zNear, float zFar) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1af6d1dca8c65d0a6f0607d1a66f64c196"/>const glm::mat4 &amp; <emphasis role="strong">GetViewMatrix</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1ae83575e8db6d77bbcf781a80cfab566a"/>const glm::mat4 &amp; <emphasis role="strong">GetProjectionMatrix</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_camera_f_p_s_1ae55c5ace197b3e37294ee8ca22ecdc22"/>void <emphasis role="strong">RestPosAndOrient</emphasis> () noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/Camera.hengineOne/src/Core/Camera.cpp</section>

@@ -1,0 +1,125 @@
+\doxysection{Texture.\+h}
+\hypertarget{_texture_8h_source}{}\label{_texture_8h_source}\index{engineOne/src/Core/Texture.h@{engineOne/src/Core/Texture.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include<glad/gl.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}glTypes.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}utils.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Simplified\ format\ categories}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum\ class}\ TextureInternalFormat\ :\ GLenum}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{comment}{//\ Basic\ formats}}
+\DoxyCodeLine{00010\ \ \ \ \ R8\ =\ GL\_R8,}
+\DoxyCodeLine{00011\ \ \ \ \ RG8\ =\ GL\_RG8,}
+\DoxyCodeLine{00012\ \ \ \ \ RGB8\ =\ GL\_RGB8,}
+\DoxyCodeLine{00013\ \ \ \ \ RGBA8\ =\ GL\_RGBA8,}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Float\ formats}}
+\DoxyCodeLine{00016\ \ \ \ \ R16F\ =\ GL\_R16F,}
+\DoxyCodeLine{00017\ \ \ \ \ RG16F\ =\ GL\_RG16F,}
+\DoxyCodeLine{00018\ \ \ \ \ RGB16F\ =\ GL\_RGB16F,}
+\DoxyCodeLine{00019\ \ \ \ \ RGBA16F\ =\ GL\_RGBA16F,}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Depth\ formats}}
+\DoxyCodeLine{00022\ \ \ \ \ DEPTH24\ =\ GL\_DEPTH\_COMPONENT24,}
+\DoxyCodeLine{00023\ \ \ \ \ DEPTH32F\ =\ GL\_DEPTH\_COMPONENT32F,}
+\DoxyCodeLine{00024\ \ \ \ \ DEPTH24\_STENCIL8\ =\ GL\_DEPTH24\_STENCIL8}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{enum\ class}\ TextureBaseFormat\ :\ GLenum}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ RED\ =\ GL\_RED,}
+\DoxyCodeLine{00030\ \ \ \ \ RG\ =\ GL\_RG,}
+\DoxyCodeLine{00031\ \ \ \ \ RGB\ =\ GL\_RGB,}
+\DoxyCodeLine{00032\ \ \ \ \ RGBA\ =\ GL\_RGBA,}
+\DoxyCodeLine{00033\ \ \ \ \ DEPTH\_COMPONENT\ =\ GL\_DEPTH\_COMPONENT,}
+\DoxyCodeLine{00034\ \ \ \ \ DEPTH\_STENCIL\ =\ GL\_DEPTH\_STENCIL}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{enum\ class}\ PixelDataType\ :\ GLenum}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ UNSIGNED\_BYTE\ =\ GL\_UNSIGNED\_BYTE,}
+\DoxyCodeLine{00040\ \ \ \ \ BYTE\ =\ GL\_BYTE,}
+\DoxyCodeLine{00041\ \ \ \ \ UNSIGNED\_SHORT\ =\ GL\_UNSIGNED\_SHORT,}
+\DoxyCodeLine{00042\ \ \ \ \ SHORT\ =\ GL\_SHORT,}
+\DoxyCodeLine{00043\ \ \ \ \ UNSIGNED\_INT\ =\ GL\_UNSIGNED\_INT,}
+\DoxyCodeLine{00044\ \ \ \ \ INT\ =\ GL\_INT,}
+\DoxyCodeLine{00045\ \ \ \ \ FLOAT\ =\ GL\_FLOAT}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ GLenum\ TextureInternalFormatToGLenum(TextureInternalFormat\ format)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ enumValue(format);}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ GLenum\ TextureBaseFormatToGLenum(TextureBaseFormat\ format)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ enumValue(format);}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{enum\ class}\ pixelDataType\ :\ GLenum}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ UNSIGNEDBYTE\ =\ GL\_UNSIGNED\_BYTE,}
+\DoxyCodeLine{00061\ \ \ \ \ BYTE\ =\ GL\_BYTE,}
+\DoxyCodeLine{00062\ \ \ \ \ UNSIGNEDSHORT\ =\ GL\_UNSIGNED\_SHORT,}
+\DoxyCodeLine{00063\ \ \ \ \ SHORT\ =\ GL\_SHORT,}
+\DoxyCodeLine{00064\ \ \ \ \ UNSIGNEDINT\ =\ GL\_UNSIGNED\_INT,}
+\DoxyCodeLine{00065\ \ \ \ \ INT\ =\ GL\_INT,}
+\DoxyCodeLine{00066\ \ \ \ \ FLOAT\ =\ GL\_FLOAT,}
+\DoxyCodeLine{00067\ \ \ \ \ UNSIGNEDBYTE332\ =\ GL\_UNSIGNED\_BYTE\_3\_3\_2,}
+\DoxyCodeLine{00068\ \ \ \ \ UNSIGNEDBYTE233REV\ =\ GL\_UNSIGNED\_BYTE\_2\_3\_3\_REV,}
+\DoxyCodeLine{00069\ \ \ \ \ UNSIGNEDSHORT565\ =\ GL\_UNSIGNED\_SHORT\_5\_6\_5,}
+\DoxyCodeLine{00070\ \ \ \ \ UNSIGNEDSHORT565REV\ =\ GL\_UNSIGNED\_SHORT\_5\_6\_5\_REV,}
+\DoxyCodeLine{00071\ \ \ \ \ UNSIGNEDSHORT4444\ =\ GL\_UNSIGNED\_SHORT\_4\_4\_4\_4,}
+\DoxyCodeLine{00072\ \ \ \ \ UNSIGNEDSHORT4444REV\ =\ GL\_UNSIGNED\_SHORT\_4\_4\_4\_4\_REV,}
+\DoxyCodeLine{00073\ \ \ \ \ UNSIGNEDSHORT5551\ =\ GL\_UNSIGNED\_SHORT\_5\_5\_5\_1,}
+\DoxyCodeLine{00074\ \ \ \ \ UNSIGNEDSHORT1555REV\ =\ GL\_UNSIGNED\_SHORT\_1\_5\_5\_5\_REV,}
+\DoxyCodeLine{00075\ \ \ \ \ UNSIGNEDINT8888\ =\ GL\_UNSIGNED\_INT\_8\_8\_8\_8,}
+\DoxyCodeLine{00076\ \ \ \ \ UNSIGNEDINT8888REV\ =\ GL\_UNSIGNED\_INT\_8\_8\_8\_8\_REV,}
+\DoxyCodeLine{00077\ \ \ \ \ UNSIGNEDINT1010102\ =\ GL\_UNSIGNED\_INT\_10\_10\_10\_2,}
+\DoxyCodeLine{00078\ \ \ \ \ UNSIGNEDINT2101010REV\ =\ GL\_UNSIGNED\_INT\_2\_10\_10\_10\_REV}
+\DoxyCodeLine{00079\ \ \ \ \ }
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ GLenum\ PixelDataTypeToGLenum(pixelDataType\ format)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00083\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ enumValue(format);}
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_texture2_d_data_create_info}{Texture2DDataCreateInfo}}}
+\DoxyCodeLine{00089\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ width,\ height;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}*\ data;}
+\DoxyCodeLine{00092\ \ \ \ \ pixelDataType\ type;}
+\DoxyCodeLine{00093\ \ \ \ \ TextureInternalFormat\ internalFormat;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ mipLevels\ =\ 1;}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ \textcolor{keyword}{class\ }Texture2D}
+\DoxyCodeLine{00097\ \{}
+\DoxyCodeLine{00098\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00099\ \ \ \ \ Texture2D(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{void}*\ data,\ pixelDataType\ type,\ TextureInternalFormat\ internalFormat,\ \textcolor{keywordtype}{int}\ mipLevels\ =\ 1)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00100\ \ \ \ \ Texture2D(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_texture2_d_data_create_info}{Texture2DDataCreateInfo}}\&\ createInfo)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00101\ \ \ \ \ \string~Texture2D()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//delete\ copy\ constructor\ and\ copy\ assignment\ operator}}
+\DoxyCodeLine{00104\ \ \ \ \ Texture2D(\textcolor{keyword}{const}\ Texture2D\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00105\ \ \ \ \ Texture2D\&\ operator=(\textcolor{keyword}{const}\ Texture2D\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//move\ constructor}}
+\DoxyCodeLine{00107\ \ \ \ \ Texture2D(Texture2D\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//move\ assignment\ operator}}
+\DoxyCodeLine{00109\ \ \ \ \ Texture2D\&\ operator=(Texture2D\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ SubImage(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ pixelDataType\ type,\ TextureBaseFormat\ baseFormat,\ \textcolor{keywordtype}{int}\ level\ =\ 0,\ \textcolor{keywordtype}{int}\ xOfffset\ =\ 0,\ \textcolor{keywordtype}{int}\ yOffset\ =\ 0)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ Bind(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ slot\ =\ 0)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ Unbind(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ slot\ =\ 0)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_ID;}
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ }
+
+\end{DoxyCode}

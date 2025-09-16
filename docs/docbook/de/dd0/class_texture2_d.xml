@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_texture2_d" xml:lang="en-US">
+<title>Texture2D Class Reference</title>
+<indexterm><primary>Texture2D</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_texture2_d_1aa38331d2edebffe4ecb02e4031de1d6b"/><emphasis role="strong">Texture2D</emphasis> (int width, int height, void *data, pixelDataType type, TextureInternalFormat internalFormat, int mipLevels=1) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_texture2_d_1a682e145491f414cb38e08639a55202ef"/><emphasis role="strong">Texture2D</emphasis> (const <link linkend="_struct_texture2_d_data_create_info">Texture2DDataCreateInfo</link> &amp;createInfo) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_texture2_d_1ab3535df92375024c0f533d8aa29bcac3"/><emphasis role="strong">Texture2D</emphasis> (const <link linkend="_class_texture2_d">Texture2D</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_texture2_d_1a8ead868d2091effe12af24648571789d"/><link linkend="_class_texture2_d">Texture2D</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_texture2_d">Texture2D</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_texture2_d_1a13b44cbc76977555b120116cd0bd9752"/><emphasis role="strong">Texture2D</emphasis> (<link linkend="_class_texture2_d">Texture2D</link> &amp;&amp;other) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_texture2_d_1a9c4619c0d2c764ae8f402cc2cb7cc7b5"/><link linkend="_class_texture2_d">Texture2D</link> &amp; <emphasis role="strong">operator=</emphasis> (<link linkend="_class_texture2_d">Texture2D</link> &amp;&amp;other) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_texture2_d_1af8b99dd70bd8601aacdfb8fd35811b14"/>void <emphasis role="strong">SubImage</emphasis> (int width, int height, const void *data, pixelDataType type, TextureBaseFormat baseFormat, int level=0, int xOfffset=0, int yOffset=0) const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_texture2_d_1adc822f6b1595dbaea544b1d690989f96"/>void <emphasis role="strong">Bind</emphasis> (unsigned int slot=0) const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_texture2_d_1a360c02e74601a6ee6b223b8afe36366e"/>void <emphasis role="strong">Unbind</emphasis> (unsigned int slot=0) const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/Texture.hengineOne/src/Core/Texture.cpp</section>

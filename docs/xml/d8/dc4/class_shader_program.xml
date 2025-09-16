@@ -1,0 +1,604 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d8/dc4/class_shader_program" kind="class" language="C++" prot="public">
+    <compoundname>ShaderProgram</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/dc4/class_shader_program_1a14ff64214b1d7466fd6d7dc0c64baf4b" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ShaderProgram::m_ID</definition>
+        <argsstring></argsstring>
+        <name>m_ID</name>
+        <qualifiedname>ShaderProgram::m_ID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="118" column="14" bodyfile="engineOne/src/Core/Shader.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/dc4/class_shader_program_1a23c6cae0879aeac46c8e43f559c94d68" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, int &gt;</type>
+        <definition>std::unordered_map&lt;std::string, int&gt; ShaderProgram::m_UniformCache</definition>
+        <argsstring></argsstring>
+        <name>m_UniformCache</name>
+        <qualifiedname>ShaderProgram::m_UniformCache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="119" column="20" bodyfile="engineOne/src/Core/Shader.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1ada6da4f63666e1b8167ba918fca48e5e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>ShaderProgram::ShaderProgram</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>ShaderProgram</name>
+        <qualifiedname>ShaderProgram::ShaderProgram</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="75" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="91" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a7a5efdb6a7680c2dc24427d2209e0049" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>ShaderProgram::ShaderProgram</definition>
+        <argsstring>(ShaderProgram &amp;&amp;) noexcept</argsstring>
+        <name>ShaderProgram</name>
+        <qualifiedname>ShaderProgram::ShaderProgram</qualifiedname>
+        <param>
+          <type><ref refid="d8/dc4/class_shader_program" kindref="compound">ShaderProgram</ref> &amp;&amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="76" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="102" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a5993b9213559fd7c203d94b2b307483b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ShaderProgram::ShaderProgram</definition>
+        <argsstring>(const std::string &amp;vertexPath, const std::string &amp;fragmentPath)</argsstring>
+        <name>ShaderProgram</name>
+        <qualifiedname>ShaderProgram::ShaderProgram</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>vertexPath</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fragmentPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="77" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="108" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a1fd4aefaec3bb73e1a95695dcbb8dfdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ShaderProgram::ShaderProgram</definition>
+        <argsstring>(Shader &amp;vertexShader, Shader &amp;fragmentShader)</argsstring>
+        <name>ShaderProgram</name>
+        <qualifiedname>ShaderProgram::ShaderProgram</qualifiedname>
+        <param>
+          <type><ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;</type>
+          <declname>vertexShader</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;</type>
+          <declname>fragmentShader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="78" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="130" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a4872407f4f8b06303a8a8710c00f074e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>ShaderProgram::~ShaderProgram</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~ShaderProgram</name>
+        <qualifiedname>ShaderProgram::~ShaderProgram</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="80" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a02b3714194261cd3e1048606a3368e66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ShaderProgram::ShaderProgram</definition>
+        <argsstring>(const ShaderProgram &amp;)=delete</argsstring>
+        <name>ShaderProgram</name>
+        <qualifiedname>ShaderProgram::ShaderProgram</qualifiedname>
+        <param>
+          <type>const <ref refid="d8/dc4/class_shader_program" kindref="compound">ShaderProgram</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="83" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a1c809bd7c58747a1cc6cbceaef059fd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/dc4/class_shader_program" kindref="compound">ShaderProgram</ref> &amp;</type>
+        <definition>ShaderProgram &amp; ShaderProgram::operator=</definition>
+        <argsstring>(const ShaderProgram &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>ShaderProgram::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="d8/dc4/class_shader_program" kindref="compound">ShaderProgram</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="84" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a92928cfa330bff055c7a1c625b9631c4" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="d8/dc4/class_shader_program" kindref="compound">ShaderProgram</ref> &amp;</type>
+        <definition>ShaderProgram &amp; ShaderProgram::operator=</definition>
+        <argsstring>(ShaderProgram &amp;&amp;) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>ShaderProgram::operator=</qualifiedname>
+        <param>
+          <type><ref refid="d8/dc4/class_shader_program" kindref="compound">ShaderProgram</ref> &amp;&amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="87" column="15" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="140" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a89b23a6dd163d081ea66f934d6297161" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::attachShader</definition>
+        <argsstring>(const Shader &amp;shader)</argsstring>
+        <name>attachShader</name>
+        <qualifiedname>ShaderProgram::attachShader</qualifiedname>
+        <param>
+          <type>const <ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="89" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1adb0f9cf4b5d75a6c9039851cdda800bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ShaderProgram::link</definition>
+        <argsstring>()</argsstring>
+        <name>link</name>
+        <qualifiedname>ShaderProgram::link</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="90" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="158" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a8ebb87816029c95101e4952bb68826d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::Bind</definition>
+        <argsstring>() const</argsstring>
+        <name>Bind</name>
+        <qualifiedname>ShaderProgram::Bind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="91" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a0198f596bb0be14bb53c337c864878db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::Unbind</definition>
+        <argsstring>() const</argsstring>
+        <name>Unbind</name>
+        <qualifiedname>ShaderProgram::Unbind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="92" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="169" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a353754b0945041a109a0eaa26adfa947" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ShaderProgram::getID</definition>
+        <argsstring>() const</argsstring>
+        <name>getID</name>
+        <qualifiedname>ShaderProgram::getID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="94" column="21" bodyfile="engineOne/src/Core/Shader.h" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a4ba39a4886570dae81712b358ccacbf7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ShaderProgram::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>ShaderProgram::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="95" column="13" bodyfile="engineOne/src/Core/Shader.h" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a0f4e4fb113fb805e9d26cffe3da4f6ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ShaderProgram::checkLinkStatus</definition>
+        <argsstring>()</argsstring>
+        <name>checkLinkStatus</name>
+        <qualifiedname>ShaderProgram::checkLinkStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="98" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="174" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1abd172609a042867799598e3d0976b3b9" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniform1i</definition>
+        <argsstring>(const std::string &amp;uniformName, int v) noexcept</argsstring>
+        <name>SetUniform1i</name>
+        <qualifiedname>ShaderProgram::SetUniform1i</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="100" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="188" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a5548a7a76ad70f6b5ef52aeef27d317d" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniform1f</definition>
+        <argsstring>(const std::string &amp;uniformName, float v) noexcept</argsstring>
+        <name>SetUniform1f</name>
+        <qualifiedname>ShaderProgram::SetUniform1f</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="103" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a32ac1c3a28fde3478799ab36e420a57b" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniform2f</definition>
+        <argsstring>(const std::string &amp;uniformName, float v0, float v1) noexcept</argsstring>
+        <name>SetUniform2f</name>
+        <qualifiedname>ShaderProgram::SetUniform2f</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v0</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="104" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1af62dea2f1910d938bb1c0c7d1e69bf84" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniform3f</definition>
+        <argsstring>(const std::string &amp;uniformName, float v0, float v1, float v2) noexcept</argsstring>
+        <name>SetUniform3f</name>
+        <qualifiedname>ShaderProgram::SetUniform3f</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v0</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="105" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="203" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a6222623954f45c8b9e0b35de12247f54" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniform4f</definition>
+        <argsstring>(const std::string &amp;uniformName, float v0, float v1, float v2, float v3) noexcept</argsstring>
+        <name>SetUniform4f</name>
+        <qualifiedname>ShaderProgram::SetUniform4f</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v0</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="106" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="208" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a090430d6c9dfa5a356e120751b4ea89f" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniformVec2</definition>
+        <argsstring>(const std::string &amp;uniformName, const glm::vec2 &amp;vec) noexcept</argsstring>
+        <name>SetUniformVec2</name>
+        <qualifiedname>ShaderProgram::SetUniformVec2</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>const glm::vec2 &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="108" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="215" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a9112cde3075aef1bc28c15d20fd92113" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniformVec3</definition>
+        <argsstring>(const std::string &amp;uniformName, const glm::vec3 &amp;vec) noexcept</argsstring>
+        <name>SetUniformVec3</name>
+        <qualifiedname>ShaderProgram::SetUniformVec3</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>const glm::vec3 &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="109" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a251325313fed7ec6f784906be28e0980" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniformVec4</definition>
+        <argsstring>(const std::string &amp;uniformName, const glm::vec4 &amp;vec) noexcept</argsstring>
+        <name>SetUniformVec4</name>
+        <qualifiedname>ShaderProgram::SetUniformVec4</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>const glm::vec4 &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="110" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="225" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1a0d0a25d3c6f7163676c0a1be429e4799" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniformMat2</definition>
+        <argsstring>(const std::string &amp;uniformName, const glm::mat2 &amp;mat) noexcept</argsstring>
+        <name>SetUniformMat2</name>
+        <qualifiedname>ShaderProgram::SetUniformMat2</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>const glm::mat2 &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="112" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="230" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1af51c8f44bf93e0a1af6f98fc940f7c9f" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniformMat3</definition>
+        <argsstring>(const std::string &amp;uniformName, const glm::mat3 &amp;mat) noexcept</argsstring>
+        <name>SetUniformMat3</name>
+        <qualifiedname>ShaderProgram::SetUniformMat3</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>const glm::mat3 &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="113" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="235" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1aad81e53e078904c8298ac2aeed3fe153" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderProgram::SetUniformMat4</definition>
+        <argsstring>(const std::string &amp;uniformName, const glm::mat4 &amp;mat) noexcept</argsstring>
+        <name>SetUniformMat4</name>
+        <qualifiedname>ShaderProgram::SetUniformMat4</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <param>
+          <type>const glm::mat4 &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="114" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="240" bodyend="243"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d8/dc4/class_shader_program_1aacf007f2fc1db533f4ecda2cb5e21143" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ShaderProgram::GetUniformLocation</definition>
+        <argsstring>(const std::string &amp;uniformName) noexcept</argsstring>
+        <name>GetUniformLocation</name>
+        <qualifiedname>ShaderProgram::GetUniformLocation</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uniformName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="116" column="14" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="245" bodyend="259"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Shader.h" line="72" column="1" bodyfile="engineOne/src/Core/Shader.h" bodystart="73" bodyend="120"/>
+    <listofallmembers>
+      <member refid="d8/dc4/class_shader_program_1a89b23a6dd163d081ea66f934d6297161" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>attachShader</name></member>
+      <member refid="d8/dc4/class_shader_program_1a8ebb87816029c95101e4952bb68826d0" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>Bind</name></member>
+      <member refid="d8/dc4/class_shader_program_1a0f4e4fb113fb805e9d26cffe3da4f6ab" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>checkLinkStatus</name></member>
+      <member refid="d8/dc4/class_shader_program_1a353754b0945041a109a0eaa26adfa947" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>getID</name></member>
+      <member refid="d8/dc4/class_shader_program_1aacf007f2fc1db533f4ecda2cb5e21143" prot="private" virt="non-virtual"><scope>ShaderProgram</scope><name>GetUniformLocation</name></member>
+      <member refid="d8/dc4/class_shader_program_1a4ba39a4886570dae81712b358ccacbf7" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>isValid</name></member>
+      <member refid="d8/dc4/class_shader_program_1adb0f9cf4b5d75a6c9039851cdda800bf" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>link</name></member>
+      <member refid="d8/dc4/class_shader_program_1a14ff64214b1d7466fd6d7dc0c64baf4b" prot="private" virt="non-virtual"><scope>ShaderProgram</scope><name>m_ID</name></member>
+      <member refid="d8/dc4/class_shader_program_1a23c6cae0879aeac46c8e43f559c94d68" prot="private" virt="non-virtual"><scope>ShaderProgram</scope><name>m_UniformCache</name></member>
+      <member refid="d8/dc4/class_shader_program_1a1c809bd7c58747a1cc6cbceaef059fd0" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>operator=</name></member>
+      <member refid="d8/dc4/class_shader_program_1a92928cfa330bff055c7a1c625b9631c4" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>operator=</name></member>
+      <member refid="d8/dc4/class_shader_program_1a5548a7a76ad70f6b5ef52aeef27d317d" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniform1f</name></member>
+      <member refid="d8/dc4/class_shader_program_1abd172609a042867799598e3d0976b3b9" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniform1i</name></member>
+      <member refid="d8/dc4/class_shader_program_1a32ac1c3a28fde3478799ab36e420a57b" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniform2f</name></member>
+      <member refid="d8/dc4/class_shader_program_1af62dea2f1910d938bb1c0c7d1e69bf84" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniform3f</name></member>
+      <member refid="d8/dc4/class_shader_program_1a6222623954f45c8b9e0b35de12247f54" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniform4f</name></member>
+      <member refid="d8/dc4/class_shader_program_1a0d0a25d3c6f7163676c0a1be429e4799" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniformMat2</name></member>
+      <member refid="d8/dc4/class_shader_program_1af51c8f44bf93e0a1af6f98fc940f7c9f" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniformMat3</name></member>
+      <member refid="d8/dc4/class_shader_program_1aad81e53e078904c8298ac2aeed3fe153" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniformMat4</name></member>
+      <member refid="d8/dc4/class_shader_program_1a090430d6c9dfa5a356e120751b4ea89f" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniformVec2</name></member>
+      <member refid="d8/dc4/class_shader_program_1a9112cde3075aef1bc28c15d20fd92113" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniformVec3</name></member>
+      <member refid="d8/dc4/class_shader_program_1a251325313fed7ec6f784906be28e0980" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>SetUniformVec4</name></member>
+      <member refid="d8/dc4/class_shader_program_1ada6da4f63666e1b8167ba918fca48e5e" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="d8/dc4/class_shader_program_1a7a5efdb6a7680c2dc24427d2209e0049" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="d8/dc4/class_shader_program_1a5993b9213559fd7c203d94b2b307483b" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="d8/dc4/class_shader_program_1a1fd4aefaec3bb73e1a95695dcbb8dfdf" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="d8/dc4/class_shader_program_1a02b3714194261cd3e1048606a3368e66" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="d8/dc4/class_shader_program_1a0198f596bb0be14bb53c337c864878db" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>Unbind</name></member>
+      <member refid="d8/dc4/class_shader_program_1a4872407f4f8b06303a8a8710c00f074e" prot="public" virt="non-virtual"><scope>ShaderProgram</scope><name>~ShaderProgram</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_vertex_buffer" xml:lang="en-US">
+<title>VertexBuffer Class Reference</title>
+<indexterm><primary>VertexBuffer</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1ad6674fa9fa32a60be93bd66bc7bb9834"/><emphasis role="strong">VertexBuffer</emphasis> (const void *data, unsigned int size, BufferUsage usage=DefaultBufferUsage) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1a58adcb823390b0c2bd0b695a742f4a3e"/><emphasis role="strong">VertexBuffer</emphasis> (<link linkend="_class_vertex_buffer">VertexBuffer</link> &amp;&amp;other) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1a4ce46c0eb880ced3f4362852766f24bc"/><link linkend="_class_vertex_buffer">VertexBuffer</link> &amp; <emphasis role="strong">operator=</emphasis> (<link linkend="_class_vertex_buffer">VertexBuffer</link> &amp;&amp;other) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1a7e4ce6bde5c2f39c8640aa6d66b0a032"/><emphasis role="strong">VertexBuffer</emphasis> (const <link linkend="_class_vertex_buffer">VertexBuffer</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1a1dab90c1631031da8577683f08644087"/><link linkend="_class_vertex_buffer">VertexBuffer</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_vertex_buffer">VertexBuffer</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1a09c3081468c1a0ec988167eb6337611c"/>void <emphasis role="strong">Bind</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1a28d36240273e5b4bfeaa6097e30e9c23"/>void <emphasis role="strong">Unbind</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1ad64724411c893d8582610ce85687c5d1"/>void <emphasis role="strong">SetData</emphasis> (const void *data, unsigned int size, BufferUsage usage=DefaultBufferUsage) const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_buffer_1a9ef86408a67de76149606b5503eb8a64"/>unsigned int <emphasis role="strong">getID</emphasis> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/Buffer.hengineOne/src/Core/Buffer.cpp</section>

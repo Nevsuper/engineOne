@@ -1,0 +1,83 @@
+\doxysection{Shader\+Program Class Reference}
+\hypertarget{class_shader_program}{}\label{class_shader_program}\index{ShaderProgram@{ShaderProgram}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_shader_program_a7a5efdb6a7680c2dc24427d2209e0049}\label{class_shader_program_a7a5efdb6a7680c2dc24427d2209e0049} 
+{\bfseries Shader\+Program} (\mbox{\hyperlink{class_shader_program}{Shader\+Program}} \&\&) noexcept
+\item 
+\Hypertarget{class_shader_program_a5993b9213559fd7c203d94b2b307483b}\label{class_shader_program_a5993b9213559fd7c203d94b2b307483b} 
+{\bfseries Shader\+Program} (const std\+::string \&vertex\+Path, const std\+::string \&fragment\+Path)
+\item 
+\Hypertarget{class_shader_program_a1fd4aefaec3bb73e1a95695dcbb8dfdf}\label{class_shader_program_a1fd4aefaec3bb73e1a95695dcbb8dfdf} 
+{\bfseries Shader\+Program} (\mbox{\hyperlink{class_shader}{Shader}} \&vertex\+Shader, \mbox{\hyperlink{class_shader}{Shader}} \&fragment\+Shader)
+\item 
+\Hypertarget{class_shader_program_a02b3714194261cd3e1048606a3368e66}\label{class_shader_program_a02b3714194261cd3e1048606a3368e66} 
+{\bfseries Shader\+Program} (const \mbox{\hyperlink{class_shader_program}{Shader\+Program}} \&)=delete
+\item 
+\Hypertarget{class_shader_program_a1c809bd7c58747a1cc6cbceaef059fd0}\label{class_shader_program_a1c809bd7c58747a1cc6cbceaef059fd0} 
+\mbox{\hyperlink{class_shader_program}{Shader\+Program}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_shader_program}{Shader\+Program}} \&)=delete
+\item 
+\Hypertarget{class_shader_program_a92928cfa330bff055c7a1c625b9631c4}\label{class_shader_program_a92928cfa330bff055c7a1c625b9631c4} 
+\mbox{\hyperlink{class_shader_program}{Shader\+Program}} \& {\bfseries operator=} (\mbox{\hyperlink{class_shader_program}{Shader\+Program}} \&\&) noexcept
+\item 
+\Hypertarget{class_shader_program_a89b23a6dd163d081ea66f934d6297161}\label{class_shader_program_a89b23a6dd163d081ea66f934d6297161} 
+void {\bfseries attach\+Shader} (const \mbox{\hyperlink{class_shader}{Shader}} \&shader)
+\item 
+\Hypertarget{class_shader_program_adb0f9cf4b5d75a6c9039851cdda800bf}\label{class_shader_program_adb0f9cf4b5d75a6c9039851cdda800bf} 
+bool {\bfseries link} ()
+\item 
+\Hypertarget{class_shader_program_a8ebb87816029c95101e4952bb68826d0}\label{class_shader_program_a8ebb87816029c95101e4952bb68826d0} 
+void {\bfseries Bind} () const
+\item 
+\Hypertarget{class_shader_program_a0198f596bb0be14bb53c337c864878db}\label{class_shader_program_a0198f596bb0be14bb53c337c864878db} 
+void {\bfseries Unbind} () const
+\item 
+\Hypertarget{class_shader_program_a353754b0945041a109a0eaa26adfa947}\label{class_shader_program_a353754b0945041a109a0eaa26adfa947} 
+unsigned int {\bfseries get\+ID} () const
+\item 
+\Hypertarget{class_shader_program_a4ba39a4886570dae81712b358ccacbf7}\label{class_shader_program_a4ba39a4886570dae81712b358ccacbf7} 
+bool {\bfseries is\+Valid} () const
+\item 
+\Hypertarget{class_shader_program_a0f4e4fb113fb805e9d26cffe3da4f6ab}\label{class_shader_program_a0f4e4fb113fb805e9d26cffe3da4f6ab} 
+bool {\bfseries check\+Link\+Status} ()
+\item 
+\Hypertarget{class_shader_program_abd172609a042867799598e3d0976b3b9}\label{class_shader_program_abd172609a042867799598e3d0976b3b9} 
+void {\bfseries Set\+Uniform1i} (const std\+::string \&uniform\+Name, int v) noexcept
+\item 
+\Hypertarget{class_shader_program_a5548a7a76ad70f6b5ef52aeef27d317d}\label{class_shader_program_a5548a7a76ad70f6b5ef52aeef27d317d} 
+void {\bfseries Set\+Uniform1f} (const std\+::string \&uniform\+Name, float v) noexcept
+\item 
+\Hypertarget{class_shader_program_a32ac1c3a28fde3478799ab36e420a57b}\label{class_shader_program_a32ac1c3a28fde3478799ab36e420a57b} 
+void {\bfseries Set\+Uniform2f} (const std\+::string \&uniform\+Name, float v0, float v1) noexcept
+\item 
+\Hypertarget{class_shader_program_af62dea2f1910d938bb1c0c7d1e69bf84}\label{class_shader_program_af62dea2f1910d938bb1c0c7d1e69bf84} 
+void {\bfseries Set\+Uniform3f} (const std\+::string \&uniform\+Name, float v0, float v1, float v2) noexcept
+\item 
+\Hypertarget{class_shader_program_a6222623954f45c8b9e0b35de12247f54}\label{class_shader_program_a6222623954f45c8b9e0b35de12247f54} 
+void {\bfseries Set\+Uniform4f} (const std\+::string \&uniform\+Name, float v0, float v1, float v2, float v3) noexcept
+\item 
+\Hypertarget{class_shader_program_a090430d6c9dfa5a356e120751b4ea89f}\label{class_shader_program_a090430d6c9dfa5a356e120751b4ea89f} 
+void {\bfseries Set\+Uniform\+Vec2} (const std\+::string \&uniform\+Name, const glm\+::vec2 \&vec) noexcept
+\item 
+\Hypertarget{class_shader_program_a9112cde3075aef1bc28c15d20fd92113}\label{class_shader_program_a9112cde3075aef1bc28c15d20fd92113} 
+void {\bfseries Set\+Uniform\+Vec3} (const std\+::string \&uniform\+Name, const glm\+::vec3 \&vec) noexcept
+\item 
+\Hypertarget{class_shader_program_a251325313fed7ec6f784906be28e0980}\label{class_shader_program_a251325313fed7ec6f784906be28e0980} 
+void {\bfseries Set\+Uniform\+Vec4} (const std\+::string \&uniform\+Name, const glm\+::vec4 \&vec) noexcept
+\item 
+\Hypertarget{class_shader_program_a0d0a25d3c6f7163676c0a1be429e4799}\label{class_shader_program_a0d0a25d3c6f7163676c0a1be429e4799} 
+void {\bfseries Set\+Uniform\+Mat2} (const std\+::string \&uniform\+Name, const glm\+::mat2 \&mat) noexcept
+\item 
+\Hypertarget{class_shader_program_af51c8f44bf93e0a1af6f98fc940f7c9f}\label{class_shader_program_af51c8f44bf93e0a1af6f98fc940f7c9f} 
+void {\bfseries Set\+Uniform\+Mat3} (const std\+::string \&uniform\+Name, const glm\+::mat3 \&mat) noexcept
+\item 
+\Hypertarget{class_shader_program_aad81e53e078904c8298ac2aeed3fe153}\label{class_shader_program_aad81e53e078904c8298ac2aeed3fe153} 
+void {\bfseries Set\+Uniform\+Mat4} (const std\+::string \&uniform\+Name, const glm\+::mat4 \&mat) noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine\+One/src/\+Core/Shader.\+h\item 
+engine\+One/src/\+Core/Shader.\+cpp\end{DoxyCompactItemize}

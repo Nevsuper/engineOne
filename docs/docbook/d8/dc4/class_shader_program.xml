@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_shader_program" xml:lang="en-US">
+<title>ShaderProgram Class Reference</title>
+<indexterm><primary>ShaderProgram</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_shader_program_1a7a5efdb6a7680c2dc24427d2209e0049"/><emphasis role="strong">ShaderProgram</emphasis> (<link linkend="_class_shader_program">ShaderProgram</link> &amp;&amp;) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a5993b9213559fd7c203d94b2b307483b"/><emphasis role="strong">ShaderProgram</emphasis> (const std::string &amp;vertexPath, const std::string &amp;fragmentPath)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a1fd4aefaec3bb73e1a95695dcbb8dfdf"/><emphasis role="strong">ShaderProgram</emphasis> (<link linkend="_class_shader">Shader</link> &amp;vertexShader, <link linkend="_class_shader">Shader</link> &amp;fragmentShader)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a02b3714194261cd3e1048606a3368e66"/><emphasis role="strong">ShaderProgram</emphasis> (const <link linkend="_class_shader_program">ShaderProgram</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a1c809bd7c58747a1cc6cbceaef059fd0"/><link linkend="_class_shader_program">ShaderProgram</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_shader_program">ShaderProgram</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a92928cfa330bff055c7a1c625b9631c4"/><link linkend="_class_shader_program">ShaderProgram</link> &amp; <emphasis role="strong">operator=</emphasis> (<link linkend="_class_shader_program">ShaderProgram</link> &amp;&amp;) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a89b23a6dd163d081ea66f934d6297161"/>void <emphasis role="strong">attachShader</emphasis> (const <link linkend="_class_shader">Shader</link> &amp;shader)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1adb0f9cf4b5d75a6c9039851cdda800bf"/>bool <emphasis role="strong">link</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a8ebb87816029c95101e4952bb68826d0"/>void <emphasis role="strong">Bind</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a0198f596bb0be14bb53c337c864878db"/>void <emphasis role="strong">Unbind</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a353754b0945041a109a0eaa26adfa947"/>unsigned int <emphasis role="strong">getID</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a4ba39a4886570dae81712b358ccacbf7"/>bool <emphasis role="strong">isValid</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a0f4e4fb113fb805e9d26cffe3da4f6ab"/>bool <emphasis role="strong">checkLinkStatus</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1abd172609a042867799598e3d0976b3b9"/>void <emphasis role="strong">SetUniform1i</emphasis> (const std::string &amp;uniformName, int v) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a5548a7a76ad70f6b5ef52aeef27d317d"/>void <emphasis role="strong">SetUniform1f</emphasis> (const std::string &amp;uniformName, float v) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a32ac1c3a28fde3478799ab36e420a57b"/>void <emphasis role="strong">SetUniform2f</emphasis> (const std::string &amp;uniformName, float v0, float v1) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1af62dea2f1910d938bb1c0c7d1e69bf84"/>void <emphasis role="strong">SetUniform3f</emphasis> (const std::string &amp;uniformName, float v0, float v1, float v2) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a6222623954f45c8b9e0b35de12247f54"/>void <emphasis role="strong">SetUniform4f</emphasis> (const std::string &amp;uniformName, float v0, float v1, float v2, float v3) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a090430d6c9dfa5a356e120751b4ea89f"/>void <emphasis role="strong">SetUniformVec2</emphasis> (const std::string &amp;uniformName, const glm::vec2 &amp;vec) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a9112cde3075aef1bc28c15d20fd92113"/>void <emphasis role="strong">SetUniformVec3</emphasis> (const std::string &amp;uniformName, const glm::vec3 &amp;vec) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a251325313fed7ec6f784906be28e0980"/>void <emphasis role="strong">SetUniformVec4</emphasis> (const std::string &amp;uniformName, const glm::vec4 &amp;vec) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1a0d0a25d3c6f7163676c0a1be429e4799"/>void <emphasis role="strong">SetUniformMat2</emphasis> (const std::string &amp;uniformName, const glm::mat2 &amp;mat) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1af51c8f44bf93e0a1af6f98fc940f7c9f"/>void <emphasis role="strong">SetUniformMat3</emphasis> (const std::string &amp;uniformName, const glm::mat3 &amp;mat) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_program_1aad81e53e078904c8298ac2aeed3fe153"/>void <emphasis role="strong">SetUniformMat4</emphasis> (const std::string &amp;uniformName, const glm::mat4 &amp;mat) noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/Shader.hengineOne/src/Core/Shader.cpp</section>

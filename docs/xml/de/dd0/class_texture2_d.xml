@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="de/dd0/class_texture2_d" kind="class" language="C++" prot="public">
+    <compoundname>Texture2D</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="de/dd0/class_texture2_d_1adfd112a452e5890032a26fbdb51f6f69" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Texture2D::m_ID</definition>
+        <argsstring></argsstring>
+        <name>m_ID</name>
+        <qualifiedname>Texture2D::m_ID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="117" column="14" bodyfile="engineOne/src/Core/Texture.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1aa38331d2edebffe4ecb02e4031de1d6b" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Texture2D::Texture2D</definition>
+        <argsstring>(int width, int height, void *data, pixelDataType type, TextureInternalFormat internalFormat, int mipLevels=1) noexcept</argsstring>
+        <name>Texture2D</name>
+        <qualifiedname>Texture2D::Texture2D</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>pixelDataType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>TextureInternalFormat</type>
+          <declname>internalFormat</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mipLevels</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="99" column="1" bodyfile="engineOne/src/Core/Texture.cpp" bodystart="36" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1a682e145491f414cb38e08639a55202ef" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Texture2D::Texture2D</definition>
+        <argsstring>(const Texture2DDataCreateInfo &amp;createInfo) noexcept</argsstring>
+        <name>Texture2D</name>
+        <qualifiedname>Texture2D::Texture2D</qualifiedname>
+        <param>
+          <type>const <ref refid="da/dc7/struct_texture2_d_data_create_info" kindref="compound">Texture2DDataCreateInfo</ref> &amp;</type>
+          <declname>createInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="100" column="1" bodyfile="engineOne/src/Core/Texture.cpp" bodystart="43" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1afa644ef5e703fd06dbf2fc463e8666f4" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Texture2D::~Texture2D</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~Texture2D</name>
+        <qualifiedname>Texture2D::~Texture2D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="101" column="1" bodyfile="engineOne/src/Core/Texture.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1ab3535df92375024c0f533d8aa29bcac3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Texture2D::Texture2D</definition>
+        <argsstring>(const Texture2D &amp;)=delete</argsstring>
+        <name>Texture2D</name>
+        <qualifiedname>Texture2D::Texture2D</qualifiedname>
+        <param>
+          <type>const <ref refid="de/dd0/class_texture2_d" kindref="compound">Texture2D</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="104" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1a8ead868d2091effe12af24648571789d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="de/dd0/class_texture2_d" kindref="compound">Texture2D</ref> &amp;</type>
+        <definition>Texture2D &amp; Texture2D::operator=</definition>
+        <argsstring>(const Texture2D &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Texture2D::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="de/dd0/class_texture2_d" kindref="compound">Texture2D</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="105" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1a13b44cbc76977555b120116cd0bd9752" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Texture2D::Texture2D</definition>
+        <argsstring>(Texture2D &amp;&amp;other) noexcept</argsstring>
+        <name>Texture2D</name>
+        <qualifiedname>Texture2D::Texture2D</qualifiedname>
+        <param>
+          <type><ref refid="de/dd0/class_texture2_d" kindref="compound">Texture2D</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="107" column="1" bodyfile="engineOne/src/Core/Texture.cpp" bodystart="62" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1a9c4619c0d2c764ae8f402cc2cb7cc7b5" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="de/dd0/class_texture2_d" kindref="compound">Texture2D</ref> &amp;</type>
+        <definition>Texture2D &amp; Texture2D::operator=</definition>
+        <argsstring>(Texture2D &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Texture2D::operator=</qualifiedname>
+        <param>
+          <type><ref refid="de/dd0/class_texture2_d" kindref="compound">Texture2D</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="109" column="11" bodyfile="engineOne/src/Core/Texture.cpp" bodystart="68" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1af8b99dd70bd8601aacdfb8fd35811b14" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Texture2D::SubImage</definition>
+        <argsstring>(int width, int height, const void *data, pixelDataType type, TextureBaseFormat baseFormat, int level=0, int xOfffset=0, int yOffset=0) const noexcept</argsstring>
+        <name>SubImage</name>
+        <qualifiedname>Texture2D::SubImage</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>pixelDataType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>TextureBaseFormat</type>
+          <declname>baseFormat</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>xOfffset</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yOffset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="111" column="6" bodyfile="engineOne/src/Core/Texture.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1adc822f6b1595dbaea544b1d690989f96" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Texture2D::Bind</definition>
+        <argsstring>(unsigned int slot=0) const noexcept</argsstring>
+        <name>Bind</name>
+        <qualifiedname>Texture2D::Bind</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>slot</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="113" column="6" bodyfile="engineOne/src/Core/Texture.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dd0/class_texture2_d_1a360c02e74601a6ee6b223b8afe36366e" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Texture2D::Unbind</definition>
+        <argsstring>(unsigned int slot=0) const noexcept</argsstring>
+        <name>Unbind</name>
+        <qualifiedname>Texture2D::Unbind</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>slot</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="114" column="6" bodyfile="engineOne/src/Core/Texture.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Texture.h" line="96" column="1" bodyfile="engineOne/src/Core/Texture.h" bodystart="97" bodyend="118"/>
+    <listofallmembers>
+      <member refid="de/dd0/class_texture2_d_1adc822f6b1595dbaea544b1d690989f96" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>Bind</name></member>
+      <member refid="de/dd0/class_texture2_d_1adfd112a452e5890032a26fbdb51f6f69" prot="private" virt="non-virtual"><scope>Texture2D</scope><name>m_ID</name></member>
+      <member refid="de/dd0/class_texture2_d_1a8ead868d2091effe12af24648571789d" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>operator=</name></member>
+      <member refid="de/dd0/class_texture2_d_1a9c4619c0d2c764ae8f402cc2cb7cc7b5" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>operator=</name></member>
+      <member refid="de/dd0/class_texture2_d_1af8b99dd70bd8601aacdfb8fd35811b14" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>SubImage</name></member>
+      <member refid="de/dd0/class_texture2_d_1aa38331d2edebffe4ecb02e4031de1d6b" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>Texture2D</name></member>
+      <member refid="de/dd0/class_texture2_d_1a682e145491f414cb38e08639a55202ef" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>Texture2D</name></member>
+      <member refid="de/dd0/class_texture2_d_1ab3535df92375024c0f533d8aa29bcac3" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>Texture2D</name></member>
+      <member refid="de/dd0/class_texture2_d_1a13b44cbc76977555b120116cd0bd9752" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>Texture2D</name></member>
+      <member refid="de/dd0/class_texture2_d_1a360c02e74601a6ee6b223b8afe36366e" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>Unbind</name></member>
+      <member refid="de/dd0/class_texture2_d_1afa644ef5e703fd06dbf2fc463e8666f4" prot="public" virt="non-virtual"><scope>Texture2D</scope><name>~Texture2D</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

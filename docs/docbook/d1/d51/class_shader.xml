@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_shader" xml:lang="en-US">
+<title>Shader Class Reference</title>
+<indexterm><primary>Shader</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_shader_1a4fb784b41dfe5da2db92759030595b01"/><emphasis role="strong">Shader</emphasis> (ShaderType type) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1a179492378c921a3a97e32c7f391b5992"/><emphasis role="strong">Shader</emphasis> (ShaderType type, std::string &amp;data, ShaderLoadOption loadOption)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1aa5bf317e1a5e6c47d2a3433534d96fc7"/><emphasis role="strong">Shader</emphasis> (<link linkend="_class_shader">Shader</link> &amp;&amp;) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1ad3151af6dc9d4d892a3a700488f682af"/><emphasis role="strong">Shader</emphasis> (const <link linkend="_class_shader">Shader</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1a05b53bc160d089df65f67688990d763d"/><link linkend="_class_shader">Shader</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_shader">Shader</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1a5a2dbeb64ff6b328a4502ae0332d4966"/><link linkend="_class_shader">Shader</link> &amp; <emphasis role="strong">operator=</emphasis> (<link linkend="_class_shader">Shader</link> &amp;&amp;) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1a6a698bac7b98b58e57f2b46c97c8b430"/>bool <emphasis role="strong">loadFromFile</emphasis> (const std::string &amp;filePath)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1a151fc3e330f7bf0ee9145946e13f7a9c"/>bool <emphasis role="strong">loadFromString</emphasis> (const std::string &amp;shaderSrc)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1ab38ab684a4e984f41782cb2929d66ae6"/>ShaderType <emphasis role="strong">getType</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_shader_1abd7ecec064ab5ec0836678b47fb26940"/>unsigned int <emphasis role="strong">getID</emphasis> () const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/Shader.hengineOne/src/Core/Shader.cpp</section>

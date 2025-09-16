@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__vertex_array_8h_source" xml:lang="en-US">
+<title>VertexArray.h</title>
+<indexterm><primary>engineOne/src/Core/VertexArray.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&quot;glTypes.h&quot;</emphasis>
+3 <emphasis role="keyword">class&#32;</emphasis>VertexArray
+4 {
+5 <emphasis role="keyword">public</emphasis>:
+6 &#32;&#32;&#32;&#32;VertexArray()&#32;<emphasis role="keyword">noexcept</emphasis>;
+7 &#32;&#32;&#32;&#32;<emphasis role="comment">//move&#32;constructor</emphasis>
+8 &#32;&#32;&#32;&#32;VertexArray(VertexArray&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>;
+9 
+10 &#32;&#32;&#32;&#32;~VertexArray();
+11 
+12 &#32;&#32;&#32;&#32;<emphasis role="comment">//move&#32;assignment&#32;operator</emphasis>
+13 &#32;&#32;&#32;&#32;VertexArray&amp;&#32;operator=(VertexArray&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>;
+14 
+15 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;delete&#32;copy&#32;&#32;constructor&#32;and&#32;copy&#32;assignment&#32;operator</emphasis>
+16 &#32;&#32;&#32;&#32;VertexArray(<emphasis role="keyword">const</emphasis>&#32;VertexArray&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+17 &#32;&#32;&#32;&#32;VertexArray&amp;&#32;operator=(<emphasis role="keyword">const</emphasis>&#32;VertexArray&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+18 
+19 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Bind()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+20 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Unbind()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+21 
+22 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;addAttribute(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;index,&#32;<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;GLType&#32;type,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;normalized,&#32;<emphasis role="keywordtype">int</emphasis>&#32;stride,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>*&#32;pointer)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+23 
+24 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;getID()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_ID;&#32;}
+25 <emphasis role="keyword">private</emphasis>:
+26 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;m_ID;
+27 };
+28 
+</programlisting></section>

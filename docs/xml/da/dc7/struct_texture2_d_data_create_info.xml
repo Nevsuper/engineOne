@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="da/dc7/struct_texture2_d_data_create_info" kind="struct" language="C++" prot="public">
+    <compoundname>Texture2DDataCreateInfo</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="da/dc7/struct_texture2_d_data_create_info_1ac257ba77b494b45538fcd1d628c9fa3e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Texture2DDataCreateInfo::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Texture2DDataCreateInfo::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="90" column="5" bodyfile="engineOne/src/Core/Texture.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/dc7/struct_texture2_d_data_create_info_1a557697234bcca9b423c8dc9d151b27f8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Texture2DDataCreateInfo::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Texture2DDataCreateInfo::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="90" column="11" bodyfile="engineOne/src/Core/Texture.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/dc7/struct_texture2_d_data_create_info_1a454a378542fe56b987184115d8980ed6" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* Texture2DDataCreateInfo::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>Texture2DDataCreateInfo::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="91" column="6" bodyfile="engineOne/src/Core/Texture.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/dc7/struct_texture2_d_data_create_info_1ab3bbe51998d4c6a8014e24c41a128865" prot="public" static="no" mutable="no">
+        <type>pixelDataType</type>
+        <definition>pixelDataType Texture2DDataCreateInfo::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Texture2DDataCreateInfo::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="92" column="15" bodyfile="engineOne/src/Core/Texture.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/dc7/struct_texture2_d_data_create_info_1ab9b6fa23909e84cd88de2128a99535eb" prot="public" static="no" mutable="no">
+        <type>TextureInternalFormat</type>
+        <definition>TextureInternalFormat Texture2DDataCreateInfo::internalFormat</definition>
+        <argsstring></argsstring>
+        <name>internalFormat</name>
+        <qualifiedname>Texture2DDataCreateInfo::internalFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="93" column="23" bodyfile="engineOne/src/Core/Texture.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/dc7/struct_texture2_d_data_create_info_1ad2242c3cbbb986e05000d9144169a3d8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Texture2DDataCreateInfo::mipLevels</definition>
+        <argsstring></argsstring>
+        <name>mipLevels</name>
+        <qualifiedname>Texture2DDataCreateInfo::mipLevels</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Texture.h" line="94" column="5" bodyfile="engineOne/src/Core/Texture.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Texture.h" line="88" column="1" bodyfile="engineOne/src/Core/Texture.h" bodystart="89" bodyend="95"/>
+    <listofallmembers>
+      <member refid="da/dc7/struct_texture2_d_data_create_info_1a454a378542fe56b987184115d8980ed6" prot="public" virt="non-virtual"><scope>Texture2DDataCreateInfo</scope><name>data</name></member>
+      <member refid="da/dc7/struct_texture2_d_data_create_info_1a557697234bcca9b423c8dc9d151b27f8" prot="public" virt="non-virtual"><scope>Texture2DDataCreateInfo</scope><name>height</name></member>
+      <member refid="da/dc7/struct_texture2_d_data_create_info_1ab9b6fa23909e84cd88de2128a99535eb" prot="public" virt="non-virtual"><scope>Texture2DDataCreateInfo</scope><name>internalFormat</name></member>
+      <member refid="da/dc7/struct_texture2_d_data_create_info_1ad2242c3cbbb986e05000d9144169a3d8" prot="public" virt="non-virtual"><scope>Texture2DDataCreateInfo</scope><name>mipLevels</name></member>
+      <member refid="da/dc7/struct_texture2_d_data_create_info_1ab3bbe51998d4c6a8014e24c41a128865" prot="public" virt="non-virtual"><scope>Texture2DDataCreateInfo</scope><name>type</name></member>
+      <member refid="da/dc7/struct_texture2_d_data_create_info_1ac257ba77b494b45538fcd1d628c9fa3e" prot="public" virt="non-virtual"><scope>Texture2DDataCreateInfo</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,629 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="de/d6b/class_application" kind="class" language="C++" prot="public">
+    <compoundname>Application</compoundname>
+    <includes refid="d9/da3/_application_8h" local="no">Application.h</includes>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="de/d6b/class_application_1a9243082ef977d6fd7beb0bac15545e85" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* Application::s_WindowClassName</definition>
+        <argsstring></argsstring>
+        <name>s_WindowClassName</name>
+        <qualifiedname>Application::s_WindowClassName</qualifiedname>
+        <initializer>= &quot;MyEngineWindowClass&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="103" column="36" bodyfile="engineOne/src/Core/Application.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="de/d6b/class_application_1a3bae822aaed8a430bfc6c45678135563" prot="private" static="no" mutable="no">
+        <type>HINSTANCE</type>
+        <definition>HINSTANCE Application::m_hInstance</definition>
+        <argsstring></argsstring>
+        <name>m_hInstance</name>
+        <qualifiedname>Application::m_hInstance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="106" column="11" bodyfile="engineOne/src/Core/Application.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1ac9b076bceab70d6434447441fd68d240" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Application::m_ApplicationName</definition>
+        <argsstring></argsstring>
+        <name>m_ApplicationName</name>
+        <qualifiedname>Application::m_ApplicationName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="107" column="13" bodyfile="engineOne/src/Core/Application.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1a39b65c9ed81ea3eeff56d648aad1b36a" prot="private" static="no" mutable="no">
+        <type><ref refid="df/df5/class_camera_f_p_s" kindref="compound">CameraFPS</ref></type>
+        <definition>CameraFPS Application::m_Camera</definition>
+        <argsstring></argsstring>
+        <name>m_Camera</name>
+        <qualifiedname>Application::m_Camera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="108" column="11" bodyfile="engineOne/src/Core/Application.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1a03b577aa41ce043e397400b5d4efaa55" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/d08/class_timer" kindref="compound">Timer</ref></type>
+        <definition>Timer Application::m_Timer</definition>
+        <argsstring></argsstring>
+        <name>m_Timer</name>
+        <qualifiedname>Application::m_Timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="109" column="7" bodyfile="engineOne/src/Core/Application.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1a77b60f43ba1321e4bb3a824d1024674d" prot="private" static="no" mutable="no">
+        <type><ref refid="d6/dfe/class_g_l_loader" kindref="compound">GLLoader</ref></type>
+        <definition>GLLoader Application::m_OpenGLLoader</definition>
+        <argsstring></argsstring>
+        <name>m_OpenGLLoader</name>
+        <qualifiedname>Application::m_OpenGLLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="111" column="10" bodyfile="engineOne/src/Core/Application.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1a47410adf2b66e4e6bce73301f5850378" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="d9/dbf/class_window" kindref="compound">Window</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;Window&gt; Application::m_Window</definition>
+        <argsstring></argsstring>
+        <name>m_Window</name>
+        <qualifiedname>Application::m_Window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="112" column="17" bodyfile="engineOne/src/Core/Application.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1a30a3b9f261a46f7bbf187ab8be32c665" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="de/dff/class_render_context" kindref="compound">RenderContext</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;RenderContext&gt; Application::m_RenderContext</definition>
+        <argsstring></argsstring>
+        <name>m_RenderContext</name>
+        <qualifiedname>Application::m_RenderContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="113" column="17" bodyfile="engineOne/src/Core/Application.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1abf041d0c55c3866a73a09380d6d8139b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="d8/dc4/class_shader_program" kindref="compound">ShaderProgram</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ShaderProgram&gt; Application::m_ShaderProgram</definition>
+        <argsstring></argsstring>
+        <name>m_ShaderProgram</name>
+        <qualifiedname>Application::m_ShaderProgram</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="114" column="17" bodyfile="engineOne/src/Core/Application.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1a34274446ad3823445bd3617665023de5" prot="private" static="no" mutable="no">
+        <type><ref refid="de/d85/struct_mesh" kindref="compound">Mesh</ref></type>
+        <definition>Mesh Application::m_Mesh</definition>
+        <argsstring></argsstring>
+        <name>m_Mesh</name>
+        <qualifiedname>Application::m_Mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="116" column="6" bodyfile="engineOne/src/Core/Application.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1aafdd610bf70b382133cb3a4dea00b64d" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="d9/d51/class_vertex_array" kindref="compound">VertexArray</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;VertexArray&gt; Application::m_VAO</definition>
+        <argsstring></argsstring>
+        <name>m_VAO</name>
+        <qualifiedname>Application::m_VAO</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="118" column="17" bodyfile="engineOne/src/Core/Application.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1ad6fdd6f9f7bc5f395fca754ebfa85d3a" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="d0/d2e/class_vertex_buffer" kindref="compound">VertexBuffer</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;VertexBuffer&gt; Application::m_VBO</definition>
+        <argsstring></argsstring>
+        <name>m_VBO</name>
+        <qualifiedname>Application::m_VBO</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="119" column="17" bodyfile="engineOne/src/Core/Application.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1ac98bfc933b1de1d77df0a0e9ab6a4846" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="d5/dc6/class_index_buffer" kindref="compound">IndexBuffer</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;IndexBuffer&gt; Application::m_EBO</definition>
+        <argsstring></argsstring>
+        <name>m_EBO</name>
+        <qualifiedname>Application::m_EBO</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="120" column="17" bodyfile="engineOne/src/Core/Application.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1a44abaffbde0f2db7c4128b0a389b23f6" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="de/dd0/class_texture2_d" kindref="compound">Texture2D</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;Texture2D&gt; Application::m_Texture</definition>
+        <argsstring></argsstring>
+        <name>m_Texture</name>
+        <qualifiedname>Application::m_Texture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="121" column="17" bodyfile="engineOne/src/Core/Application.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d6b/class_application_1a197056032e63d1bd859ee01c9fe94710" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="de/dd0/class_texture2_d" kindref="compound">Texture2D</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;Texture2D&gt; Application::m_AlphaTexture</definition>
+        <argsstring></argsstring>
+        <name>m_AlphaTexture</name>
+        <qualifiedname>Application::m_AlphaTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="121" column="26" bodyfile="engineOne/src/Core/Application.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="de/d6b/class_application_1a1ef39113c191aebfb4c018eab566fcc8" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Application::Application</definition>
+        <argsstring>(HINSTANCE hInstance, const std::string &amp;appName) noexcept</argsstring>
+        <name>Application</name>
+        <qualifiedname>Application::Application</qualifiedname>
+        <param>
+          <type>HINSTANCE</type>
+          <declname>hInstance</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>appName</declname>
+        </param>
+        <briefdescription>
+<para>constructer for creating <ref refid="de/d6b/class_application" kindref="compound">Application</ref> object </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hInstance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HINSTANCE from WinMain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>appName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the application which will be used to set window name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="36" column="1" bodyfile="engineOne/src/Core/Application.cpp" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1afaeec66a8591b6d88049b260133d13fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Application::Application</definition>
+        <argsstring>(const Application &amp;)=delete</argsstring>
+        <name>Application</name>
+        <qualifiedname>Application::Application</qualifiedname>
+        <param>
+          <type>const <ref refid="de/d6b/class_application" kindref="compound">Application</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1a4bddd891168e3adc56dfd505ac41af7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="de/d6b/class_application" kindref="compound">Application</ref> &amp;</type>
+        <definition>Application &amp; Application::operator=</definition>
+        <argsstring>(const Application &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Application::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="de/d6b/class_application" kindref="compound">Application</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="39" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1aac80c416ee82a3c9676a8768eeb661fd" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="virtual">
+        <type></type>
+        <definition>virtual Application::~Application</definition>
+        <argsstring>() noexcept=default</argsstring>
+        <name>~Application</name>
+        <qualifiedname>Application::~Application</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="41" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1ae14efba90063d71adb721ac7acc6ac5d" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Application::Init</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Init</name>
+        <qualifiedname>Application::Init</qualifiedname>
+        <briefdescription>
+<para>Initialize the App class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>returns true if initalizetion succeeds and false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="47" column="6" bodyfile="engineOne/src/Core/Application.cpp" bodystart="77" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1a1bfe19c019dde9134527f2b7e9afb5da" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Application::Run</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Run</name>
+        <qualifiedname>Application::Run</qualifiedname>
+        <briefdescription>
+<para>Run the application. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="51" column="6" bodyfile="engineOne/src/Core/Application.cpp" bodystart="128" bodyend="138"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="de/d6b/class_application_1a975b3a8aae65726b952094e4f4f26ba6" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Application::InitGraphics</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>InitGraphics</name>
+        <qualifiedname>Application::InitGraphics</qualifiedname>
+        <briefdescription>
+<para>function to Initialize graphics which is called by the Init function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>returns true if initalizetion succeeds and false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="57" column="6" bodyfile="engineOne/src/Core/Application.cpp" bodystart="139" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1a6d7a34a96d9c2d89ae067ba3bc4897c6" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Application::InitResources</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>InitResources</name>
+        <qualifiedname>Application::InitResources</qualifiedname>
+        <briefdescription>
+<para>function ti Initialize Resources like textures and models which is called by the Init function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>returns true if initalizetion succeeds and false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="62" column="6" bodyfile="engineOne/src/Core/Application.cpp" bodystart="159" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1a6e678bfca61650e5b6ec67e86beb1880" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Application::ProcessInput</definition>
+        <argsstring>(float deltaTime) noexcept</argsstring>
+        <name>ProcessInput</name>
+        <qualifiedname>Application::ProcessInput</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+<para>function to handle inputs and is called by the Run function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltaTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="68" column="6" bodyfile="engineOne/src/Core/Application.cpp" bodystart="285" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1aaad7e855c307467ecd01267a06753d20" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Application::Update</definition>
+        <argsstring>(float deltaTime) noexcept</argsstring>
+        <name>Update</name>
+        <qualifiedname>Application::Update</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+<para>function to updates per frame and is called by the Run function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltaTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="74" column="6" bodyfile="engineOne/src/Core/Application.cpp" bodystart="326" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1a0dfb895248e0afbbada9419931096036" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Application::Render</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Render</name>
+        <qualifiedname>Application::Render</qualifiedname>
+        <briefdescription>
+<para>function to Render and is called by the Run function </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="78" column="6" bodyfile="engineOne/src/Core/Application.cpp" bodystart="336" bodyend="350"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="de/d6b/class_application_1a958be5e0f581e00cbc270bdcac930000" prot="private" static="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Application::RegisterWindowClass</definition>
+        <argsstring>(HINSTANCE hInstance) noexcept</argsstring>
+        <name>RegisterWindowClass</name>
+        <qualifiedname>Application::RegisterWindowClass</qualifiedname>
+        <param>
+          <type>HINSTANCE</type>
+          <declname>hInstance</declname>
+        </param>
+        <briefdescription>
+<para>static function which registers the window class (win32) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hInstance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>returns true upon succeeding and false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="86" column="13" bodyfile="engineOne/src/Core/Application.cpp" bodystart="351" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d6b/class_application_1a980ba844900afcec68a737f3e3cbfa1f" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void APIENTRY</type>
+        <definition>void APIENTRY Application::OpenGLDebugCallback</definition>
+        <argsstring>(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</argsstring>
+        <name>OpenGLDebugCallback</name>
+        <qualifiedname>Application::OpenGLDebugCallback</qualifiedname>
+        <param>
+          <type>GLenum</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>GLenum</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>GLenum</type>
+          <declname>severity</declname>
+        </param>
+        <param>
+          <type>GLsizei</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>const GLchar *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>userParam</declname>
+        </param>
+        <briefdescription>
+<para>callback function which is called by opengl when enountering openglerrors </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>severity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userParam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="99" column="22" bodyfile="engineOne/src/Core/Application.cpp" bodystart="368" bodyend="378"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>class for runnning engine <ref refid="de/d6b/class_application" kindref="compound">Application</ref> </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Application.h" line="28" column="1" bodyfile="engineOne/src/Core/Application.h" bodystart="29" bodyend="122"/>
+    <listofallmembers>
+      <member refid="de/d6b/class_application_1a1ef39113c191aebfb4c018eab566fcc8" prot="public" virt="non-virtual"><scope>Application</scope><name>Application</name></member>
+      <member refid="de/d6b/class_application_1afaeec66a8591b6d88049b260133d13fc" prot="public" virt="non-virtual"><scope>Application</scope><name>Application</name></member>
+      <member refid="de/d6b/class_application_1ae14efba90063d71adb721ac7acc6ac5d" prot="public" virt="non-virtual"><scope>Application</scope><name>Init</name></member>
+      <member refid="de/d6b/class_application_1a975b3a8aae65726b952094e4f4f26ba6" prot="private" virt="non-virtual"><scope>Application</scope><name>InitGraphics</name></member>
+      <member refid="de/d6b/class_application_1a6d7a34a96d9c2d89ae067ba3bc4897c6" prot="private" virt="non-virtual"><scope>Application</scope><name>InitResources</name></member>
+      <member refid="de/d6b/class_application_1a197056032e63d1bd859ee01c9fe94710" prot="private" virt="non-virtual"><scope>Application</scope><name>m_AlphaTexture</name></member>
+      <member refid="de/d6b/class_application_1ac9b076bceab70d6434447441fd68d240" prot="private" virt="non-virtual"><scope>Application</scope><name>m_ApplicationName</name></member>
+      <member refid="de/d6b/class_application_1a39b65c9ed81ea3eeff56d648aad1b36a" prot="private" virt="non-virtual"><scope>Application</scope><name>m_Camera</name></member>
+      <member refid="de/d6b/class_application_1ac98bfc933b1de1d77df0a0e9ab6a4846" prot="private" virt="non-virtual"><scope>Application</scope><name>m_EBO</name></member>
+      <member refid="de/d6b/class_application_1a3bae822aaed8a430bfc6c45678135563" prot="private" virt="non-virtual"><scope>Application</scope><name>m_hInstance</name></member>
+      <member refid="de/d6b/class_application_1a34274446ad3823445bd3617665023de5" prot="private" virt="non-virtual"><scope>Application</scope><name>m_Mesh</name></member>
+      <member refid="de/d6b/class_application_1a77b60f43ba1321e4bb3a824d1024674d" prot="private" virt="non-virtual"><scope>Application</scope><name>m_OpenGLLoader</name></member>
+      <member refid="de/d6b/class_application_1a30a3b9f261a46f7bbf187ab8be32c665" prot="private" virt="non-virtual"><scope>Application</scope><name>m_RenderContext</name></member>
+      <member refid="de/d6b/class_application_1abf041d0c55c3866a73a09380d6d8139b" prot="private" virt="non-virtual"><scope>Application</scope><name>m_ShaderProgram</name></member>
+      <member refid="de/d6b/class_application_1a44abaffbde0f2db7c4128b0a389b23f6" prot="private" virt="non-virtual"><scope>Application</scope><name>m_Texture</name></member>
+      <member refid="de/d6b/class_application_1a03b577aa41ce043e397400b5d4efaa55" prot="private" virt="non-virtual"><scope>Application</scope><name>m_Timer</name></member>
+      <member refid="de/d6b/class_application_1aafdd610bf70b382133cb3a4dea00b64d" prot="private" virt="non-virtual"><scope>Application</scope><name>m_VAO</name></member>
+      <member refid="de/d6b/class_application_1ad6fdd6f9f7bc5f395fca754ebfa85d3a" prot="private" virt="non-virtual"><scope>Application</scope><name>m_VBO</name></member>
+      <member refid="de/d6b/class_application_1a47410adf2b66e4e6bce73301f5850378" prot="private" virt="non-virtual"><scope>Application</scope><name>m_Window</name></member>
+      <member refid="de/d6b/class_application_1a980ba844900afcec68a737f3e3cbfa1f" prot="private" virt="non-virtual"><scope>Application</scope><name>OpenGLDebugCallback</name></member>
+      <member refid="de/d6b/class_application_1a4bddd891168e3adc56dfd505ac41af7f" prot="public" virt="non-virtual"><scope>Application</scope><name>operator=</name></member>
+      <member refid="de/d6b/class_application_1a6e678bfca61650e5b6ec67e86beb1880" prot="private" virt="non-virtual"><scope>Application</scope><name>ProcessInput</name></member>
+      <member refid="de/d6b/class_application_1a958be5e0f581e00cbc270bdcac930000" prot="private" virt="non-virtual"><scope>Application</scope><name>RegisterWindowClass</name></member>
+      <member refid="de/d6b/class_application_1a0dfb895248e0afbbada9419931096036" prot="private" virt="non-virtual"><scope>Application</scope><name>Render</name></member>
+      <member refid="de/d6b/class_application_1a1bfe19c019dde9134527f2b7e9afb5da" prot="public" virt="non-virtual"><scope>Application</scope><name>Run</name></member>
+      <member refid="de/d6b/class_application_1a9243082ef977d6fd7beb0bac15545e85" prot="private" virt="non-virtual"><scope>Application</scope><name>s_WindowClassName</name></member>
+      <member refid="de/d6b/class_application_1aaad7e855c307467ecd01267a06753d20" prot="private" virt="non-virtual"><scope>Application</scope><name>Update</name></member>
+      <member refid="de/d6b/class_application_1aac80c416ee82a3c9676a8768eeb661fd" prot="public" virt="virtual"><scope>Application</scope><name>~Application</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

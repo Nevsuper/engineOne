@@ -1,0 +1,76 @@
+\doxysection{Application Class Reference}
+\hypertarget{class_application}{}\label{class_application}\index{Application@{Application}}
+
+
+class for runnning engine \doxylink{class_application}{Application}  
+
+
+
+
+{\ttfamily \#include $<$Application.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_application_a1ef39113c191aebfb4c018eab566fcc8}{Application}} (HINSTANCE h\+Instance, const std\+::string \&app\+Name) noexcept
+\begin{DoxyCompactList}\small\item\em constructer for creating \doxylink{class_application}{Application} object \end{DoxyCompactList}\item 
+\Hypertarget{class_application_afaeec66a8591b6d88049b260133d13fc}\label{class_application_afaeec66a8591b6d88049b260133d13fc} 
+{\bfseries Application} (const \mbox{\hyperlink{class_application}{Application}} \&)=delete
+\item 
+\Hypertarget{class_application_a4bddd891168e3adc56dfd505ac41af7f}\label{class_application_a4bddd891168e3adc56dfd505ac41af7f} 
+\mbox{\hyperlink{class_application}{Application}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_application}{Application}} \&)=delete
+\item 
+bool \mbox{\hyperlink{class_application_ae14efba90063d71adb721ac7acc6ac5d}{Init}} () noexcept
+\begin{DoxyCompactList}\small\item\em Initialize the App class. \end{DoxyCompactList}\item 
+\Hypertarget{class_application_a1bfe19c019dde9134527f2b7e9afb5da}\label{class_application_a1bfe19c019dde9134527f2b7e9afb5da} 
+void {\bfseries Run} () noexcept
+\begin{DoxyCompactList}\small\item\em Run the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class for runnning engine \doxylink{class_application}{Application} 
+
+\label{doc-constructors}
+\Hypertarget{class_application_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_application_a1ef39113c191aebfb4c018eab566fcc8}\index{Application@{Application}!Application@{Application}}
+\index{Application@{Application}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Application()}{Application()}}
+{\footnotesize\ttfamily \label{class_application_a1ef39113c191aebfb4c018eab566fcc8} 
+Application\+::\+Application (\begin{DoxyParamCaption}\item[{HINSTANCE}]{h\+Instance}{, }\item[{const std\+::string \&}]{app\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+constructer for creating \doxylink{class_application}{Application} object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Instance} & HINSTANCE from Win\+Main \\
+\hline
+{\em app\+Name} & Name of the application which will be used to set window name \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_application_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_application_ae14efba90063d71adb721ac7acc6ac5d}\index{Application@{Application}!Init@{Init}}
+\index{Init@{Init}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_application_ae14efba90063d71adb721ac7acc6ac5d} 
+bool Application\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Initialize the App class. 
+
+\begin{DoxyReturn}{Returns}
+returns true if initalizetion succeeds and false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine\+One/src/\+Core/Application.\+h\item 
+engine\+One/src/\+Core/Application.\+cpp\end{DoxyCompactItemize}

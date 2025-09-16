@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="dir_ee9e83a65bfddd695fa2d314a4e41b7d" kind="dir">
+    <compoundname>engineOne/src/Core</compoundname>
+    <innerfile refid="d0/d42/_application_8cpp">Application.cpp</innerfile>
+    <innerfile refid="d9/da3/_application_8h">Application.h</innerfile>
+    <innerfile refid="dc/dcf/_buffer_8cpp">Buffer.cpp</innerfile>
+    <innerfile refid="d7/d1b/_buffer_8h">Buffer.h</innerfile>
+    <innerfile refid="d1/d33/_camera_8cpp">Camera.cpp</innerfile>
+    <innerfile refid="d5/d91/_camera_8h">Camera.h</innerfile>
+    <innerfile refid="df/dd2/_g_l_loader_8cpp">GLLoader.cpp</innerfile>
+    <innerfile refid="df/dc1/_g_l_loader_8h">GLLoader.h</innerfile>
+    <innerfile refid="d3/d77/gl_types_8h">glTypes.h</innerfile>
+    <innerfile refid="db/d85/gl_utils_8h">glUtils.h</innerfile>
+    <innerfile refid="d7/d47/_input_8cpp">Input.cpp</innerfile>
+    <innerfile refid="d2/d94/_input_8h">Input.h</innerfile>
+    <innerfile refid="de/db4/key_codes_8h">keyCodes.h</innerfile>
+    <innerfile refid="df/d0a/main_8cpp">main.cpp</innerfile>
+    <innerfile refid="d6/d1b/main2_8cpp">main2.cpp</innerfile>
+    <innerfile refid="d5/d78/_render_context_8cpp">RenderContext.cpp</innerfile>
+    <innerfile refid="d3/dc5/_render_context_8h">RenderContext.h</innerfile>
+    <innerfile refid="d5/d16/_shader_8cpp">Shader.cpp</innerfile>
+    <innerfile refid="d8/d34/_shader_8h">Shader.h</innerfile>
+    <innerfile refid="da/d26/_texture_8cpp">Texture.cpp</innerfile>
+    <innerfile refid="de/dbf/_texture_8h">Texture.h</innerfile>
+    <innerfile refid="d5/d29/_timer_8h">Timer.h</innerfile>
+    <innerfile refid="d5/d60/utils_8h">utils.h</innerfile>
+    <innerfile refid="db/d28/_vertex_array_8cpp">VertexArray.cpp</innerfile>
+    <innerfile refid="d0/df4/_vertex_array_8h">VertexArray.h</innerfile>
+    <innerfile refid="d3/db8/_window_8cpp">Window.cpp</innerfile>
+    <innerfile refid="de/d42/_window_8h">Window.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/"/>
+  </compounddef>
+</doxygen>

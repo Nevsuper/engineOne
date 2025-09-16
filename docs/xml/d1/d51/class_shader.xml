@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d1/d51/class_shader" kind="class" language="C++" prot="public">
+    <compoundname>Shader</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d1/d51/class_shader_1a29978362f6ae62dfe17851b988e7d198" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Shader::m_ID</definition>
+        <argsstring></argsstring>
+        <name>m_ID</name>
+        <qualifiedname>Shader::m_ID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="67" column="14" bodyfile="engineOne/src/Core/Shader.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/d51/class_shader_1a8260796e464502a549577e53370f1c91" prot="private" static="no" mutable="no">
+        <type>ShaderType</type>
+        <definition>ShaderType Shader::m_Type</definition>
+        <argsstring></argsstring>
+        <name>m_Type</name>
+        <qualifiedname>Shader::m_Type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="68" column="12" bodyfile="engineOne/src/Core/Shader.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d1/d51/class_shader_1a4fb784b41dfe5da2db92759030595b01" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Shader::Shader</definition>
+        <argsstring>(ShaderType type) noexcept</argsstring>
+        <name>Shader</name>
+        <qualifiedname>Shader::Shader</qualifiedname>
+        <param>
+          <type>ShaderType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="46" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1a179492378c921a3a97e32c7f391b5992" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Shader::Shader</definition>
+        <argsstring>(ShaderType type, std::string &amp;data, ShaderLoadOption loadOption)</argsstring>
+        <name>Shader</name>
+        <qualifiedname>Shader::Shader</qualifiedname>
+        <param>
+          <type>ShaderType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>ShaderLoadOption</type>
+          <declname>loadOption</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="47" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="14" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1aa5bf317e1a5e6c47d2a3433534d96fc7" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Shader::Shader</definition>
+        <argsstring>(Shader &amp;&amp;) noexcept</argsstring>
+        <name>Shader</name>
+        <qualifiedname>Shader::Shader</qualifiedname>
+        <param>
+          <type><ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;&amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="48" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="30" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1ad79513cc1ec285a438874c55b0ef44a7" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Shader::~Shader</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~Shader</name>
+        <qualifiedname>Shader::~Shader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="50" column="1" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1ad3151af6dc9d4d892a3a700488f682af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Shader::Shader</definition>
+        <argsstring>(const Shader &amp;)=delete</argsstring>
+        <name>Shader</name>
+        <qualifiedname>Shader::Shader</qualifiedname>
+        <param>
+          <type>const <ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1a05b53bc160d089df65f67688990d763d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;</type>
+        <definition>Shader &amp; Shader::operator=</definition>
+        <argsstring>(const Shader &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Shader::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="54" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1a5a2dbeb64ff6b328a4502ae0332d4966" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;</type>
+        <definition>Shader &amp; Shader::operator=</definition>
+        <argsstring>(Shader &amp;&amp;) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Shader::operator=</qualifiedname>
+        <param>
+          <type><ref refid="d1/d51/class_shader" kindref="compound">Shader</ref> &amp;&amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="57" column="8" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="36" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1a6a698bac7b98b58e57f2b46c97c8b430" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Shader::loadFromFile</definition>
+        <argsstring>(const std::string &amp;filePath)</argsstring>
+        <name>loadFromFile</name>
+        <qualifiedname>Shader::loadFromFile</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="59" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="50" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1a151fc3e330f7bf0ee9145946e13f7a9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Shader::loadFromString</definition>
+        <argsstring>(const std::string &amp;shaderSrc)</argsstring>
+        <name>loadFromString</name>
+        <qualifiedname>Shader::loadFromString</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>shaderSrc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="60" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="66" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1ab38ab684a4e984f41782cb2929d66ae6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>ShaderType</type>
+        <definition>ShaderType Shader::getType</definition>
+        <argsstring>() const</argsstring>
+        <name>getType</name>
+        <qualifiedname>Shader::getType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="62" column="19" bodyfile="engineOne/src/Core/Shader.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d51/class_shader_1abd7ecec064ab5ec0836678b47fb26940" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Shader::getID</definition>
+        <argsstring>() const</argsstring>
+        <name>getID</name>
+        <qualifiedname>Shader::getID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="63" column="21" bodyfile="engineOne/src/Core/Shader.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d1/d51/class_shader_1a5fe632d0a40c0543a132c84973e8b30a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Shader::checkCompileStatus</definition>
+        <argsstring>()</argsstring>
+        <name>checkCompileStatus</name>
+        <qualifiedname>Shader::checkCompileStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Shader.h" line="65" column="6" bodyfile="engineOne/src/Core/Shader.cpp" bodystart="76" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Shader.h" line="43" column="1" bodyfile="engineOne/src/Core/Shader.h" bodystart="44" bodyend="69"/>
+    <listofallmembers>
+      <member refid="d1/d51/class_shader_1a5fe632d0a40c0543a132c84973e8b30a" prot="private" virt="non-virtual"><scope>Shader</scope><name>checkCompileStatus</name></member>
+      <member refid="d1/d51/class_shader_1abd7ecec064ab5ec0836678b47fb26940" prot="public" virt="non-virtual"><scope>Shader</scope><name>getID</name></member>
+      <member refid="d1/d51/class_shader_1ab38ab684a4e984f41782cb2929d66ae6" prot="public" virt="non-virtual"><scope>Shader</scope><name>getType</name></member>
+      <member refid="d1/d51/class_shader_1a6a698bac7b98b58e57f2b46c97c8b430" prot="public" virt="non-virtual"><scope>Shader</scope><name>loadFromFile</name></member>
+      <member refid="d1/d51/class_shader_1a151fc3e330f7bf0ee9145946e13f7a9c" prot="public" virt="non-virtual"><scope>Shader</scope><name>loadFromString</name></member>
+      <member refid="d1/d51/class_shader_1a29978362f6ae62dfe17851b988e7d198" prot="private" virt="non-virtual"><scope>Shader</scope><name>m_ID</name></member>
+      <member refid="d1/d51/class_shader_1a8260796e464502a549577e53370f1c91" prot="private" virt="non-virtual"><scope>Shader</scope><name>m_Type</name></member>
+      <member refid="d1/d51/class_shader_1a05b53bc160d089df65f67688990d763d" prot="public" virt="non-virtual"><scope>Shader</scope><name>operator=</name></member>
+      <member refid="d1/d51/class_shader_1a5a2dbeb64ff6b328a4502ae0332d4966" prot="public" virt="non-virtual"><scope>Shader</scope><name>operator=</name></member>
+      <member refid="d1/d51/class_shader_1a4fb784b41dfe5da2db92759030595b01" prot="public" virt="non-virtual"><scope>Shader</scope><name>Shader</name></member>
+      <member refid="d1/d51/class_shader_1a179492378c921a3a97e32c7f391b5992" prot="public" virt="non-virtual"><scope>Shader</scope><name>Shader</name></member>
+      <member refid="d1/d51/class_shader_1aa5bf317e1a5e6c47d2a3433534d96fc7" prot="public" virt="non-virtual"><scope>Shader</scope><name>Shader</name></member>
+      <member refid="d1/d51/class_shader_1ad3151af6dc9d4d892a3a700488f682af" prot="public" virt="non-virtual"><scope>Shader</scope><name>Shader</name></member>
+      <member refid="d1/d51/class_shader_1ad79513cc1ec285a438874c55b0ef44a7" prot="public" virt="non-virtual"><scope>Shader</scope><name>~Shader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

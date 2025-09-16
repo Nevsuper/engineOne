@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__render_context_8h_source" xml:lang="en-US">
+<title>RenderContext.h</title>
+<indexterm><primary>engineOne/src/Core/RenderContext.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&quot;Window.h&quot;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&quot;utils.h&quot;</emphasis>
+4 
+5 <emphasis role="preprocessor">#include&lt;glad/gl.h&gt;</emphasis>
+6 
+7 <emphasis role="keyword">struct&#32;</emphasis>RenderContextCreateInfo
+8 {
+9 &#32;&#32;&#32;&#32;<link linkend="_class_window">Window</link>&amp;&#32;window;
+10 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;majorVersion&#32;=&#32;4;
+11 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;minorVersion&#32;=&#32;5;
+12 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debugContext&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+13 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;colorBits&#32;=&#32;32;
+14 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;depthBits&#32;=&#32;24;
+15 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;stencilBits&#32;=&#32;8;
+16 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;samples&#32;=&#32;0;&#32;<emphasis role="comment">//&#32;Number&#32;of&#32;samples&#32;for&#32;multisampling&#32;(0&#32;=&#32;no&#32;multisampling)</emphasis>
+17 &#32;&#32;&#32;&#32;RenderContextCreateInfo(<link linkend="_class_window">Window</link>&amp;&#32;win,
+18 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;maj&#32;=&#32;4,
+19 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;min&#32;=&#32;5,
+20 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug&#32;=&#32;<emphasis role="keyword">true</emphasis>,
+21 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;color&#32;=&#32;32,
+22 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;depth&#32;=&#32;24,
+23 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;stencil&#32;=&#32;8,
+24 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;sampleCount&#32;=&#32;0)
+25 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;window(win),
+26 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;majorVersion(maj),
+27 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;minorVersion(min),
+28 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;debugContext(debug),
+29 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;colorBits(color),
+30 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;depthBits(depth),
+31 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stencilBits(stencil),
+32 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;samples(sampleCount)
+33 &#32;&#32;&#32;&#32;{}
+34 };
+35 
+36 
+37 <emphasis role="keyword">class&#32;</emphasis>RenderContext
+38 {
+39 <emphasis role="keyword">public</emphasis>:
+40 &#32;&#32;&#32;&#32;RenderContext(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_struct_render_context_create_info">RenderContextCreateInfo</link>&amp;&#32;createInfo);
+41 &#32;&#32;&#32;&#32;RenderContext(<link linkend="_class_window">Window</link>&amp;&#32;window,<emphasis role="keywordtype">int</emphasis>&#32;majorVersion&#32;=&#32;4,&#32;<emphasis role="keywordtype">int</emphasis>&#32;minorVersion&#32;=&#32;5,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug&#32;=&#32;<emphasis role="keyword">true</emphasis>);
+42 &#32;&#32;&#32;&#32;~RenderContext()&#32;<emphasis role="keyword">noexcept</emphasis>;
+43 
+44 &#32;&#32;&#32;&#32;RenderContext(<emphasis role="keyword">const</emphasis>&#32;RenderContext&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+45 &#32;&#32;&#32;&#32;RenderContext&amp;&#32;operator=(<emphasis role="keyword">const</emphasis>&#32;RenderContext&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+46 &#32;&#32;&#32;&#32;
+47 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;MakeCurrent(<link linkend="_class_window">Window</link>&amp;&#32;window)&#32;<emphasis role="keyword">noexcept</emphasis>;
+48 
+49 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;clearColor(<emphasis role="keywordtype">float</emphasis>&#32;r,&#32;<emphasis role="keywordtype">float</emphasis>&#32;g,&#32;<emphasis role="keywordtype">float</emphasis>&#32;b,&#32;<emphasis role="keywordtype">float</emphasis>&#32;a)&#32;<emphasis role="keyword">noexcept</emphasis>
+50 &#32;&#32;&#32;&#32;{
+51 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glClearColor(r,&#32;g,&#32;b,&#32;a);
+52 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glClear(GL_COLOR_BUFFER_BIT&#32;|&#32;GL_DEPTH_BUFFER_BIT&#32;|&#32;GL_STENCIL_BUFFER_BIT);
+53 &#32;&#32;&#32;&#32;}
+54 
+55 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;Present()&#32;<emphasis role="keyword">noexcept</emphasis>
+56 &#32;&#32;&#32;&#32;{
+57 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;SwapBuffers(m_hDC);
+58 &#32;&#32;&#32;&#32;}
+59 
+60 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;IsNull()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_hGLRC&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;}
+61 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;bool()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_hGLRC&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;}
+62 <emphasis role="keyword">private</emphasis>:
+63 &#32;&#32;&#32;&#32;HDC&#32;m_hDC;
+64 &#32;&#32;&#32;&#32;HGLRC&#32;m_hGLRC;
+65 };
+66 
+</programlisting></section>

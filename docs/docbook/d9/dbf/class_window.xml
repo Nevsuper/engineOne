@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_window" xml:lang="en-US">
+<title>Window Class Reference</title>
+<indexterm><primary>Window</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_window_1add0ac5447eb2d75e18b2885e4e61ecad"/><emphasis role="strong">Window</emphasis> (HINSTANCE hInstance, const std::string &amp;windowClassName, const std::string &amp;title, int width, int height, DWORD windowStyle)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1a039078340b926516d359749b6fa30cc9"/>void <emphasis role="strong">ProcessMessages</emphasis> () noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1a52a1ef49712459a2f5e3ad797552b642"/>bool <emphasis role="strong">ShouldClose</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1a833f7b58a608ea0ef9a2ffd5194e474a"/>HDC <emphasis role="strong">GetDeviceContext</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1acdacecf1671fcaeee41c08c074e7fefa"/>int <emphasis role="strong">GetWidth</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1ad3d688a89c07f74c22de2ecc4671dbdc"/>int <emphasis role="strong">GetHeight</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1a418e22fac4424c399e3feb6456279383"/>float <emphasis role="strong">GetAspectRatio</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1a1cb817bea93e87a7887cadc11a5ebdd7"/>void <emphasis role="strong">Close</emphasis> () noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1a69ebe826c82772d84c60e6f551e77d3a"/>bool <emphasis role="strong">isCreated</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_window_1a7568bb745290d9eb85cc4dcae8a45bca"/><emphasis role="strong">operator bool</emphasis> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_window_1a09fc8fcb65abb5f200176ec064e8237f"/>static LRESULT CALLBACK <emphasis role="strong">StaticWndProc</emphasis> (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/Window.hengineOne/src/Core/Window.cpp</section>

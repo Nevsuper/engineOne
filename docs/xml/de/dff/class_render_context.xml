@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="de/dff/class_render_context" kind="class" language="C++" prot="public">
+    <compoundname>RenderContext</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="de/dff/class_render_context_1ae7ac4c5804b3163ee561d6d7d1d2c66d" prot="private" static="no" mutable="no">
+        <type>HDC</type>
+        <definition>HDC RenderContext::m_hDC</definition>
+        <argsstring></argsstring>
+        <name>m_hDC</name>
+        <qualifiedname>RenderContext::m_hDC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="63" column="5" bodyfile="engineOne/src/Core/RenderContext.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/dff/class_render_context_1a66dd3d9344c42d0a94c5362e8c6579fd" prot="private" static="no" mutable="no">
+        <type>HGLRC</type>
+        <definition>HGLRC RenderContext::m_hGLRC</definition>
+        <argsstring></argsstring>
+        <name>m_hGLRC</name>
+        <qualifiedname>RenderContext::m_hGLRC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="64" column="7" bodyfile="engineOne/src/Core/RenderContext.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="de/dff/class_render_context_1a390a327bfca909ab798f3d3301ed92e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RenderContext::RenderContext</definition>
+        <argsstring>(const RenderContextCreateInfo &amp;createInfo)</argsstring>
+        <name>RenderContext</name>
+        <qualifiedname>RenderContext::RenderContext</qualifiedname>
+        <param>
+          <type>const <ref refid="d6/d4c/struct_render_context_create_info" kindref="compound">RenderContextCreateInfo</ref> &amp;</type>
+          <declname>createInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="40" column="1" bodyfile="engineOne/src/Core/RenderContext.cpp" bodystart="4" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1abd39c7839c4729b99dbdec8589dad943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RenderContext::RenderContext</definition>
+        <argsstring>(Window &amp;window, int majorVersion=4, int minorVersion=5, bool debug=true)</argsstring>
+        <name>RenderContext</name>
+        <qualifiedname>RenderContext::RenderContext</qualifiedname>
+        <param>
+          <type><ref refid="d9/dbf/class_window" kindref="compound">Window</ref> &amp;</type>
+          <declname>window</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>majorVersion</declname>
+          <defval>4</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minorVersion</declname>
+          <defval>5</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>debug</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="41" column="1" bodyfile="engineOne/src/Core/RenderContext.cpp" bodystart="78" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1a56246a7d15f1ed9aab153cdcc84c47f1" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>RenderContext::~RenderContext</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~RenderContext</name>
+        <qualifiedname>RenderContext::~RenderContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="42" column="1" bodyfile="engineOne/src/Core/RenderContext.cpp" bodystart="84" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1aa25de2f325e7aa976ac58ae6d9f2119f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RenderContext::RenderContext</definition>
+        <argsstring>(const RenderContext &amp;)=delete</argsstring>
+        <name>RenderContext</name>
+        <qualifiedname>RenderContext::RenderContext</qualifiedname>
+        <param>
+          <type>const <ref refid="de/dff/class_render_context" kindref="compound">RenderContext</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1a4d07f1335930b9ba451f017de97ab4a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="de/dff/class_render_context" kindref="compound">RenderContext</ref> &amp;</type>
+        <definition>RenderContext &amp; RenderContext::operator=</definition>
+        <argsstring>(const RenderContext &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>RenderContext::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="de/dff/class_render_context" kindref="compound">RenderContext</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="45" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1a53ea0c28038121ef807c9d3bbe37f7f9" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RenderContext::MakeCurrent</definition>
+        <argsstring>(Window &amp;window) noexcept</argsstring>
+        <name>MakeCurrent</name>
+        <qualifiedname>RenderContext::MakeCurrent</qualifiedname>
+        <param>
+          <type><ref refid="d9/dbf/class_window" kindref="compound">Window</ref> &amp;</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="47" column="6" bodyfile="engineOne/src/Core/RenderContext.cpp" bodystart="94" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1a65247459bf726fb39eff1060ffe60599" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RenderContext::clearColor</definition>
+        <argsstring>(float r, float g, float b, float a) noexcept</argsstring>
+        <name>clearColor</name>
+        <qualifiedname>RenderContext::clearColor</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="49" column="13" bodyfile="engineOne/src/Core/RenderContext.h" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1a487cd2b22faaed0abdfd4070d478854e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RenderContext::Present</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Present</name>
+        <qualifiedname>RenderContext::Present</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="55" column="13" bodyfile="engineOne/src/Core/RenderContext.h" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1a6c73389ff1c0ac18abe1c7ef0266d7ed" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RenderContext::IsNull</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>IsNull</name>
+        <qualifiedname>RenderContext::IsNull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="60" column="13" bodyfile="engineOne/src/Core/RenderContext.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dff/class_render_context_1a48c4a0eb16ff8aef31f8f74006fac755" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>RenderContext::operator bool</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator bool</name>
+        <qualifiedname>RenderContext::operator bool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/RenderContext.h" line="61" column="8" bodyfile="engineOne/src/Core/RenderContext.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/RenderContext.h" line="37" column="1" bodyfile="engineOne/src/Core/RenderContext.h" bodystart="38" bodyend="65"/>
+    <listofallmembers>
+      <member refid="de/dff/class_render_context_1a65247459bf726fb39eff1060ffe60599" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>clearColor</name></member>
+      <member refid="de/dff/class_render_context_1a6c73389ff1c0ac18abe1c7ef0266d7ed" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>IsNull</name></member>
+      <member refid="de/dff/class_render_context_1ae7ac4c5804b3163ee561d6d7d1d2c66d" prot="private" virt="non-virtual"><scope>RenderContext</scope><name>m_hDC</name></member>
+      <member refid="de/dff/class_render_context_1a66dd3d9344c42d0a94c5362e8c6579fd" prot="private" virt="non-virtual"><scope>RenderContext</scope><name>m_hGLRC</name></member>
+      <member refid="de/dff/class_render_context_1a53ea0c28038121ef807c9d3bbe37f7f9" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>MakeCurrent</name></member>
+      <member refid="de/dff/class_render_context_1a48c4a0eb16ff8aef31f8f74006fac755" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>operator bool</name></member>
+      <member refid="de/dff/class_render_context_1a4d07f1335930b9ba451f017de97ab4a7" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>operator=</name></member>
+      <member refid="de/dff/class_render_context_1a487cd2b22faaed0abdfd4070d478854e" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>Present</name></member>
+      <member refid="de/dff/class_render_context_1a390a327bfca909ab798f3d3301ed92e4" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>RenderContext</name></member>
+      <member refid="de/dff/class_render_context_1abd39c7839c4729b99dbdec8589dad943" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>RenderContext</name></member>
+      <member refid="de/dff/class_render_context_1aa25de2f325e7aa976ac58ae6d9f2119f" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>RenderContext</name></member>
+      <member refid="de/dff/class_render_context_1a56246a7d15f1ed9aab153cdcc84c47f1" prot="public" virt="non-virtual"><scope>RenderContext</scope><name>~RenderContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

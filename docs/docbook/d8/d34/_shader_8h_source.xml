@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__shader_8h_source" xml:lang="en-US">
+<title>Shader.h</title>
+<indexterm><primary>engineOne/src/Core/Shader.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&lt;string&gt;</emphasis>
+3 <emphasis role="preprocessor">#include&lt;unordered_map&gt;</emphasis>
+4 
+5 <emphasis role="preprocessor">#include&lt;glad/gl.h&gt;</emphasis>
+6 <emphasis role="preprocessor">#include&lt;glm/glm.hpp&gt;</emphasis>
+7 <emphasis role="preprocessor">#include&#32;&quot;utils.h&quot;</emphasis>
+8 
+9 <emphasis role="keyword">enum&#32;class</emphasis>&#32;ShaderType&#32;:&#32;GLenum
+10 {
+11 &#32;&#32;&#32;&#32;VERTEX&#32;=&#32;GL_VERTEX_SHADER,
+12 &#32;&#32;&#32;&#32;FRAGMENT&#32;=&#32;GL_FRAGMENT_SHADER,
+13 &#32;&#32;&#32;&#32;GEOMETRY&#32;=&#32;GL_GEOMETRY_SHADER,
+14 &#32;&#32;&#32;&#32;TESS_CONTROL&#32;=&#32;GL_TESS_CONTROL_SHADER,
+15 &#32;&#32;&#32;&#32;TESS_EVALUATION&#32;=&#32;GL_TESS_EVALUATION_SHADER,
+16 &#32;&#32;&#32;&#32;COMPUTE&#32;=&#32;GL_COMPUTE_SHADER
+17 };
+18 
+19 <emphasis role="keyword">inline</emphasis>&#32;std::string&#32;shaderTypeToString(ShaderType&#32;type)
+20 {
+21 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(type)
+22 &#32;&#32;&#32;&#32;{
+23 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ShaderType::VERTEX:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;VERTEX&quot;</emphasis>;
+24 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ShaderType::FRAGMENT:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;FRAGMENT&quot;</emphasis>;
+25 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ShaderType::GEOMETRY:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;GEOMETRY&quot;</emphasis>;
+26 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ShaderType::TESS_CONTROL:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;TESS_CONTROL&quot;</emphasis>;
+27 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ShaderType::TESS_EVALUATION:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;TESS_EVALUATION&quot;</emphasis>;
+28 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ShaderType::COMPUTE:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;COMPUTE&quot;</emphasis>;
+29 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;UNKNOWN_SHADER_TYPE&quot;</emphasis>;
+30 &#32;&#32;&#32;&#32;}
+31 }
+32 
+33 <emphasis role="keyword">constexpr</emphasis>&#32;GLenum&#32;shaderTypeToGLenum(ShaderType&#32;type)
+34 {
+35 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;enumValue(type);
+36 }
+37 
+38 <emphasis role="keyword">enum&#32;class</emphasis>&#32;ShaderLoadOption
+39 {
+40 &#32;&#32;&#32;&#32;String,
+41 &#32;&#32;&#32;&#32;File
+42 };
+43 <emphasis role="keyword">class&#32;</emphasis>Shader
+44 {
+45 <emphasis role="keyword">public</emphasis>:
+46 &#32;&#32;&#32;&#32;Shader(ShaderType&#32;type)&#32;<emphasis role="keyword">noexcept</emphasis>;
+47 &#32;&#32;&#32;&#32;Shader(ShaderType&#32;type,&#32;std::string&amp;&#32;data,&#32;ShaderLoadOption&#32;loadOption);
+48 &#32;&#32;&#32;&#32;Shader(Shader&amp;&amp;)&#32;<emphasis role="keyword">noexcept</emphasis>;
+49 
+50 &#32;&#32;&#32;&#32;~Shader()&#32;<emphasis role="keyword">noexcept</emphasis>;
+51 
+52 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Prevent&#32;copying</emphasis>
+53 &#32;&#32;&#32;&#32;Shader(<emphasis role="keyword">const</emphasis>&#32;Shader&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+54 &#32;&#32;&#32;&#32;Shader&amp;&#32;operator=(<emphasis role="keyword">const</emphasis>&#32;Shader&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+55 
+56 
+57 &#32;&#32;&#32;&#32;Shader&amp;&#32;operator=(Shader&amp;&amp;)&#32;<emphasis role="keyword">noexcept</emphasis>;
+58 
+59 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;loadFromFile(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;filePath);
+60 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;loadFromString(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;shaderSrc);
+61 
+62 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;ShaderType&#32;getType()<emphasis role="keyword">&#32;const&#32;</emphasis>{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_Type;&#32;}
+63 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;getID()<emphasis role="keyword">&#32;const&#32;</emphasis>{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_ID;&#32;}
+64 <emphasis role="keyword">private</emphasis>:
+65 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;checkCompileStatus();
+66 <emphasis role="keyword">private</emphasis>:
+67 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;m_ID;
+68 &#32;&#32;&#32;&#32;ShaderType&#32;m_Type;
+69 };
+70 
+71 
+72 <emphasis role="keyword">class&#32;</emphasis>ShaderProgram
+73 {
+74 <emphasis role="keyword">public</emphasis>:
+75 &#32;&#32;&#32;&#32;ShaderProgram()&#32;<emphasis role="keyword">noexcept</emphasis>;
+76 &#32;&#32;&#32;&#32;ShaderProgram(ShaderProgram&amp;&amp;)<emphasis role="keyword">noexcept</emphasis>;
+77 &#32;&#32;&#32;&#32;ShaderProgram(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;vertexPath,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;fragmentPath);
+78 &#32;&#32;&#32;&#32;ShaderProgram(<link linkend="_class_shader">Shader</link>&amp;&#32;vertexShader,&#32;<link linkend="_class_shader">Shader</link>&amp;&#32;fragmentShader);
+79 
+80 &#32;&#32;&#32;&#32;~ShaderProgram()&#32;<emphasis role="keyword">noexcept</emphasis>;
+81 
+82 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Prevent&#32;copying</emphasis>
+83 &#32;&#32;&#32;&#32;ShaderProgram(<emphasis role="keyword">const</emphasis>&#32;ShaderProgram&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+84 &#32;&#32;&#32;&#32;ShaderProgram&amp;&#32;operator=(<emphasis role="keyword">const</emphasis>&#32;ShaderProgram&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+85 
+86 
+87 &#32;&#32;&#32;&#32;ShaderProgram&amp;&#32;operator=(ShaderProgram&amp;&amp;)<emphasis role="keyword">noexcept</emphasis>;
+88 
+89 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;attachShader(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_shader">Shader</link>&amp;&#32;shader);
+90 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;link();
+91 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Bind()&#32;<emphasis role="keyword">const</emphasis>;
+92 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Unbind()&#32;<emphasis role="keyword">const</emphasis>;
+93 
+94 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;getID()<emphasis role="keyword">&#32;const&#32;</emphasis>{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_ID;&#32;}
+95 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isValid()<emphasis role="keyword">&#32;const&#32;</emphasis>{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_ID&#32;!=&#32;0;&#32;}
+96 
+97 
+98 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;checkLinkStatus();
+99 
+100 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniform1i(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keywordtype">int</emphasis>&#32;v)&#32;<emphasis role="keyword">noexcept</emphasis>;
+101 
+102 
+103 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniform1f(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keywordtype">float</emphasis>&#32;v)&#32;<emphasis role="keyword">noexcept</emphasis>;
+104 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniform2f(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keywordtype">float</emphasis>&#32;v0,<emphasis role="keywordtype">float</emphasis>&#32;v1)&#32;<emphasis role="keyword">noexcept</emphasis>;
+105 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniform3f(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keywordtype">float</emphasis>&#32;v0,<emphasis role="keywordtype">float</emphasis>&#32;v1,&#32;<emphasis role="keywordtype">float</emphasis>&#32;v2)&#32;<emphasis role="keyword">noexcept</emphasis>;
+106 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniform4f(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keywordtype">float</emphasis>&#32;v0,<emphasis role="keywordtype">float</emphasis>&#32;v1,&#32;<emphasis role="keywordtype">float</emphasis>&#32;v2,<emphasis role="keywordtype">float</emphasis>&#32;v3)&#32;<emphasis role="keyword">noexcept</emphasis>;
+107 
+108 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniformVec2(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keyword">const</emphasis>&#32;glm::vec2&amp;&#32;vec)&#32;<emphasis role="keyword">noexcept</emphasis>;
+109 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniformVec3(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keyword">const</emphasis>&#32;glm::vec3&amp;&#32;vec)&#32;<emphasis role="keyword">noexcept</emphasis>;
+110 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniformVec4(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keyword">const</emphasis>&#32;glm::vec4&amp;&#32;vec)&#32;<emphasis role="keyword">noexcept</emphasis>;
+111 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;specify&#32;array&#32;size</emphasis>
+112 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniformMat2(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keyword">const</emphasis>&#32;glm::mat2&amp;&#32;mat)&#32;<emphasis role="keyword">noexcept</emphasis>;
+113 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniformMat3(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keyword">const</emphasis>&#32;glm::mat3&amp;&#32;mat)&#32;<emphasis role="keyword">noexcept</emphasis>;
+114 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetUniformMat4(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName,&#32;<emphasis role="keyword">const</emphasis>&#32;glm::mat4&amp;&#32;mat)&#32;<emphasis role="keyword">noexcept</emphasis>;
+115 <emphasis role="keyword">private</emphasis>:
+116 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;GetUniformLocation(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;uniformName)&#32;<emphasis role="keyword">noexcept</emphasis>;
+117 <emphasis role="keyword">private</emphasis>:
+118 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;m_ID;
+119 &#32;&#32;&#32;&#32;std::unordered_map&lt;std::string,&#32;int&gt;&#32;m_UniformCache;
+120 };
+121 
+122 
+</programlisting></section>

@@ -1,0 +1,12 @@
+\doxysection{utils.\+h}
+\hypertarget{utils_8h_source}{}\label{utils_8h_source}\index{engineOne/src/Core/utils.h@{engineOne/src/Core/utils.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00003\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{00004\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ enumValue(E\ e)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}std::underlying\_type\_t<E>\textcolor{keyword}{>}(e);}
+\DoxyCodeLine{00006\ \}}
+
+\end{DoxyCode}

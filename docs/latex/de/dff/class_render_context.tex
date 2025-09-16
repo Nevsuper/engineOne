@@ -1,0 +1,38 @@
+\doxysection{Render\+Context Class Reference}
+\hypertarget{class_render_context}{}\label{class_render_context}\index{RenderContext@{RenderContext}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_render_context_a390a327bfca909ab798f3d3301ed92e4}\label{class_render_context_a390a327bfca909ab798f3d3301ed92e4} 
+{\bfseries Render\+Context} (const \mbox{\hyperlink{struct_render_context_create_info}{Render\+Context\+Create\+Info}} \&create\+Info)
+\item 
+\Hypertarget{class_render_context_abd39c7839c4729b99dbdec8589dad943}\label{class_render_context_abd39c7839c4729b99dbdec8589dad943} 
+{\bfseries Render\+Context} (\mbox{\hyperlink{class_window}{Window}} \&window, int major\+Version=4, int minor\+Version=5, bool debug=true)
+\item 
+\Hypertarget{class_render_context_aa25de2f325e7aa976ac58ae6d9f2119f}\label{class_render_context_aa25de2f325e7aa976ac58ae6d9f2119f} 
+{\bfseries Render\+Context} (const \mbox{\hyperlink{class_render_context}{Render\+Context}} \&)=delete
+\item 
+\Hypertarget{class_render_context_a4d07f1335930b9ba451f017de97ab4a7}\label{class_render_context_a4d07f1335930b9ba451f017de97ab4a7} 
+\mbox{\hyperlink{class_render_context}{Render\+Context}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_render_context}{Render\+Context}} \&)=delete
+\item 
+\Hypertarget{class_render_context_a53ea0c28038121ef807c9d3bbe37f7f9}\label{class_render_context_a53ea0c28038121ef807c9d3bbe37f7f9} 
+bool {\bfseries Make\+Current} (\mbox{\hyperlink{class_window}{Window}} \&window) noexcept
+\item 
+\Hypertarget{class_render_context_a65247459bf726fb39eff1060ffe60599}\label{class_render_context_a65247459bf726fb39eff1060ffe60599} 
+void {\bfseries clear\+Color} (float r, float g, float b, float a) noexcept
+\item 
+\Hypertarget{class_render_context_a487cd2b22faaed0abdfd4070d478854e}\label{class_render_context_a487cd2b22faaed0abdfd4070d478854e} 
+void {\bfseries Present} () noexcept
+\item 
+\Hypertarget{class_render_context_a6c73389ff1c0ac18abe1c7ef0266d7ed}\label{class_render_context_a6c73389ff1c0ac18abe1c7ef0266d7ed} 
+bool {\bfseries Is\+Null} () const noexcept
+\item 
+\Hypertarget{class_render_context_a48c4a0eb16ff8aef31f8f74006fac755}\label{class_render_context_a48c4a0eb16ff8aef31f8f74006fac755} 
+{\bfseries operator bool} () const noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine\+One/src/\+Core/Render\+Context.\+h\item 
+engine\+One/src/\+Core/Render\+Context.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__input_8h_source" xml:lang="en-US">
+<title>Input.h</title>
+<indexterm><primary>engineOne/src/Core/Input.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&lt;Windows.h&gt;</emphasis>
+3 <emphasis role="preprocessor">#include&lt;winuser.h&gt;</emphasis>
+4 
+5 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isKeyPressed(<emphasis role="keywordtype">int</emphasis>&#32;vKey)
+6 {
+7 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(GetAsyncKeyState(vKey)&#32;&amp;&#32;(<emphasis role="keywordtype">short</emphasis>)0x8000)&#32;!=&#32;0;
+8 }
+</programlisting></section>

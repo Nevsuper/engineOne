@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_vertex_array" xml:lang="en-US">
+<title>VertexArray Class Reference</title>
+<indexterm><primary>VertexArray</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_vertex_array_1af20bc66b0919e289f3d82e0979e42f99"/><emphasis role="strong">VertexArray</emphasis> (<link linkend="_class_vertex_array">VertexArray</link> &amp;&amp;other) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_array_1ac17181dbeff699f5d24dd143f6004004"/><link linkend="_class_vertex_array">VertexArray</link> &amp; <emphasis role="strong">operator=</emphasis> (<link linkend="_class_vertex_array">VertexArray</link> &amp;&amp;other) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_array_1a4a7b686d4084b4787daa55701507d911"/><emphasis role="strong">VertexArray</emphasis> (const <link linkend="_class_vertex_array">VertexArray</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_array_1a0f33f8276cb8fea67e015ac85c7cc97a"/><link linkend="_class_vertex_array">VertexArray</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_vertex_array">VertexArray</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_array_1a974ecc6c46efc395a507831c88db405b"/>void <emphasis role="strong">Bind</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_array_1a3ec37fb3d1d74d29b057dcc7f1ddec3e"/>void <emphasis role="strong">Unbind</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_array_1af3d362cf004d4f5c5eed8fa93636944e"/>void <emphasis role="strong">addAttribute</emphasis> (unsigned int index, int size, GLType type, bool normalized, int stride, const void *pointer) const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_vertex_array_1ac8af71d6a9cb804397829b14b6fa84a5"/>unsigned int <emphasis role="strong">getID</emphasis> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/VertexArray.hengineOne/src/Core/VertexArray.cpp</section>

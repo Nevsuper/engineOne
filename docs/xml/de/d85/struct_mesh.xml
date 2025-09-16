@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="de/d85/struct_mesh" kind="struct" language="C++" prot="public">
+    <compoundname>Mesh</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="de/d85/struct_mesh_1a6465a888c97232a39e12aad008c969c3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d7/d62/struct_vertex" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>std::vector&lt;Vertex&gt; Mesh::vertices</definition>
+        <argsstring></argsstring>
+        <name>vertices</name>
+        <qualifiedname>Mesh::vertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="21" column="13" bodyfile="engineOne/src/Core/Application.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d85/struct_mesh_1a3741683961cb4817b93ff394719224d3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; uint32_t &gt;</type>
+        <definition>std::vector&lt;uint32_t&gt; Mesh::indices</definition>
+        <argsstring></argsstring>
+        <name>indices</name>
+        <qualifiedname>Mesh::indices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="22" column="13" bodyfile="engineOne/src/Core/Application.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Application.h" line="19" column="1" bodyfile="engineOne/src/Core/Application.h" bodystart="20" bodyend="23"/>
+    <listofallmembers>
+      <member refid="de/d85/struct_mesh_1a3741683961cb4817b93ff394719224d3" prot="public" virt="non-virtual"><scope>Mesh</scope><name>indices</name></member>
+      <member refid="de/d85/struct_mesh_1a6465a888c97232a39e12aad008c969c3" prot="public" virt="non-virtual"><scope>Mesh</scope><name>vertices</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

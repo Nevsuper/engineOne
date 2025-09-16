@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_application" xml:lang="en-US">
+<title>Application Class Reference</title>
+<indexterm><primary>Application</primary></indexterm>
+<para>
+
+<para>class for runnning engine <link linkend="_class_application">Application</link> </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Application.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_application_1a1ef39113c191aebfb4c018eab566fcc8">Application</link> (HINSTANCE hInstance, const std::string &amp;appName) noexcept</para>
+
+<para>constructer for creating <link linkend="_class_application">Application</link> object </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_application_1afaeec66a8591b6d88049b260133d13fc"/><emphasis role="strong">Application</emphasis> (const <link linkend="_class_application">Application</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_application_1a4bddd891168e3adc56dfd505ac41af7f"/><link linkend="_class_application">Application</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_application">Application</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_application_1ae14efba90063d71adb721ac7acc6ac5d">Init</link> () noexcept</para>
+
+<para>Initialize the App class. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_application_1a1bfe19c019dde9134527f2b7e9afb5da"/>void <emphasis role="strong">Run</emphasis> () noexcept</para>
+
+<para>Run the application. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>class for runnning engine <link linkend="_class_application">Application</link> </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_application_1a1ef39113c191aebfb4c018eab566fcc8"/><section>
+    <title>Application()</title>
+<indexterm><primary>Application</primary><secondary>Application</secondary></indexterm>
+<indexterm><primary>Application</primary><secondary>Application</secondary></indexterm>
+<para><computeroutput>Application::Application (HINSTANCE hInstance, const std::string &amp; appName)<computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>constructer for creating <link linkend="_class_application">Application</link> object </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>hInstance</entry><entry>
+<para>HINSTANCE from WinMain </para>
+</entry>
+                            </row>
+                            <row>
+<entry>appName</entry><entry>
+<para>Name of the application which will be used to set window name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_application_1ae14efba90063d71adb721ac7acc6ac5d"/><section>
+    <title>Init()</title>
+<indexterm><primary>Init</primary><secondary>Application</secondary></indexterm>
+<indexterm><primary>Application</primary><secondary>Init</secondary></indexterm>
+<para><computeroutput>bool Application::Init ( )<computeroutput>[noexcept]</computeroutput></computeroutput></para><para>
+
+<para>Initialize the App class. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>returns true if initalizetion succeeds and false otherwise </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/Application.hengineOne/src/Core/Application.cpp</section>
+</section>

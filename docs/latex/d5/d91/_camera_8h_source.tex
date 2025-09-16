@@ -1,0 +1,43 @@
+\doxysection{Camera.\+h}
+\hypertarget{_camera_8h_source}{}\label{_camera_8h_source}\index{engineOne/src/Core/Camera.h@{engineOne/src/Core/Camera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include<glm/glm.hpp>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }CameraFPS}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ CameraFPS(\textcolor{keywordtype}{float}\ fov\ =\ 60.0f,\ \textcolor{keywordtype}{float}\ aspect\ =\ 4.0f/3.0f,\ \textcolor{keywordtype}{float}\ zNear\ =\ 0.1f,\ \textcolor{keywordtype}{float}\ zFar\ =\ 100.0f)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveTo(\textcolor{keyword}{const}\ glm::vec3\&\ position)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ Translate(\textcolor{keyword}{const}\ glm::vec3\&\ displacement)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ Yaw(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{noexcept};\ \ \ \textcolor{comment}{//\ rotate\ around\ the\ up\ vector}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ Pitch(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//\ rotate\ around\ the\ right\ vector}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ Roll(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{noexcept};\ \ \textcolor{comment}{//\ rotate\ around\ the\ front\ vector}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveForward(\textcolor{keywordtype}{float}\ distance)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveRight(\textcolor{keywordtype}{float}\ distance)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveUp(\textcolor{keywordtype}{float}\ distance)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateProjection(\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keywordtype}{float}\ zNear,\ \textcolor{keywordtype}{float}\ zFar)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ glm::mat4\&\ GetViewMatrix()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ m\_View;\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ glm::mat4\&\ GetProjectionMatrix()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ m\_Projection;\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ RestPosAndOrient()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ RecalculateView()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ glm::mat4\ m\_View,\ m\_Projection;}
+\DoxyCodeLine{00031\ \ \ \ \ glm::vec3\ m\_Position;}
+\DoxyCodeLine{00032\ \ \ \ \ glm::vec3\ m\_Front;}
+\DoxyCodeLine{00033\ \ \ \ \ glm::vec3\ m\_Up;}
+\DoxyCodeLine{00034\ \ \ \ \ glm::vec3\ m\_Right;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+
+\end{DoxyCode}

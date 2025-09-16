@@ -1,0 +1,41 @@
+\doxysection{Shader Class Reference}
+\hypertarget{class_shader}{}\label{class_shader}\index{Shader@{Shader}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_shader_a4fb784b41dfe5da2db92759030595b01}\label{class_shader_a4fb784b41dfe5da2db92759030595b01} 
+{\bfseries Shader} (Shader\+Type type) noexcept
+\item 
+\Hypertarget{class_shader_a179492378c921a3a97e32c7f391b5992}\label{class_shader_a179492378c921a3a97e32c7f391b5992} 
+{\bfseries Shader} (Shader\+Type type, std\+::string \&data, Shader\+Load\+Option load\+Option)
+\item 
+\Hypertarget{class_shader_aa5bf317e1a5e6c47d2a3433534d96fc7}\label{class_shader_aa5bf317e1a5e6c47d2a3433534d96fc7} 
+{\bfseries Shader} (\mbox{\hyperlink{class_shader}{Shader}} \&\&) noexcept
+\item 
+\Hypertarget{class_shader_ad3151af6dc9d4d892a3a700488f682af}\label{class_shader_ad3151af6dc9d4d892a3a700488f682af} 
+{\bfseries Shader} (const \mbox{\hyperlink{class_shader}{Shader}} \&)=delete
+\item 
+\Hypertarget{class_shader_a05b53bc160d089df65f67688990d763d}\label{class_shader_a05b53bc160d089df65f67688990d763d} 
+\mbox{\hyperlink{class_shader}{Shader}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_shader}{Shader}} \&)=delete
+\item 
+\Hypertarget{class_shader_a5a2dbeb64ff6b328a4502ae0332d4966}\label{class_shader_a5a2dbeb64ff6b328a4502ae0332d4966} 
+\mbox{\hyperlink{class_shader}{Shader}} \& {\bfseries operator=} (\mbox{\hyperlink{class_shader}{Shader}} \&\&) noexcept
+\item 
+\Hypertarget{class_shader_a6a698bac7b98b58e57f2b46c97c8b430}\label{class_shader_a6a698bac7b98b58e57f2b46c97c8b430} 
+bool {\bfseries load\+From\+File} (const std\+::string \&file\+Path)
+\item 
+\Hypertarget{class_shader_a151fc3e330f7bf0ee9145946e13f7a9c}\label{class_shader_a151fc3e330f7bf0ee9145946e13f7a9c} 
+bool {\bfseries load\+From\+String} (const std\+::string \&shader\+Src)
+\item 
+\Hypertarget{class_shader_ab38ab684a4e984f41782cb2929d66ae6}\label{class_shader_ab38ab684a4e984f41782cb2929d66ae6} 
+Shader\+Type {\bfseries get\+Type} () const
+\item 
+\Hypertarget{class_shader_abd7ecec064ab5ec0836678b47fb26940}\label{class_shader_abd7ecec064ab5ec0836678b47fb26940} 
+unsigned int {\bfseries get\+ID} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine\+One/src/\+Core/Shader.\+h\item 
+engine\+One/src/\+Core/Shader.\+cpp\end{DoxyCompactItemize}

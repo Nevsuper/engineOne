@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__texture_8h_source" xml:lang="en-US">
+<title>Texture.h</title>
+<indexterm><primary>engineOne/src/Core/Texture.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&lt;glad/gl.h&gt;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&quot;glTypes.h&quot;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&quot;utils.h&quot;</emphasis>
+5 
+6 <emphasis role="comment">//&#32;Simplified&#32;format&#32;categories</emphasis>
+7 <emphasis role="keyword">enum&#32;class</emphasis>&#32;TextureInternalFormat&#32;:&#32;GLenum
+8 {
+9 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Basic&#32;formats</emphasis>
+10 &#32;&#32;&#32;&#32;R8&#32;=&#32;GL_R8,
+11 &#32;&#32;&#32;&#32;RG8&#32;=&#32;GL_RG8,
+12 &#32;&#32;&#32;&#32;RGB8&#32;=&#32;GL_RGB8,
+13 &#32;&#32;&#32;&#32;RGBA8&#32;=&#32;GL_RGBA8,
+14 
+15 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Float&#32;formats</emphasis>
+16 &#32;&#32;&#32;&#32;R16F&#32;=&#32;GL_R16F,
+17 &#32;&#32;&#32;&#32;RG16F&#32;=&#32;GL_RG16F,
+18 &#32;&#32;&#32;&#32;RGB16F&#32;=&#32;GL_RGB16F,
+19 &#32;&#32;&#32;&#32;RGBA16F&#32;=&#32;GL_RGBA16F,
+20 
+21 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Depth&#32;formats</emphasis>
+22 &#32;&#32;&#32;&#32;DEPTH24&#32;=&#32;GL_DEPTH_COMPONENT24,
+23 &#32;&#32;&#32;&#32;DEPTH32F&#32;=&#32;GL_DEPTH_COMPONENT32F,
+24 &#32;&#32;&#32;&#32;DEPTH24_STENCIL8&#32;=&#32;GL_DEPTH24_STENCIL8
+25 };
+26 
+27 <emphasis role="keyword">enum&#32;class</emphasis>&#32;TextureBaseFormat&#32;:&#32;GLenum
+28 {
+29 &#32;&#32;&#32;&#32;RED&#32;=&#32;GL_RED,
+30 &#32;&#32;&#32;&#32;RG&#32;=&#32;GL_RG,
+31 &#32;&#32;&#32;&#32;RGB&#32;=&#32;GL_RGB,
+32 &#32;&#32;&#32;&#32;RGBA&#32;=&#32;GL_RGBA,
+33 &#32;&#32;&#32;&#32;DEPTH_COMPONENT&#32;=&#32;GL_DEPTH_COMPONENT,
+34 &#32;&#32;&#32;&#32;DEPTH_STENCIL&#32;=&#32;GL_DEPTH_STENCIL
+35 };
+36 
+37 <emphasis role="keyword">enum&#32;class</emphasis>&#32;PixelDataType&#32;:&#32;GLenum
+38 {
+39 &#32;&#32;&#32;&#32;UNSIGNED_BYTE&#32;=&#32;GL_UNSIGNED_BYTE,
+40 &#32;&#32;&#32;&#32;BYTE&#32;=&#32;GL_BYTE,
+41 &#32;&#32;&#32;&#32;UNSIGNED_SHORT&#32;=&#32;GL_UNSIGNED_SHORT,
+42 &#32;&#32;&#32;&#32;SHORT&#32;=&#32;GL_SHORT,
+43 &#32;&#32;&#32;&#32;UNSIGNED_INT&#32;=&#32;GL_UNSIGNED_INT,
+44 &#32;&#32;&#32;&#32;INT&#32;=&#32;GL_INT,
+45 &#32;&#32;&#32;&#32;FLOAT&#32;=&#32;GL_FLOAT
+46 };
+47 
+48 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;GLenum&#32;TextureInternalFormatToGLenum(TextureInternalFormat&#32;format)&#32;<emphasis role="keyword">noexcept</emphasis>
+49 {
+50 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;enumValue(format);
+51 }
+52 
+53 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;GLenum&#32;TextureBaseFormatToGLenum(TextureBaseFormat&#32;format)&#32;<emphasis role="keyword">noexcept</emphasis>
+54 {
+55 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;enumValue(format);
+56 }
+57 
+58 <emphasis role="keyword">enum&#32;class</emphasis>&#32;pixelDataType&#32;:&#32;GLenum
+59 {
+60 &#32;&#32;&#32;&#32;UNSIGNEDBYTE&#32;=&#32;GL_UNSIGNED_BYTE,
+61 &#32;&#32;&#32;&#32;BYTE&#32;=&#32;GL_BYTE,
+62 &#32;&#32;&#32;&#32;UNSIGNEDSHORT&#32;=&#32;GL_UNSIGNED_SHORT,
+63 &#32;&#32;&#32;&#32;SHORT&#32;=&#32;GL_SHORT,
+64 &#32;&#32;&#32;&#32;UNSIGNEDINT&#32;=&#32;GL_UNSIGNED_INT,
+65 &#32;&#32;&#32;&#32;INT&#32;=&#32;GL_INT,
+66 &#32;&#32;&#32;&#32;FLOAT&#32;=&#32;GL_FLOAT,
+67 &#32;&#32;&#32;&#32;UNSIGNEDBYTE332&#32;=&#32;GL_UNSIGNED_BYTE_3_3_2,
+68 &#32;&#32;&#32;&#32;UNSIGNEDBYTE233REV&#32;=&#32;GL_UNSIGNED_BYTE_2_3_3_REV,
+69 &#32;&#32;&#32;&#32;UNSIGNEDSHORT565&#32;=&#32;GL_UNSIGNED_SHORT_5_6_5,
+70 &#32;&#32;&#32;&#32;UNSIGNEDSHORT565REV&#32;=&#32;GL_UNSIGNED_SHORT_5_6_5_REV,
+71 &#32;&#32;&#32;&#32;UNSIGNEDSHORT4444&#32;=&#32;GL_UNSIGNED_SHORT_4_4_4_4,
+72 &#32;&#32;&#32;&#32;UNSIGNEDSHORT4444REV&#32;=&#32;GL_UNSIGNED_SHORT_4_4_4_4_REV,
+73 &#32;&#32;&#32;&#32;UNSIGNEDSHORT5551&#32;=&#32;GL_UNSIGNED_SHORT_5_5_5_1,
+74 &#32;&#32;&#32;&#32;UNSIGNEDSHORT1555REV&#32;=&#32;GL_UNSIGNED_SHORT_1_5_5_5_REV,
+75 &#32;&#32;&#32;&#32;UNSIGNEDINT8888&#32;=&#32;GL_UNSIGNED_INT_8_8_8_8,
+76 &#32;&#32;&#32;&#32;UNSIGNEDINT8888REV&#32;=&#32;GL_UNSIGNED_INT_8_8_8_8_REV,
+77 &#32;&#32;&#32;&#32;UNSIGNEDINT1010102&#32;=&#32;GL_UNSIGNED_INT_10_10_10_2,
+78 &#32;&#32;&#32;&#32;UNSIGNEDINT2101010REV&#32;=&#32;GL_UNSIGNED_INT_2_10_10_10_REV
+79 &#32;&#32;&#32;&#32;
+80 };
+81 
+82 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;GLenum&#32;PixelDataTypeToGLenum(pixelDataType&#32;format)&#32;<emphasis role="keyword">noexcept</emphasis>
+83 {
+84 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;enumValue(format);
+85 }
+86 
+87 
+88 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_texture2_d_data_create_info">Texture2DDataCreateInfo</link>
+89 {
+90 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;width,&#32;height;
+91 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>*&#32;data;
+92 &#32;&#32;&#32;&#32;pixelDataType&#32;type;
+93 &#32;&#32;&#32;&#32;TextureInternalFormat&#32;internalFormat;
+94 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;mipLevels&#32;=&#32;1;
+95 };
+96 <emphasis role="keyword">class&#32;</emphasis>Texture2D
+97 {
+98 <emphasis role="keyword">public</emphasis>:
+99 &#32;&#32;&#32;&#32;Texture2D(<emphasis role="keywordtype">int</emphasis>&#32;width,&#32;<emphasis role="keywordtype">int</emphasis>&#32;height,&#32;<emphasis role="keywordtype">void</emphasis>*&#32;data,&#32;pixelDataType&#32;type,&#32;TextureInternalFormat&#32;internalFormat,&#32;<emphasis role="keywordtype">int</emphasis>&#32;mipLevels&#32;=&#32;1)&#32;<emphasis role="keyword">noexcept</emphasis>;
+100 &#32;&#32;&#32;&#32;Texture2D(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_struct_texture2_d_data_create_info">Texture2DDataCreateInfo</link>&amp;&#32;createInfo)&#32;<emphasis role="keyword">noexcept</emphasis>;
+101 &#32;&#32;&#32;&#32;~Texture2D()&#32;<emphasis role="keyword">noexcept</emphasis>;
+102 
+103 &#32;&#32;&#32;&#32;<emphasis role="comment">//delete&#32;copy&#32;constructor&#32;and&#32;copy&#32;assignment&#32;operator</emphasis>
+104 &#32;&#32;&#32;&#32;Texture2D(<emphasis role="keyword">const</emphasis>&#32;Texture2D&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+105 &#32;&#32;&#32;&#32;Texture2D&amp;&#32;operator=(<emphasis role="keyword">const</emphasis>&#32;Texture2D&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+106 &#32;&#32;&#32;&#32;<emphasis role="comment">//move&#32;constructor</emphasis>
+107 &#32;&#32;&#32;&#32;Texture2D(Texture2D&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>;
+108 &#32;&#32;&#32;&#32;<emphasis role="comment">//move&#32;assignment&#32;operator</emphasis>
+109 &#32;&#32;&#32;&#32;Texture2D&amp;&#32;operator=(Texture2D&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>;
+110 
+111 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SubImage(<emphasis role="keywordtype">int</emphasis>&#32;width,&#32;<emphasis role="keywordtype">int</emphasis>&#32;height,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>*&#32;data,&#32;pixelDataType&#32;type,&#32;TextureBaseFormat&#32;baseFormat,&#32;<emphasis role="keywordtype">int</emphasis>&#32;level&#32;=&#32;0,&#32;<emphasis role="keywordtype">int</emphasis>&#32;xOfffset&#32;=&#32;0,&#32;<emphasis role="keywordtype">int</emphasis>&#32;yOffset&#32;=&#32;0)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+112 
+113 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Bind(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;slot&#32;=&#32;0)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+114 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Unbind(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;slot&#32;=&#32;0)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+115 
+116 <emphasis role="keyword">private</emphasis>:
+117 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;m_ID;
+118 };
+119 
+</programlisting></section>

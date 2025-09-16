@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_timer" xml:lang="en-US">
+<title>Timer Class Reference</title>
+<indexterm><primary>Timer</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_timer_1ab00685c05c6f27de4788d89c29f67297"/><emphasis role="strong">Timer</emphasis> (const <link linkend="_class_timer">Timer</link> &amp;) noexcept=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_timer_1a170f0457a5181ecab0d26aada3931953"/><link linkend="_class_timer">Timer</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_timer">Timer</link> &amp;) noexcept=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_timer_1ae02a526485e3afcbbceea86e8de9ae72"/><emphasis role="strong">Timer</emphasis> (<link linkend="_class_timer">Timer</link> &amp;&amp;) noexcept=default</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_timer_1a374529fb40e95d7d9f0ba30365355d25"/><link linkend="_class_timer">Timer</link> &amp; <emphasis role="strong">operator=</emphasis> (<link linkend="_class_timer">Timer</link> &amp;&amp;) noexcept=default</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_timer_1a9020542d73357a4eef512eefaf57524b"/>void <emphasis role="strong">reset</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_timer_1aeed5008b8551d63fc1a8256b86749776"/>void <emphasis role="strong">resetFrequency</emphasis> () noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_timer_1af2b9795ac9acec89d888c7e7a53d8324"/>double <emphasis role="strong">elapsed</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_timer_1a27fa1461be39feb52294a6920030f4b8"/>double <emphasis role="strong">elapsedAndReset</emphasis> () noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+engineOne/src/Core/Timer.h</section>

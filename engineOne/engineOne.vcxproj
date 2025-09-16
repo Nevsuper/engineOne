@@ -59,7 +59,9 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)thirdParty\GLAD\include;$(ProjectDir)thirdParty\glm;$(ProjectDir)thirdParty\stb_image;$(ProjectDir)thirdParty\tiny_obj_loader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdParty\GLAD\include;$(ProjectDir)src\;$(ProjectDir)thirdParty\glm;$(ProjectDir)thirdParty\stb_image;$(ProjectDir)thirdParty\tiny_obj_loader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -77,7 +79,9 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)thirdParty\GLAD\include;$(ProjectDir)thirdParty\glm;$(ProjectDir)thirdParty\stb_image;$(ProjectDir)thirdParty\tiny_obj_loader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)thirdParty\GLAD\include;$(ProjectDir)src\;$(ProjectDir)thirdParty\glm;$(ProjectDir)thirdParty\stb_image;$(ProjectDir)thirdParty\tiny_obj_loader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -86,48 +90,79 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Core\Buffer.cpp" />
-    <ClCompile Include="src\Core\Camera.cpp" />
-    <ClCompile Include="src\Core\GLLoader.cpp" />
-    <ClCompile Include="src\Core\Shader.cpp" />
-    <ClCompile Include="src\Core\main.cpp" />
-    <ClCompile Include="src\Core\Texture.cpp" />
-    <ClCompile Include="thirdParty\GLAD\src\gl.c" />
-    <ClCompile Include="thirdParty\GLAD\src\wgl.c" />
-    <ClCompile Include="src\Core\VertexArray.cpp" />
-    <ClCompile Include="src\Core\Window.cpp" />
-    <ClCompile Include="thirdParty\stb_image\stb_image.cpp" />
-    <ClCompile Include="thirdParty\tiny_obj_loader\tiny_obj_loader.cpp" />
+    <ClCompile Include="src\engineOne\Core\Input\KeyBoard.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\engineOne\Core\Input\Input.cpp" />
+    <ClCompile Include="src\engineOne\Core\main.cpp" />
+    <ClCompile Include="src\engineOne\Core\Rendering\LowLevel\RenderContext.cpp" />
+    <ClCompile Include="src\engineOne\Core\Application.cpp" />
+    <ClCompile Include="src\engineOne\Core\Rendering\LowLevel\Buffer.cpp" />
+    <ClCompile Include="src\engineOne\Core\Camera.cpp" />
+    <ClCompile Include="src\engineOne\Core\GLLoader.cpp" />
+    <ClCompile Include="src\engineOne\Core\Rendering\LowLevel\Shader.cpp" />
+    <ClCompile Include="src\engineOne\Core\Rendering\LowLevel\Texture.cpp" />
+    <ClCompile Include="thirdParty\GLAD\src\gl.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="thirdParty\GLAD\src\wgl.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\engineOne\Core\Rendering\LowLevel\VertexArray.cpp" />
+    <ClCompile Include="src\engineOne\Core\Window.cpp" />
+    <ClCompile Include="thirdParty\stb_image\stb_image.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="thirdParty\tiny_obj_loader\tiny_obj_loader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Core\GLLoader.h" />
-    <ClInclude Include="src\Core\Camera.h" />
-    <ClInclude Include="src\Core\glTypes.h" />
-    <ClInclude Include="src\Core\glUtils.h" />
-    <ClInclude Include="src\Core\keyCodes.h" />
+    <ClInclude Include="src\engineOne\Core\Input\KeyBoard.h" />
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\engineOne\Core\Input\Input.h" />
+    <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\RenderContext.h" />
+    <ClInclude Include="src\engineOne\Core\Application.h" />
+    <ClInclude Include="src\engineOne\Core\GLLoader.h" />
+    <ClInclude Include="src\engineOne\Core\Camera.h" />
+    <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\glTypes.h" />
+    <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\glUtils.h" />
+    <ClInclude Include="src\engineOne\Core\Input\keyCodes.h" />
     <ClInclude Include="src\math\constants.h" />
     <ClInclude Include="src\math\mat4.h" />
     <ClInclude Include="src\math\vec2.h" />
     <ClInclude Include="src\math\vec3.h" />
-    <ClInclude Include="src\Core\Shader.h" />
-    <ClInclude Include="src\Core\utils.h" />
-    <ClInclude Include="src\Core\Buffer.h" />
-    <ClInclude Include="src\Core\VertexArray.h" />
+    <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Shader.h" />
+    <ClInclude Include="src\engineOne\Core\utils.h" />
+    <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Buffer.h" />
+    <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\VertexArray.h" />
     <ClInclude Include="src\math\vec4.h" />
-    <ClInclude Include="src\Core\Window.h" />
-    <ClInclude Include="src\Core\Texture.h" />
+    <ClInclude Include="src\engineOne\Core\Window.h" />
+    <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Texture.h" />
     <ClInclude Include="thirdParty\stb_image\stb_image.h" />
-    <ClInclude Include="src\Core\Timer.h" />
+    <ClInclude Include="src\engineOne\Core\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="assets\shaders\Text.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\shaders\fragmentLit.glsl" />
     <None Include="assets\shaders\fragment.glsl" />
+    <None Include="assets\shaders\vertexLit.glsl" />
     <None Include="assets\shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <Object Include="assets\models\airboat.obj" />
+    <Text Include="assets\models\airboat.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

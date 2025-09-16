@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__buffer_8h_source" xml:lang="en-US">
+<title>Buffer.h</title>
+<indexterm><primary>engineOne/src/Core/Buffer.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&lt;glad/gl.h&gt;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&quot;utils.h&quot;</emphasis>
+4 <emphasis role="keyword">enum&#32;class</emphasis>&#32;BufferUsage&#32;:&#32;GLenum
+5 {
+6 &#32;&#32;&#32;&#32;Static&#32;&#32;=&#32;&#32;GL_STATIC_DRAW,
+7 &#32;&#32;&#32;&#32;Dynamic&#32;=&#32;GL_DYNAMIC_DRAW,
+8 &#32;&#32;&#32;&#32;Stream&#32;&#32;=&#32;GL_STREAM_DRAW
+9 };
+10 
+11 <emphasis role="comment">//set&#32;default&#32;value&#32;to&#32;Static</emphasis>
+12 
+13 <emphasis role="keyword">constexpr</emphasis>&#32;BufferUsage&#32;DefaultBufferUsage&#32;=&#32;BufferUsage::Static;
+14 
+15 
+16 <emphasis role="keyword">constexpr</emphasis>&#32;GLenum&#32;BufferUsageToGLenum(BufferUsage&#32;usage)&#32;<emphasis role="keyword">noexcept</emphasis>
+17 {
+18 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;enumValue(usage);
+19 }
+20 
+21 <emphasis role="keyword">class&#32;</emphasis>VertexBuffer
+22 {
+23 <emphasis role="keyword">public</emphasis>:
+24 &#32;&#32;&#32;&#32;VertexBuffer()&#32;<emphasis role="keyword">noexcept</emphasis>;
+25 &#32;&#32;&#32;&#32;VertexBuffer(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>*&#32;data,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;BufferUsage&#32;usage&#32;=&#32;DefaultBufferUsage)&#32;<emphasis role="keyword">noexcept</emphasis>;
+26 &#32;&#32;&#32;&#32;<emphasis role="comment">//move&#32;constructor</emphasis>
+27 &#32;&#32;&#32;&#32;VertexBuffer(VertexBuffer&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>;
+28 &#32;&#32;&#32;&#32;~VertexBuffer();
+29 
+30 &#32;&#32;&#32;&#32;<emphasis role="comment">//move&#32;assignment&#32;operator</emphasis>
+31 &#32;&#32;&#32;&#32;VertexBuffer&amp;&#32;operator=(VertexBuffer&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>;
+32 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;delete&#32;copy&#32;&#32;constructor&#32;and&#32;copy&#32;assignment&#32;operator</emphasis>
+33 &#32;&#32;&#32;&#32;VertexBuffer(<emphasis role="keyword">const</emphasis>&#32;VertexBuffer&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+34 &#32;&#32;&#32;&#32;VertexBuffer&amp;&#32;operator=(<emphasis role="keyword">const</emphasis>&#32;VertexBuffer&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+35 
+36 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Bind()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+37 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Unbind()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+38 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetData(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>*&#32;data,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;BufferUsage&#32;usage&#32;=&#32;DefaultBufferUsage)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+39 
+40 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;getID()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_ID;&#32;}
+41 
+42 <emphasis role="keyword">private</emphasis>:
+43 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;m_ID;
+44 };
+45 
+46 
+47 <emphasis role="keyword">class&#32;</emphasis>IndexBuffer
+48 {
+49 <emphasis role="keyword">public</emphasis>:
+50 &#32;&#32;&#32;&#32;IndexBuffer()&#32;<emphasis role="keyword">noexcept</emphasis>;
+51 &#32;&#32;&#32;&#32;IndexBuffer(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>*&#32;data,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;BufferUsage&#32;usage&#32;=&#32;DefaultBufferUsage)&#32;<emphasis role="keyword">noexcept</emphasis>;
+52 &#32;&#32;&#32;&#32;<emphasis role="comment">//move&#32;constructor</emphasis>
+53 &#32;&#32;&#32;&#32;IndexBuffer(IndexBuffer&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>;
+54 &#32;&#32;&#32;&#32;~IndexBuffer();
+55 
+56 &#32;&#32;&#32;&#32;<emphasis role="comment">//move&#32;assignment&#32;operator</emphasis>
+57 &#32;&#32;&#32;&#32;IndexBuffer&amp;&#32;operator=(IndexBuffer&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>;
+58 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;delete&#32;copy&#32;&#32;constructor&#32;and&#32;copy&#32;assignment&#32;operator</emphasis>
+59 &#32;&#32;&#32;&#32;IndexBuffer(<emphasis role="keyword">const</emphasis>&#32;IndexBuffer&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+60 &#32;&#32;&#32;&#32;IndexBuffer&amp;&#32;operator=(<emphasis role="keyword">const</emphasis>&#32;IndexBuffer&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+61 
+62 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Bind()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+63 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Unbind()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+64 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;SetData(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>*&#32;data,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;BufferUsage&#32;usage&#32;=&#32;DefaultBufferUsage)&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>;
+65 
+66 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;getID()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_ID;&#32;}
+67 
+68 <emphasis role="keyword">private</emphasis>:
+69 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;m_ID;
+70 };
+71 
+</programlisting></section>

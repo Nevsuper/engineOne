@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_mesh" xml:lang="en-US">
+<title>Mesh Struct Reference</title>
+<indexterm><primary>Mesh</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_mesh_1a6465a888c97232a39e12aad008c969c3"/>std::vector&lt; <link linkend="_struct_vertex">Vertex</link> &gt; <emphasis role="strong">vertices</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_mesh_1a3741683961cb4817b93ff394719224d3"/>std::vector&lt; uint32_t &gt; <emphasis role="strong">indices</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+engineOne/src/Core/Application.h</section>

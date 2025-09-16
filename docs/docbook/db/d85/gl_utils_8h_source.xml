@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gl_utils_8h_source" xml:lang="en-US">
+<title>glUtils.h</title>
+<indexterm><primary>engineOne/src/Core/glUtils.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&lt;glad/gl.h&gt;</emphasis>
+3 
+4 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;SafeDeleteGLBuffer(GLuint&amp;&#32;<emphasis role="keywordtype">id</emphasis>)
+5 {
+6 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<emphasis role="keywordtype">id</emphasis>&#32;!=&#32;0)
+7 &#32;&#32;&#32;&#32;{
+8 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glDeleteBuffers(1,&#32;&amp;<emphasis role="keywordtype">id</emphasis>);
+9 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">id</emphasis>&#32;=&#32;0;
+10 &#32;&#32;&#32;&#32;}
+11 }
+12 
+13 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;SafeDeleteGLProgram(GLuint&amp;&#32;<emphasis role="keywordtype">id</emphasis>)&#32;
+14 {
+15 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<emphasis role="keywordtype">id</emphasis>&#32;!=&#32;0)&#32;
+16 &#32;&#32;&#32;&#32;{
+17 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glDeleteProgram(<emphasis role="keywordtype">id</emphasis>);
+18 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">id</emphasis>&#32;=&#32;0;
+19 &#32;&#32;&#32;&#32;}
+20 }
+21 
+22 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;SafeDeleteGLShader(GLuint&amp;&#32;<emphasis role="keywordtype">id</emphasis>)&#32;
+23 {
+24 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<emphasis role="keywordtype">id</emphasis>&#32;!=&#32;0)&#32;
+25 &#32;&#32;&#32;&#32;{
+26 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glDeleteShader(<emphasis role="keywordtype">id</emphasis>);
+27 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">id</emphasis>&#32;=&#32;0;
+28 &#32;&#32;&#32;&#32;}
+29 }
+30 
+31 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;SafeDeleteGLTexture(GLuint&amp;&#32;<emphasis role="keywordtype">id</emphasis>)
+32 {
+33 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<emphasis role="keywordtype">id</emphasis>&#32;!=&#32;0)&#32;
+34 &#32;&#32;&#32;&#32;{
+35 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glDeleteTextures(1,&#32;&amp;<emphasis role="keywordtype">id</emphasis>);
+36 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">id</emphasis>&#32;=&#32;0;
+37 &#32;&#32;&#32;&#32;}
+38 }
+39 
+40 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;SafeDeleteGLVertexArray(GLuint&amp;&#32;<emphasis role="keywordtype">id</emphasis>)&#32;
+41 {
+42 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<emphasis role="keywordtype">id</emphasis>&#32;!=&#32;0)&#32;
+43 &#32;&#32;&#32;&#32;{
+44 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glDeleteVertexArrays(1,&#32;&amp;<emphasis role="keywordtype">id</emphasis>);
+45 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">id</emphasis>&#32;=&#32;0;
+46 &#32;&#32;&#32;&#32;}
+47 }
+48 
+</programlisting></section>

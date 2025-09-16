@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d3/d77/gl_types_8h" kind="file" language="C++">
+    <compoundname>glTypes.h</compoundname>
+    <includes local="no">glad/gl.h</includes>
+    <includes refid="d5/d60/utils_8h" local="yes">utils.h</includes>
+    <includedby refid="de/dbf/_texture_8h" local="yes">engineOne/src/Core/Texture.h</includedby>
+    <includedby refid="d0/df4/_vertex_array_8h" local="yes">engineOne/src/Core/VertexArray.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>engineOne/src/Core/glTypes.h</label>
+        <link refid="d3/d77/gl_types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>utils.h</label>
+        <link refid="d5/d60/utils_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>glad/gl.h</label>
+      </node>
+      <node id="4">
+        <label>type_traits</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>engineOne/src/Core/Application.h</label>
+        <link refid="d9/da3/_application_8h_source"/>
+      </node>
+      <node id="2">
+        <label>engineOne/src/Core/Texture.h</label>
+        <link refid="de/dbf/_texture_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>engineOne/src/Core/VertexArray.h</label>
+        <link refid="d0/df4/_vertex_array_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>engineOne/src/Core/glTypes.h</label>
+        <link refid="d3/d77/gl_types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482" prot="public" static="no" strong="yes">
+        <type>GLenum</type>
+        <name>GLType</name>
+        <enumvalue id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482a22ae0e2b89e5e3d477f988cc36d3272b" prot="public">
+          <name>Float</name>
+          <initializer>= GL_FLOAT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482ad909d38d705ce75386dd86e611a82f5b" prot="public">
+          <name>Double</name>
+          <initializer>= GL_DOUBLE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482a1686a6c336b71b36d77354cea19a8b52" prot="public">
+          <name>Int</name>
+          <initializer>= GL_INT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482ac93cff91b6b9a57fa32bbe1863150070" prot="public">
+          <name>UnsignedInt</name>
+          <initializer>= GL_UNSIGNED_INT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482a30bb747c98bccdd11b3f89e644c4d0ad" prot="public">
+          <name>Short</name>
+          <initializer>= GL_SHORT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482aeb51124277f3ec904a9af74d5de34e7b" prot="public">
+          <name>UnsignedShort</name>
+          <initializer>= GL_UNSIGNED_SHORT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482aa245c3230debe5c956484ecc6fa93877" prot="public">
+          <name>Byte</name>
+          <initializer>= GL_BYTE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d3/d77/gl_types_8h_1ad690a784717f326926b78e54c691e482a8f0fb883eb5a52838534191513e365a2" prot="public">
+          <name>UnsignedByte</name>
+          <initializer>= GL_UNSIGNED_BYTE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/glTypes.h" line="5" column="1" bodyfile="engineOne/src/Core/glTypes.h" bodystart="6" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="d3/d77/gl_types_8h_1a430234e7b1977c6858457f7f80c84f66" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>GLenum</type>
+        <definition>GLenum GLTypeToGLenum</definition>
+        <argsstring>(GLType type) noexcept</argsstring>
+        <name>GLTypeToGLenum</name>
+        <param>
+          <type>GLType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/glTypes.h" line="18" column="18" bodyfile="engineOne/src/Core/glTypes.h" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d77/gl_types_8h_1a4da421144015a72c27db7ffaf738e875" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>GLboolean</type>
+        <definition>GLboolean boolToGLboolean</definition>
+        <argsstring>(bool value) noexcept</argsstring>
+        <name>boolToGLboolean</name>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/glTypes.h" line="25" column="18" bodyfile="engineOne/src/Core/glTypes.h" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d77/gl_types_8h_1a8ffcc3d0cc4afa9fe289eb6193f809f4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GLbooleanTobool</definition>
+        <argsstring>(GLboolean value) noexcept</argsstring>
+        <name>GLbooleanTobool</name>
+        <param>
+          <type>GLboolean</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/glTypes.h" line="30" column="13" bodyfile="engineOne/src/Core/glTypes.h" bodystart="30" bodyend="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;glad/gl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>GLType<sp/>:<sp/>GLenum</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>Float<sp/>=<sp/>GL_FLOAT,</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>Double<sp/>=<sp/>GL_DOUBLE,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>Int<sp/>=<sp/>GL_INT,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>UnsignedInt<sp/>=<sp/>GL_UNSIGNED_INT,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>Short<sp/>=<sp/>GL_SHORT,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>UnsignedShort<sp/>=<sp/>GL_UNSIGNED_SHORT,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>Byte<sp/>=<sp/>GL_BYTE,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>UnsignedByte<sp/>=<sp/>GL_UNSIGNED_BYTE</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>GLenum<sp/>GLTypeToGLenum(GLType<sp/>type)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>enumValue(type);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>GLboolean<sp/>boolToGLboolean(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">GLboolean</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(value);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>GLbooleanTobool(GLboolean<sp/>value)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(value);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="engineOne/src/Core/glTypes.h"/>
+  </compounddef>
+</doxygen>

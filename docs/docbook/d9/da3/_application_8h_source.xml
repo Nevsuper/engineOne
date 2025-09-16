@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__application_8h_source" xml:lang="en-US">
+<title>Application.h</title>
+<indexterm><primary>engineOne/src/Core/Application.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&quot;Window.h&quot;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&lt;memory&gt;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&quot;Buffer.h&quot;</emphasis>
+5 <emphasis role="preprocessor">#include&#32;&quot;Shader.h&quot;</emphasis>
+6 <emphasis role="preprocessor">#include&#32;&quot;VertexArray.h&quot;</emphasis>
+7 <emphasis role="preprocessor">#include&#32;&quot;Camera.h&quot;</emphasis>
+8 <emphasis role="preprocessor">#include&#32;&quot;Timer.h&quot;</emphasis>
+9 <emphasis role="preprocessor">#include&#32;&quot;Texture.h&quot;</emphasis>
+10 <emphasis role="preprocessor">#include&#32;&quot;RenderContext.h&quot;</emphasis>
+11 <emphasis role="preprocessor">#include&#32;&quot;GLLoader.h&quot;</emphasis>
+12 
+13 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_vertex">Vertex</link>
+14 {
+15 &#32;&#32;&#32;&#32;glm::vec3&#32;position;&#32;<emphasis role="comment">//&#32;3D&#32;position</emphasis>
+16 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;u,&#32;v;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Texture&#32;coordinates</emphasis>
+17 };
+18 
+19 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_mesh">Mesh</link>
+20 {
+21 &#32;&#32;&#32;&#32;std::vector&lt;Vertex&gt;&#32;vertices;
+22 &#32;&#32;&#32;&#32;std::vector&lt;uint32_t&gt;&#32;indices;
+23 };
+24 
+28 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_application_1a1ef39113c191aebfb4c018eab566fcc8">Application</link>
+29 {
+30 <emphasis role="keyword">public</emphasis>:
+36 &#32;&#32;&#32;&#32;<link linkend="_class_application_1a1ef39113c191aebfb4c018eab566fcc8">Application</link>(HINSTANCE&#32;hInstance,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;appName)&#32;<emphasis role="keyword">noexcept</emphasis>;
+37 
+38 &#32;&#32;&#32;&#32;<link linkend="_class_application_1a1ef39113c191aebfb4c018eab566fcc8">Application</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_application_1a1ef39113c191aebfb4c018eab566fcc8">Application</link>&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+39 &#32;&#32;&#32;&#32;<link linkend="_class_application_1a1ef39113c191aebfb4c018eab566fcc8">Application</link>&amp;&#32;operator=(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_application_1a1ef39113c191aebfb4c018eab566fcc8">Application</link>&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+40 
+41 &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_application_1a1ef39113c191aebfb4c018eab566fcc8">~Application</link>()&#32;<emphasis role="keyword">noexcept</emphasis>&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+42 
+47 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_application_1ae14efba90063d71adb721ac7acc6ac5d">Init</link>()&#32;<emphasis role="keyword">noexcept</emphasis>;
+51 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_application_1a1bfe19c019dde9134527f2b7e9afb5da">Run</link>()&#32;<emphasis role="keyword">noexcept</emphasis>;
+52 <emphasis role="keyword">private</emphasis>:
+57 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;InitGraphics()&#32;<emphasis role="keyword">noexcept</emphasis>;
+62 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;InitResources()&#32;<emphasis role="keyword">noexcept</emphasis>;
+63 &#32;&#32;&#32;&#32;
+68 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;ProcessInput(<emphasis role="keywordtype">float</emphasis>&#32;deltaTime)&#32;<emphasis role="keyword">noexcept</emphasis>;
+69 
+74 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Update(<emphasis role="keywordtype">float</emphasis>&#32;deltaTime)&#32;<emphasis role="keyword">noexcept</emphasis>;
+78 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Render()&#32;<emphasis role="keyword">noexcept</emphasis>;
+79 
+80 <emphasis role="keyword">private</emphasis>:
+86 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;RegisterWindowClass(HINSTANCE&#32;hInstance)&#32;<emphasis role="keyword">noexcept</emphasis>;
+87 
+99 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;APIENTRY&#32;OpenGLDebugCallback(
+100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;GLenum&#32;source,&#32;GLenum&#32;type,&#32;GLuint&#32;<emphasis role="keywordtype">id</emphasis>,&#32;GLenum&#32;severity,
+101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;GLsizei&#32;length,&#32;<emphasis role="keyword">const</emphasis>&#32;GLchar*&#32;message,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>*&#32;userParam);
+102 <emphasis role="keyword">private</emphasis>:
+103 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;s_WindowClassName&#32;=&#32;<emphasis role="stringliteral">&quot;MyEngineWindowClass&quot;</emphasis>;
+104 <emphasis role="keyword">private</emphasis>:
+105 &#32;&#32;&#32;&#32;<emphasis role="comment">//in&#32;the&#32;order&#32;of&#32;initialization&#32;and&#32;reverse&#32;order&#32;of&#32;destruction</emphasis>
+106 &#32;&#32;&#32;&#32;HINSTANCE&#32;m_hInstance;
+107 &#32;&#32;&#32;&#32;std::string&#32;m_ApplicationName;
+108 &#32;&#32;&#32;&#32;<link linkend="_class_camera_f_p_s">CameraFPS</link>&#32;m_Camera;
+109 &#32;&#32;&#32;&#32;<link linkend="_class_timer">Timer</link>&#32;m_Timer;
+110 
+111 &#32;&#32;&#32;&#32;<link linkend="_class_g_l_loader">GLLoader</link>&#32;m_OpenGLLoader;
+112 &#32;&#32;&#32;&#32;std::unique_ptr&lt;Window&gt;&#32;m_Window;
+113 &#32;&#32;&#32;&#32;std::unique_ptr&lt;RenderContext&gt;&#32;m_RenderContext;
+114 &#32;&#32;&#32;&#32;std::unique_ptr&lt;ShaderProgram&gt;&#32;m_ShaderProgram;
+115 
+116 &#32;&#32;&#32;&#32;<link linkend="_struct_mesh">Mesh</link>&#32;m_Mesh;
+117 
+118 &#32;&#32;&#32;&#32;std::unique_ptr&lt;VertexArray&gt;&#32;m_VAO;
+119 &#32;&#32;&#32;&#32;std::unique_ptr&lt;VertexBuffer&gt;&#32;m_VBO;
+120 &#32;&#32;&#32;&#32;std::unique_ptr&lt;IndexBuffer&gt;&#32;m_EBO;
+121 &#32;&#32;&#32;&#32;std::unique_ptr&lt;Texture2D&gt;&#32;m_Texture,m_AlphaTexture;
+122 };
+123 
+</programlisting></section>

@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d5/dc6/class_index_buffer" kind="class" language="C++" prot="public">
+    <compoundname>IndexBuffer</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d5/dc6/class_index_buffer_1a4999a3c2ea63e2d4a06ea174bfedc44e" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int IndexBuffer::m_ID</definition>
+        <argsstring></argsstring>
+        <name>m_ID</name>
+        <qualifiedname>IndexBuffer::m_ID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="69" column="14" bodyfile="engineOne/src/Core/Buffer.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1ac0bb6a990a56f35d0eb9804d3f1937ae" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>IndexBuffer::IndexBuffer</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>IndexBuffer</name>
+        <qualifiedname>IndexBuffer::IndexBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="50" column="1" bodyfile="engineOne/src/Core/Buffer.cpp" bodystart="61" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1a23aa3d19e948a4a14630604f79f34a96" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>IndexBuffer::IndexBuffer</definition>
+        <argsstring>(const void *data, unsigned int size, BufferUsage usage=DefaultBufferUsage) noexcept</argsstring>
+        <name>IndexBuffer</name>
+        <qualifiedname>IndexBuffer::IndexBuffer</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>BufferUsage</type>
+          <declname>usage</declname>
+          <defval>DefaultBufferUsage</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="51" column="1" bodyfile="engineOne/src/Core/Buffer.cpp" bodystart="68" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1acff8f517a40a64aab4a9bfbd366b5b26" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>IndexBuffer::IndexBuffer</definition>
+        <argsstring>(IndexBuffer &amp;&amp;other) noexcept</argsstring>
+        <name>IndexBuffer</name>
+        <qualifiedname>IndexBuffer::IndexBuffer</qualifiedname>
+        <param>
+          <type><ref refid="d5/dc6/class_index_buffer" kindref="compound">IndexBuffer</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="53" column="1" bodyfile="engineOne/src/Core/Buffer.cpp" bodystart="77" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1a348889936f378b7942c1e01d83e42866" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IndexBuffer::~IndexBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>~IndexBuffer</name>
+        <qualifiedname>IndexBuffer::~IndexBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="54" column="1" bodyfile="engineOne/src/Core/Buffer.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1a12e339eea126b7f2afa92b15592dde07" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="d5/dc6/class_index_buffer" kindref="compound">IndexBuffer</ref> &amp;</type>
+        <definition>IndexBuffer &amp; IndexBuffer::operator=</definition>
+        <argsstring>(IndexBuffer &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>IndexBuffer::operator=</qualifiedname>
+        <param>
+          <type><ref refid="d5/dc6/class_index_buffer" kindref="compound">IndexBuffer</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="57" column="13" bodyfile="engineOne/src/Core/Buffer.cpp" bodystart="90" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1a3e0d508baf0b053cd9944400fa000013" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IndexBuffer::IndexBuffer</definition>
+        <argsstring>(const IndexBuffer &amp;)=delete</argsstring>
+        <name>IndexBuffer</name>
+        <qualifiedname>IndexBuffer::IndexBuffer</qualifiedname>
+        <param>
+          <type>const <ref refid="d5/dc6/class_index_buffer" kindref="compound">IndexBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="59" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1a052250d9f37e76d4335d2979bef46cd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d5/dc6/class_index_buffer" kindref="compound">IndexBuffer</ref> &amp;</type>
+        <definition>IndexBuffer &amp; IndexBuffer::operator=</definition>
+        <argsstring>(const IndexBuffer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>IndexBuffer::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="d5/dc6/class_index_buffer" kindref="compound">IndexBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="60" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1ab9955e9568d67ec0de5e838cde533bd9" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void IndexBuffer::Bind</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>Bind</name>
+        <qualifiedname>IndexBuffer::Bind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="62" column="6" bodyfile="engineOne/src/Core/Buffer.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1a4b868d7d99fcb567a96c9e25dbacb3a9" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void IndexBuffer::Unbind</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>Unbind</name>
+        <qualifiedname>IndexBuffer::Unbind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="63" column="6" bodyfile="engineOne/src/Core/Buffer.cpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1a40ac17897b6c9c7ef75e8e35b84d3ab2" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void IndexBuffer::SetData</definition>
+        <argsstring>(const void *data, unsigned int size, BufferUsage usage=DefaultBufferUsage) const noexcept</argsstring>
+        <name>SetData</name>
+        <qualifiedname>IndexBuffer::SetData</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>BufferUsage</type>
+          <declname>usage</declname>
+          <defval>DefaultBufferUsage</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="64" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dc6/class_index_buffer_1abb0464e994d2ebd05f664e503d1ac927" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int IndexBuffer::getID</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>getID</name>
+        <qualifiedname>IndexBuffer::getID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Buffer.h" line="66" column="21" bodyfile="engineOne/src/Core/Buffer.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Buffer.h" line="47" column="1" bodyfile="engineOne/src/Core/Buffer.h" bodystart="48" bodyend="70"/>
+    <listofallmembers>
+      <member refid="d5/dc6/class_index_buffer_1ab9955e9568d67ec0de5e838cde533bd9" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>Bind</name></member>
+      <member refid="d5/dc6/class_index_buffer_1abb0464e994d2ebd05f664e503d1ac927" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>getID</name></member>
+      <member refid="d5/dc6/class_index_buffer_1ac0bb6a990a56f35d0eb9804d3f1937ae" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>IndexBuffer</name></member>
+      <member refid="d5/dc6/class_index_buffer_1a23aa3d19e948a4a14630604f79f34a96" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>IndexBuffer</name></member>
+      <member refid="d5/dc6/class_index_buffer_1acff8f517a40a64aab4a9bfbd366b5b26" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>IndexBuffer</name></member>
+      <member refid="d5/dc6/class_index_buffer_1a3e0d508baf0b053cd9944400fa000013" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>IndexBuffer</name></member>
+      <member refid="d5/dc6/class_index_buffer_1a4999a3c2ea63e2d4a06ea174bfedc44e" prot="private" virt="non-virtual"><scope>IndexBuffer</scope><name>m_ID</name></member>
+      <member refid="d5/dc6/class_index_buffer_1a12e339eea126b7f2afa92b15592dde07" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>operator=</name></member>
+      <member refid="d5/dc6/class_index_buffer_1a052250d9f37e76d4335d2979bef46cd7" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>operator=</name></member>
+      <member refid="d5/dc6/class_index_buffer_1a40ac17897b6c9c7ef75e8e35b84d3ab2" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>SetData</name></member>
+      <member refid="d5/dc6/class_index_buffer_1a4b868d7d99fcb567a96c9e25dbacb3a9" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>Unbind</name></member>
+      <member refid="d5/dc6/class_index_buffer_1a348889936f378b7942c1e01d83e42866" prot="public" virt="non-virtual"><scope>IndexBuffer</scope><name>~IndexBuffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d9/d51/class_vertex_array" kind="class" language="C++" prot="public">
+    <compoundname>VertexArray</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d9/d51/class_vertex_array_1a8430919adccdacd529d136cbcb97c5e9" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int VertexArray::m_ID</definition>
+        <argsstring></argsstring>
+        <name>m_ID</name>
+        <qualifiedname>VertexArray::m_ID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="26" column="14" bodyfile="engineOne/src/Core/VertexArray.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1a21637b02a87471a597e031eccd0fc838" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>VertexArray::VertexArray</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>VertexArray</name>
+        <qualifiedname>VertexArray::VertexArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="6" column="1" bodyfile="engineOne/src/Core/VertexArray.cpp" bodystart="6" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1af20bc66b0919e289f3d82e0979e42f99" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>VertexArray::VertexArray</definition>
+        <argsstring>(VertexArray &amp;&amp;other) noexcept</argsstring>
+        <name>VertexArray</name>
+        <qualifiedname>VertexArray::VertexArray</qualifiedname>
+        <param>
+          <type><ref refid="d9/d51/class_vertex_array" kindref="compound">VertexArray</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="8" column="1" bodyfile="engineOne/src/Core/VertexArray.cpp" bodystart="13" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1a82597eb9daba5ad66dd3cf898e159a95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VertexArray::~VertexArray</definition>
+        <argsstring>()</argsstring>
+        <name>~VertexArray</name>
+        <qualifiedname>VertexArray::~VertexArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="10" column="1" bodyfile="engineOne/src/Core/VertexArray.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1ac17181dbeff699f5d24dd143f6004004" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="d9/d51/class_vertex_array" kindref="compound">VertexArray</ref> &amp;</type>
+        <definition>VertexArray &amp; VertexArray::operator=</definition>
+        <argsstring>(VertexArray &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>VertexArray::operator=</qualifiedname>
+        <param>
+          <type><ref refid="d9/d51/class_vertex_array" kindref="compound">VertexArray</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="13" column="13" bodyfile="engineOne/src/Core/VertexArray.cpp" bodystart="24" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1a4a7b686d4084b4787daa55701507d911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VertexArray::VertexArray</definition>
+        <argsstring>(const VertexArray &amp;)=delete</argsstring>
+        <name>VertexArray</name>
+        <qualifiedname>VertexArray::VertexArray</qualifiedname>
+        <param>
+          <type>const <ref refid="d9/d51/class_vertex_array" kindref="compound">VertexArray</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1a0f33f8276cb8fea67e015ac85c7cc97a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d9/d51/class_vertex_array" kindref="compound">VertexArray</ref> &amp;</type>
+        <definition>VertexArray &amp; VertexArray::operator=</definition>
+        <argsstring>(const VertexArray &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>VertexArray::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="d9/d51/class_vertex_array" kindref="compound">VertexArray</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="17" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1a974ecc6c46efc395a507831c88db405b" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexArray::Bind</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>Bind</name>
+        <qualifiedname>VertexArray::Bind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="19" column="6" bodyfile="engineOne/src/Core/VertexArray.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1a3ec37fb3d1d74d29b057dcc7f1ddec3e" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexArray::Unbind</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>Unbind</name>
+        <qualifiedname>VertexArray::Unbind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="20" column="6" bodyfile="engineOne/src/Core/VertexArray.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1af3d362cf004d4f5c5eed8fa93636944e" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void VertexArray::addAttribute</definition>
+        <argsstring>(unsigned int index, int size, GLType type, bool normalized, int stride, const void *pointer) const noexcept</argsstring>
+        <name>addAttribute</name>
+        <qualifiedname>VertexArray::addAttribute</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>GLType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>normalized</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>stride</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>pointer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="22" column="6" bodyfile="engineOne/src/Core/VertexArray.cpp" bodystart="45" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d51/class_vertex_array_1ac8af71d6a9cb804397829b14b6fa84a5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int VertexArray::getID</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>getID</name>
+        <qualifiedname>VertexArray::getID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/VertexArray.h" line="24" column="21" bodyfile="engineOne/src/Core/VertexArray.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/VertexArray.h" line="3" column="1" bodyfile="engineOne/src/Core/VertexArray.h" bodystart="4" bodyend="27"/>
+    <listofallmembers>
+      <member refid="d9/d51/class_vertex_array_1af3d362cf004d4f5c5eed8fa93636944e" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>addAttribute</name></member>
+      <member refid="d9/d51/class_vertex_array_1a974ecc6c46efc395a507831c88db405b" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>Bind</name></member>
+      <member refid="d9/d51/class_vertex_array_1ac8af71d6a9cb804397829b14b6fa84a5" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>getID</name></member>
+      <member refid="d9/d51/class_vertex_array_1a8430919adccdacd529d136cbcb97c5e9" prot="private" virt="non-virtual"><scope>VertexArray</scope><name>m_ID</name></member>
+      <member refid="d9/d51/class_vertex_array_1ac17181dbeff699f5d24dd143f6004004" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>operator=</name></member>
+      <member refid="d9/d51/class_vertex_array_1a0f33f8276cb8fea67e015ac85c7cc97a" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>operator=</name></member>
+      <member refid="d9/d51/class_vertex_array_1a3ec37fb3d1d74d29b057dcc7f1ddec3e" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>Unbind</name></member>
+      <member refid="d9/d51/class_vertex_array_1a21637b02a87471a597e031eccd0fc838" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>VertexArray</name></member>
+      <member refid="d9/d51/class_vertex_array_1af20bc66b0919e289f3d82e0979e42f99" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>VertexArray</name></member>
+      <member refid="d9/d51/class_vertex_array_1a4a7b686d4084b4787daa55701507d911" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>VertexArray</name></member>
+      <member refid="d9/d51/class_vertex_array_1a82597eb9daba5ad66dd3cf898e159a95" prot="public" virt="non-virtual"><scope>VertexArray</scope><name>~VertexArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

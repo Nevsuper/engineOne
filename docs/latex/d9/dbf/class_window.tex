@@ -1,0 +1,47 @@
+\doxysection{Window Class Reference}
+\hypertarget{class_window}{}\label{class_window}\index{Window@{Window}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_window_add0ac5447eb2d75e18b2885e4e61ecad}\label{class_window_add0ac5447eb2d75e18b2885e4e61ecad} 
+{\bfseries Window} (HINSTANCE h\+Instance, const std\+::string \&window\+Class\+Name, const std\+::string \&title, int width, int height, DWORD window\+Style)
+\item 
+\Hypertarget{class_window_a039078340b926516d359749b6fa30cc9}\label{class_window_a039078340b926516d359749b6fa30cc9} 
+void {\bfseries Process\+Messages} () noexcept
+\item 
+\Hypertarget{class_window_a52a1ef49712459a2f5e3ad797552b642}\label{class_window_a52a1ef49712459a2f5e3ad797552b642} 
+bool {\bfseries Should\+Close} () const noexcept
+\item 
+\Hypertarget{class_window_a833f7b58a608ea0ef9a2ffd5194e474a}\label{class_window_a833f7b58a608ea0ef9a2ffd5194e474a} 
+HDC {\bfseries Get\+Device\+Context} () const noexcept
+\item 
+\Hypertarget{class_window_acdacecf1671fcaeee41c08c074e7fefa}\label{class_window_acdacecf1671fcaeee41c08c074e7fefa} 
+int {\bfseries Get\+Width} () const noexcept
+\item 
+\Hypertarget{class_window_ad3d688a89c07f74c22de2ecc4671dbdc}\label{class_window_ad3d688a89c07f74c22de2ecc4671dbdc} 
+int {\bfseries Get\+Height} () const noexcept
+\item 
+\Hypertarget{class_window_a418e22fac4424c399e3feb6456279383}\label{class_window_a418e22fac4424c399e3feb6456279383} 
+float {\bfseries Get\+Aspect\+Ratio} () const noexcept
+\item 
+\Hypertarget{class_window_a1cb817bea93e87a7887cadc11a5ebdd7}\label{class_window_a1cb817bea93e87a7887cadc11a5ebdd7} 
+void {\bfseries Close} () noexcept
+\item 
+\Hypertarget{class_window_a69ebe826c82772d84c60e6f551e77d3a}\label{class_window_a69ebe826c82772d84c60e6f551e77d3a} 
+bool {\bfseries is\+Created} () const noexcept
+\item 
+\Hypertarget{class_window_a7568bb745290d9eb85cc4dcae8a45bca}\label{class_window_a7568bb745290d9eb85cc4dcae8a45bca} 
+{\bfseries operator bool} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_window_a09fc8fcb65abb5f200176ec064e8237f}\label{class_window_a09fc8fcb65abb5f200176ec064e8237f} 
+static LRESULT CALLBACK {\bfseries Static\+Wnd\+Proc} (HWND hwnd, UINT msg, WPARAM w\+Param, LPARAM l\+Param) noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine\+One/src/\+Core/Window.\+h\item 
+engine\+One/src/\+Core/Window.\+cpp\end{DoxyCompactItemize}

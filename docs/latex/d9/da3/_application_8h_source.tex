@@ -1,0 +1,79 @@
+\doxysection{Application.\+h}
+\hypertarget{_application_8h_source}{}\label{_application_8h_source}\index{engineOne/src/Core/Application.h@{engineOne/src/Core/Application.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include"{}Window.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Buffer.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Shader.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}VertexArray.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Camera.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Timer.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Texture.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}RenderContext.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}GLLoader.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vertex}{Vertex}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ glm::vec3\ position;\ \textcolor{comment}{//\ 3D\ position}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ u,\ v;\ \ \ \ \ \textcolor{comment}{//\ Texture\ coordinates}}
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_mesh}{Mesh}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<Vertex>\ vertices;}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<uint32\_t>\ indices;}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_application_a1ef39113c191aebfb4c018eab566fcc8}{Application}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_application_a1ef39113c191aebfb4c018eab566fcc8}{Application}}(HINSTANCE\ hInstance,\ \textcolor{keyword}{const}\ std::string\&\ appName)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_application_a1ef39113c191aebfb4c018eab566fcc8}{Application}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_application_a1ef39113c191aebfb4c018eab566fcc8}{Application}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_application_a1ef39113c191aebfb4c018eab566fcc8}{Application}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_application_a1ef39113c191aebfb4c018eab566fcc8}{Application}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_application_a1ef39113c191aebfb4c018eab566fcc8}{\string~Application}}()\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_application_ae14efba90063d71adb721ac7acc6ac5d}{Init}}()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_application_a1bfe19c019dde9134527f2b7e9afb5da}{Run}}()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ InitGraphics()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ InitResources()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00063\ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessInput(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ Update(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ Render()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ RegisterWindowClass(HINSTANCE\ hInstance)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ APIENTRY\ OpenGLDebugCallback(}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ GLenum\ source,\ GLenum\ type,\ GLuint\ \textcolor{keywordtype}{id},\ GLenum\ severity,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ GLsizei\ length,\ \textcolor{keyword}{const}\ GLchar*\ message,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ userParam);}
+\DoxyCodeLine{00102\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s\_WindowClassName\ =\ \textcolor{stringliteral}{"{}MyEngineWindowClass"{}};}
+\DoxyCodeLine{00104\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//in\ the\ order\ of\ initialization\ and\ reverse\ order\ of\ destruction}}
+\DoxyCodeLine{00106\ \ \ \ \ HINSTANCE\ m\_hInstance;}
+\DoxyCodeLine{00107\ \ \ \ \ std::string\ m\_ApplicationName;}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{class_camera_f_p_s}{CameraFPS}}\ m\_Camera;}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{class_timer}{Timer}}\ m\_Timer;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_g_l_loader}{GLLoader}}\ m\_OpenGLLoader;}
+\DoxyCodeLine{00112\ \ \ \ \ std::unique\_ptr<Window>\ m\_Window;}
+\DoxyCodeLine{00113\ \ \ \ \ std::unique\_ptr<RenderContext>\ m\_RenderContext;}
+\DoxyCodeLine{00114\ \ \ \ \ std::unique\_ptr<ShaderProgram>\ m\_ShaderProgram;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{struct_mesh}{Mesh}}\ m\_Mesh;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ std::unique\_ptr<VertexArray>\ m\_VAO;}
+\DoxyCodeLine{00119\ \ \ \ \ std::unique\_ptr<VertexBuffer>\ m\_VBO;}
+\DoxyCodeLine{00120\ \ \ \ \ std::unique\_ptr<IndexBuffer>\ m\_EBO;}
+\DoxyCodeLine{00121\ \ \ \ \ std::unique\_ptr<Texture2D>\ m\_Texture,m\_AlphaTexture;}
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ }
+
+\end{DoxyCode}

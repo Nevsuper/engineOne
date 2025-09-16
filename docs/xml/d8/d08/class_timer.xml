@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d8/d08/class_timer" kind="class" language="C++" prot="public">
+    <compoundname>Timer</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/d08/class_timer_1a71047bff110021ac975e6b9bf3d4ea17" prot="private" static="no" mutable="no">
+        <type>LARGE_INTEGER</type>
+        <definition>LARGE_INTEGER Timer::m_Frequency</definition>
+        <argsstring></argsstring>
+        <name>m_Frequency</name>
+        <qualifiedname>Timer::m_Frequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="51" column="15" bodyfile="engineOne/src/Core/Timer.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d08/class_timer_1af8e0b8776cafaad664ad58afc66af8f5" prot="private" static="no" mutable="no">
+        <type>LARGE_INTEGER</type>
+        <definition>LARGE_INTEGER Timer::m_Time</definition>
+        <argsstring></argsstring>
+        <name>m_Time</name>
+        <qualifiedname>Timer::m_Time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="52" column="15" bodyfile="engineOne/src/Core/Timer.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d08/class_timer_1a3d18ff196960cc65f19ff5452ece31db" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Timer::Timer</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Timer</name>
+        <qualifiedname>Timer::Timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="7" column="1" bodyfile="engineOne/src/Core/Timer.h" bodystart="7" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d08/class_timer_1ab00685c05c6f27de4788d89c29f67297" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Timer::Timer</definition>
+        <argsstring>(const Timer &amp;) noexcept=delete</argsstring>
+        <name>Timer</name>
+        <qualifiedname>Timer::Timer</qualifiedname>
+        <param>
+          <type>const <ref refid="d8/d08/class_timer" kindref="compound">Timer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d08/class_timer_1a170f0457a5181ecab0d26aada3931953" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="d8/d08/class_timer" kindref="compound">Timer</ref> &amp;</type>
+        <definition>Timer &amp; Timer::operator=</definition>
+        <argsstring>(const Timer &amp;) noexcept=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Timer::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="d8/d08/class_timer" kindref="compound">Timer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="16" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d08/class_timer_1ae02a526485e3afcbbceea86e8de9ae72" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Timer::Timer</definition>
+        <argsstring>(Timer &amp;&amp;) noexcept=default</argsstring>
+        <name>Timer</name>
+        <qualifiedname>Timer::Timer</qualifiedname>
+        <param>
+          <type><ref refid="d8/d08/class_timer" kindref="compound">Timer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d08/class_timer_1a374529fb40e95d7d9f0ba30365355d25" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="d8/d08/class_timer" kindref="compound">Timer</ref> &amp;</type>
+        <definition>Timer &amp; Timer::operator=</definition>
+        <argsstring>(Timer &amp;&amp;) noexcept=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Timer::operator=</qualifiedname>
+        <param>
+          <type><ref refid="d8/d08/class_timer" kindref="compound">Timer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="19" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d08/class_timer_1a9020542d73357a4eef512eefaf57524b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Timer::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>Timer::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="21" column="13" bodyfile="engineOne/src/Core/Timer.h" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d08/class_timer_1aeed5008b8551d63fc1a8256b86749776" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Timer::resetFrequency</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>resetFrequency</name>
+        <qualifiedname>Timer::resetFrequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="26" column="13" bodyfile="engineOne/src/Core/Timer.h" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d08/class_timer_1af2b9795ac9acec89d888c7e7a53d8324" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Timer::elapsed</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>elapsed</name>
+        <qualifiedname>Timer::elapsed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="32" column="15" bodyfile="engineOne/src/Core/Timer.h" bodystart="32" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d08/class_timer_1a27fa1461be39feb52294a6920030f4b8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Timer::elapsedAndReset</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>elapsedAndReset</name>
+        <qualifiedname>Timer::elapsedAndReset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Timer.h" line="38" column="15" bodyfile="engineOne/src/Core/Timer.h" bodystart="38" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Timer.h" line="4" column="1" bodyfile="engineOne/src/Core/Timer.h" bodystart="5" bodyend="53"/>
+    <listofallmembers>
+      <member refid="d8/d08/class_timer_1af2b9795ac9acec89d888c7e7a53d8324" prot="public" virt="non-virtual"><scope>Timer</scope><name>elapsed</name></member>
+      <member refid="d8/d08/class_timer_1a27fa1461be39feb52294a6920030f4b8" prot="public" virt="non-virtual"><scope>Timer</scope><name>elapsedAndReset</name></member>
+      <member refid="d8/d08/class_timer_1a71047bff110021ac975e6b9bf3d4ea17" prot="private" virt="non-virtual"><scope>Timer</scope><name>m_Frequency</name></member>
+      <member refid="d8/d08/class_timer_1af8e0b8776cafaad664ad58afc66af8f5" prot="private" virt="non-virtual"><scope>Timer</scope><name>m_Time</name></member>
+      <member refid="d8/d08/class_timer_1a170f0457a5181ecab0d26aada3931953" prot="public" virt="non-virtual"><scope>Timer</scope><name>operator=</name></member>
+      <member refid="d8/d08/class_timer_1a374529fb40e95d7d9f0ba30365355d25" prot="public" virt="non-virtual"><scope>Timer</scope><name>operator=</name></member>
+      <member refid="d8/d08/class_timer_1a9020542d73357a4eef512eefaf57524b" prot="public" virt="non-virtual"><scope>Timer</scope><name>reset</name></member>
+      <member refid="d8/d08/class_timer_1aeed5008b8551d63fc1a8256b86749776" prot="public" virt="non-virtual"><scope>Timer</scope><name>resetFrequency</name></member>
+      <member refid="d8/d08/class_timer_1a3d18ff196960cc65f19ff5452ece31db" prot="public" virt="non-virtual"><scope>Timer</scope><name>Timer</name></member>
+      <member refid="d8/d08/class_timer_1ab00685c05c6f27de4788d89c29f67297" prot="public" virt="non-virtual"><scope>Timer</scope><name>Timer</name></member>
+      <member refid="d8/d08/class_timer_1ae02a526485e3afcbbceea86e8de9ae72" prot="public" virt="non-virtual"><scope>Timer</scope><name>Timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

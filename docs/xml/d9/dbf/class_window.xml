@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d9/dbf/class_window" kind="class" language="C++" prot="public">
+    <compoundname>Window</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d9/dbf/class_window_1a64f39cdc631de9d07b661fab2fc0e5cd" prot="private" static="no" mutable="no">
+        <type>HINSTANCE</type>
+        <definition>HINSTANCE Window::m_hInstance</definition>
+        <argsstring></argsstring>
+        <name>m_hInstance</name>
+        <qualifiedname>Window::m_hInstance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="32" column="15" bodyfile="engineOne/src/Core/Window.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dbf/class_window_1ab39b5ba6b3adea40aa19ffa50e306dbb" prot="private" static="no" mutable="no">
+        <type>HWND</type>
+        <definition>HWND Window::m_hWnd</definition>
+        <argsstring></argsstring>
+        <name>m_hWnd</name>
+        <qualifiedname>Window::m_hWnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="33" column="10" bodyfile="engineOne/src/Core/Window.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dbf/class_window_1a0b152b155c0498b1c9dc903ffc4ecb37" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Window::windowTitle</definition>
+        <argsstring></argsstring>
+        <name>windowTitle</name>
+        <qualifiedname>Window::windowTitle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="34" column="17" bodyfile="engineOne/src/Core/Window.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dbf/class_window_1a7d93ddf367ca6d2a5864e3f6f40ae26b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Window::m_Width</definition>
+        <argsstring></argsstring>
+        <name>m_Width</name>
+        <qualifiedname>Window::m_Width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="35" column="9" bodyfile="engineOne/src/Core/Window.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dbf/class_window_1a08f9b27c54233d5b31c0e812d2a153a2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Window::mHeight</definition>
+        <argsstring></argsstring>
+        <name>mHeight</name>
+        <qualifiedname>Window::mHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="35" column="17" bodyfile="engineOne/src/Core/Window.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dbf/class_window_1a8086aeabc172389c480caf57e18cddbc" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Window::m_AspectRatio</definition>
+        <argsstring></argsstring>
+        <name>m_AspectRatio</name>
+        <qualifiedname>Window::m_AspectRatio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="36" column="7" bodyfile="engineOne/src/Core/Window.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dbf/class_window_1a6fa6d06d006cbbf20ca560ffe9cd4eae" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Window::m_ShouldClose</definition>
+        <argsstring></argsstring>
+        <name>m_ShouldClose</name>
+        <qualifiedname>Window::m_ShouldClose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="37" column="10" bodyfile="engineOne/src/Core/Window.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dbf/class_window_1ae8ca1f666dca9c4a42f07e130eb9e016" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Window::m_IsCreated</definition>
+        <argsstring></argsstring>
+        <name>m_IsCreated</name>
+        <qualifiedname>Window::m_IsCreated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="38" column="10" bodyfile="engineOne/src/Core/Window.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d9/dbf/class_window_1add0ac5447eb2d75e18b2885e4e61ecad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Window::Window</definition>
+        <argsstring>(HINSTANCE hInstance, const std::string &amp;windowClassName, const std::string &amp;title, int width, int height, DWORD windowStyle)</argsstring>
+        <name>Window</name>
+        <qualifiedname>Window::Window</qualifiedname>
+        <param>
+          <type>HINSTANCE</type>
+          <declname>hInstance</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>windowClassName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>windowStyle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="9" column="5" bodyfile="engineOne/src/Core/Window.cpp" bodystart="5" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1ae6b4e3e731f32506a8ae77790b08584e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Window::~Window</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~Window</name>
+        <qualifiedname>Window::~Window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="10" column="5" bodyfile="engineOne/src/Core/Window.cpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1a039078340b926516d359749b6fa30cc9" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Window::ProcessMessages</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>ProcessMessages</name>
+        <qualifiedname>Window::ProcessMessages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="12" column="10" bodyfile="engineOne/src/Core/Window.cpp" bodystart="62" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1a52a1ef49712459a2f5e3ad797552b642" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Window::ShouldClose</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>ShouldClose</name>
+        <qualifiedname>Window::ShouldClose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="13" column="10" bodyfile="engineOne/src/Core/Window.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1a833f7b58a608ea0ef9a2ffd5194e474a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>HDC</type>
+        <definition>HDC Window::GetDeviceContext</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetDeviceContext</name>
+        <qualifiedname>Window::GetDeviceContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="15" column="9" bodyfile="engineOne/src/Core/Window.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1acdacecf1671fcaeee41c08c074e7fefa" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Window::GetWidth</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetWidth</name>
+        <qualifiedname>Window::GetWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="16" column="9" bodyfile="engineOne/src/Core/Window.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1ad3d688a89c07f74c22de2ecc4671dbdc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Window::GetHeight</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetHeight</name>
+        <qualifiedname>Window::GetHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="17" column="5" bodyfile="engineOne/src/Core/Window.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1a418e22fac4424c399e3feb6456279383" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Window::GetAspectRatio</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetAspectRatio</name>
+        <qualifiedname>Window::GetAspectRatio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="18" column="7" bodyfile="engineOne/src/Core/Window.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1a1cb817bea93e87a7887cadc11a5ebdd7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Window::Close</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Close</name>
+        <qualifiedname>Window::Close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="20" column="6" bodyfile="engineOne/src/Core/Window.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1a69ebe826c82772d84c60e6f551e77d3a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Window::isCreated</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>isCreated</name>
+        <qualifiedname>Window::isCreated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="22" column="6" bodyfile="engineOne/src/Core/Window.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dbf/class_window_1a7568bb745290d9eb85cc4dcae8a45bca" prot="public" static="no" const="yes" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Window::operator bool</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator bool</name>
+        <qualifiedname>Window::operator bool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="23" column="14" bodyfile="engineOne/src/Core/Window.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d9/dbf/class_window_1a09fc8fcb65abb5f200176ec064e8237f" prot="public" static="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>LRESULT CALLBACK</type>
+        <definition>LRESULT Window::StaticWndProc</definition>
+        <argsstring>(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept</argsstring>
+        <name>StaticWndProc</name>
+        <qualifiedname>Window::StaticWndProc</qualifiedname>
+        <param>
+          <type>HWND</type>
+          <declname>hwnd</declname>
+        </param>
+        <param>
+          <type>UINT</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>WPARAM</type>
+          <declname>wParam</declname>
+        </param>
+        <param>
+          <type>LPARAM</type>
+          <declname>lParam</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="24" column="29" bodyfile="engineOne/src/Core/Window.cpp" bodystart="98" bodyend="119"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d9/dbf/class_window_1a39ad49e68ea6251c690b72d28fe76b86" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>LRESULT</type>
+        <definition>LRESULT Window::HandleMsg</definition>
+        <argsstring>(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept</argsstring>
+        <name>HandleMsg</name>
+        <qualifiedname>Window::HandleMsg</qualifiedname>
+        <param>
+          <type>HWND</type>
+          <declname>hWnd</declname>
+        </param>
+        <param>
+          <type>UINT</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>WPARAM</type>
+          <declname>wParam</declname>
+        </param>
+        <param>
+          <type>LPARAM</type>
+          <declname>lParam</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="26" column="13" bodyfile="engineOne/src/Core/Window.cpp" bodystart="121" bodyend="139"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="d9/dbf/class_window_1a881ac83affae70cbc217d017c3b1625f" prot="private" static="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Window::DoesWindowClassExistsAndHavePrivateDCAndUsesCorrectWndProc</definition>
+        <argsstring>(const std::string &amp;className, HINSTANCE hInstance) noexcept</argsstring>
+        <name>DoesWindowClassExistsAndHavePrivateDCAndUsesCorrectWndProc</name>
+        <qualifiedname>Window::DoesWindowClassExistsAndHavePrivateDCAndUsesCorrectWndProc</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>className</declname>
+        </param>
+        <param>
+          <type>HINSTANCE</type>
+          <declname>hInstance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Window.h" line="28" column="13" bodyfile="engineOne/src/Core/Window.cpp" bodystart="77" bodyend="96"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Window.h" line="6" column="1" bodyfile="engineOne/src/Core/Window.h" bodystart="7" bodyend="39"/>
+    <listofallmembers>
+      <member refid="d9/dbf/class_window_1a1cb817bea93e87a7887cadc11a5ebdd7" prot="public" virt="non-virtual"><scope>Window</scope><name>Close</name></member>
+      <member refid="d9/dbf/class_window_1a881ac83affae70cbc217d017c3b1625f" prot="private" virt="non-virtual"><scope>Window</scope><name>DoesWindowClassExistsAndHavePrivateDCAndUsesCorrectWndProc</name></member>
+      <member refid="d9/dbf/class_window_1a418e22fac4424c399e3feb6456279383" prot="public" virt="non-virtual"><scope>Window</scope><name>GetAspectRatio</name></member>
+      <member refid="d9/dbf/class_window_1a833f7b58a608ea0ef9a2ffd5194e474a" prot="public" virt="non-virtual"><scope>Window</scope><name>GetDeviceContext</name></member>
+      <member refid="d9/dbf/class_window_1ad3d688a89c07f74c22de2ecc4671dbdc" prot="public" virt="non-virtual"><scope>Window</scope><name>GetHeight</name></member>
+      <member refid="d9/dbf/class_window_1acdacecf1671fcaeee41c08c074e7fefa" prot="public" virt="non-virtual"><scope>Window</scope><name>GetWidth</name></member>
+      <member refid="d9/dbf/class_window_1a39ad49e68ea6251c690b72d28fe76b86" prot="private" virt="non-virtual"><scope>Window</scope><name>HandleMsg</name></member>
+      <member refid="d9/dbf/class_window_1a69ebe826c82772d84c60e6f551e77d3a" prot="public" virt="non-virtual"><scope>Window</scope><name>isCreated</name></member>
+      <member refid="d9/dbf/class_window_1a8086aeabc172389c480caf57e18cddbc" prot="private" virt="non-virtual"><scope>Window</scope><name>m_AspectRatio</name></member>
+      <member refid="d9/dbf/class_window_1a64f39cdc631de9d07b661fab2fc0e5cd" prot="private" virt="non-virtual"><scope>Window</scope><name>m_hInstance</name></member>
+      <member refid="d9/dbf/class_window_1ab39b5ba6b3adea40aa19ffa50e306dbb" prot="private" virt="non-virtual"><scope>Window</scope><name>m_hWnd</name></member>
+      <member refid="d9/dbf/class_window_1ae8ca1f666dca9c4a42f07e130eb9e016" prot="private" virt="non-virtual"><scope>Window</scope><name>m_IsCreated</name></member>
+      <member refid="d9/dbf/class_window_1a6fa6d06d006cbbf20ca560ffe9cd4eae" prot="private" virt="non-virtual"><scope>Window</scope><name>m_ShouldClose</name></member>
+      <member refid="d9/dbf/class_window_1a7d93ddf367ca6d2a5864e3f6f40ae26b" prot="private" virt="non-virtual"><scope>Window</scope><name>m_Width</name></member>
+      <member refid="d9/dbf/class_window_1a08f9b27c54233d5b31c0e812d2a153a2" prot="private" virt="non-virtual"><scope>Window</scope><name>mHeight</name></member>
+      <member refid="d9/dbf/class_window_1a7568bb745290d9eb85cc4dcae8a45bca" prot="public" virt="non-virtual"><scope>Window</scope><name>operator bool</name></member>
+      <member refid="d9/dbf/class_window_1a039078340b926516d359749b6fa30cc9" prot="public" virt="non-virtual"><scope>Window</scope><name>ProcessMessages</name></member>
+      <member refid="d9/dbf/class_window_1a52a1ef49712459a2f5e3ad797552b642" prot="public" virt="non-virtual"><scope>Window</scope><name>ShouldClose</name></member>
+      <member refid="d9/dbf/class_window_1a09fc8fcb65abb5f200176ec064e8237f" prot="public" virt="non-virtual"><scope>Window</scope><name>StaticWndProc</name></member>
+      <member refid="d9/dbf/class_window_1add0ac5447eb2d75e18b2885e4e61ecad" prot="public" virt="non-virtual"><scope>Window</scope><name>Window</name></member>
+      <member refid="d9/dbf/class_window_1a0b152b155c0498b1c9dc903ffc4ecb37" prot="private" virt="non-virtual"><scope>Window</scope><name>windowTitle</name></member>
+      <member refid="d9/dbf/class_window_1ae6b4e3e731f32506a8ae77790b08584e" prot="public" virt="non-virtual"><scope>Window</scope><name>~Window</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

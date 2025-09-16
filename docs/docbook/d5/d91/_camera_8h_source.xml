@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__camera_8h_source" xml:lang="en-US">
+<title>Camera.h</title>
+<indexterm><primary>engineOne/src/Core/Camera.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&lt;glm/glm.hpp&gt;</emphasis>
+3 
+4 <emphasis role="keyword">class&#32;</emphasis>CameraFPS
+5 {
+6 <emphasis role="keyword">public</emphasis>:
+7 
+8 &#32;&#32;&#32;&#32;CameraFPS(<emphasis role="keywordtype">float</emphasis>&#32;fov&#32;=&#32;60.0f,&#32;<emphasis role="keywordtype">float</emphasis>&#32;aspect&#32;=&#32;4.0f/3.0f,&#32;<emphasis role="keywordtype">float</emphasis>&#32;zNear&#32;=&#32;0.1f,&#32;<emphasis role="keywordtype">float</emphasis>&#32;zFar&#32;=&#32;100.0f)&#32;<emphasis role="keyword">noexcept</emphasis>;
+9 
+10 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;MoveTo(<emphasis role="keyword">const</emphasis>&#32;glm::vec3&amp;&#32;position)&#32;<emphasis role="keyword">noexcept</emphasis>;
+11 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Translate(<emphasis role="keyword">const</emphasis>&#32;glm::vec3&amp;&#32;displacement)&#32;<emphasis role="keyword">noexcept</emphasis>;
+12 
+13 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Yaw(<emphasis role="keywordtype">float</emphasis>&#32;angle)&#32;<emphasis role="keyword">noexcept</emphasis>;&#32;&#32;&#32;<emphasis role="comment">//&#32;rotate&#32;around&#32;the&#32;up&#32;vector</emphasis>
+14 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Pitch(<emphasis role="keywordtype">float</emphasis>&#32;angle)&#32;<emphasis role="keyword">noexcept</emphasis>;&#32;<emphasis role="comment">//&#32;rotate&#32;around&#32;the&#32;right&#32;vector</emphasis>
+15 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Roll(<emphasis role="keywordtype">float</emphasis>&#32;angle)&#32;<emphasis role="keyword">noexcept</emphasis>;&#32;&#32;<emphasis role="comment">//&#32;rotate&#32;around&#32;the&#32;front&#32;vector</emphasis>
+16 
+17 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;MoveForward(<emphasis role="keywordtype">float</emphasis>&#32;distance)&#32;<emphasis role="keyword">noexcept</emphasis>;
+18 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;MoveRight(<emphasis role="keywordtype">float</emphasis>&#32;distance)&#32;<emphasis role="keyword">noexcept</emphasis>;
+19 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;MoveUp(<emphasis role="keywordtype">float</emphasis>&#32;distance)&#32;<emphasis role="keyword">noexcept</emphasis>;
+20 
+21 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;UpdateProjection(<emphasis role="keywordtype">float</emphasis>&#32;fov,&#32;<emphasis role="keywordtype">float</emphasis>&#32;aspect,&#32;<emphasis role="keywordtype">float</emphasis>&#32;zNear,&#32;<emphasis role="keywordtype">float</emphasis>&#32;zFar)&#32;<emphasis role="keyword">noexcept</emphasis>;
+22 
+23 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;glm::mat4&amp;&#32;GetViewMatrix()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_View;&#32;}
+24 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;glm::mat4&amp;&#32;GetProjectionMatrix()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_Projection;&#32;}
+25 
+26 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;RestPosAndOrient()&#32;<emphasis role="keyword">noexcept</emphasis>;
+27 <emphasis role="keyword">private</emphasis>:
+28 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecalculateView()&#32;<emphasis role="keyword">noexcept</emphasis>;
+29 <emphasis role="keyword">private</emphasis>:
+30 &#32;&#32;&#32;&#32;glm::mat4&#32;m_View,&#32;m_Projection;
+31 &#32;&#32;&#32;&#32;glm::vec3&#32;m_Position;
+32 &#32;&#32;&#32;&#32;glm::vec3&#32;m_Front;
+33 &#32;&#32;&#32;&#32;glm::vec3&#32;m_Up;
+34 &#32;&#32;&#32;&#32;glm::vec3&#32;m_Right;
+35 
+36 };
+37 
+</programlisting></section>

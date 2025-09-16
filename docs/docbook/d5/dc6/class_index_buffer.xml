@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_index_buffer" xml:lang="en-US">
+<title>IndexBuffer Class Reference</title>
+<indexterm><primary>IndexBuffer</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_index_buffer_1a23aa3d19e948a4a14630604f79f34a96"/><emphasis role="strong">IndexBuffer</emphasis> (const void *data, unsigned int size, BufferUsage usage=DefaultBufferUsage) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_index_buffer_1acff8f517a40a64aab4a9bfbd366b5b26"/><emphasis role="strong">IndexBuffer</emphasis> (<link linkend="_class_index_buffer">IndexBuffer</link> &amp;&amp;other) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_index_buffer_1a12e339eea126b7f2afa92b15592dde07"/><link linkend="_class_index_buffer">IndexBuffer</link> &amp; <emphasis role="strong">operator=</emphasis> (<link linkend="_class_index_buffer">IndexBuffer</link> &amp;&amp;other) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_index_buffer_1a3e0d508baf0b053cd9944400fa000013"/><emphasis role="strong">IndexBuffer</emphasis> (const <link linkend="_class_index_buffer">IndexBuffer</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_index_buffer_1a052250d9f37e76d4335d2979bef46cd7"/><link linkend="_class_index_buffer">IndexBuffer</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_index_buffer">IndexBuffer</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_index_buffer_1ab9955e9568d67ec0de5e838cde533bd9"/>void <emphasis role="strong">Bind</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_index_buffer_1a4b868d7d99fcb567a96c9e25dbacb3a9"/>void <emphasis role="strong">Unbind</emphasis> () const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_index_buffer_1a40ac17897b6c9c7ef75e8e35b84d3ab2"/>void <emphasis role="strong">SetData</emphasis> (const void *data, unsigned int size, BufferUsage usage=DefaultBufferUsage) const noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_index_buffer_1abb0464e994d2ebd05f664e503d1ac927"/>unsigned int <emphasis role="strong">getID</emphasis> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following files:</para>
+engineOne/src/Core/Buffer.hengineOne/src/Core/Buffer.cpp</section>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_g_l_loader" xml:lang="en-US">
+<title>GLLoader Class Reference</title>
+<indexterm><primary>GLLoader</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_g_l_loader_1a4e17e9ede311272b25695dda2b7cfc14"/><emphasis role="strong">GLLoader</emphasis> (HINSTANCE hInstance) noexcept</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_g_l_loader_1aa5a93ab18951a1ecac68ce9d1eca95ed"/><emphasis role="strong">GLLoader</emphasis> (const <link linkend="_class_g_l_loader">GLLoader</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_g_l_loader_1a4e23346a55bdda2ce158e6e10c8f47f4"/><link linkend="_class_g_l_loader">GLLoader</link> &amp; <emphasis role="strong">operator=</emphasis> (const <link linkend="_class_g_l_loader">GLLoader</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_g_l_loader_1a8b5851421dfcfcc5763cc8faf855af17"/><emphasis role="strong">GLLoader</emphasis> (<link linkend="_class_g_l_loader">GLLoader</link> &amp;&amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_g_l_loader_1ad03ababf0a3d93dafcd17eff6750cc42"/><link linkend="_class_g_l_loader">GLLoader</link> &amp; <emphasis role="strong">operator=</emphasis> (<link linkend="_class_g_l_loader">GLLoader</link> &amp;&amp;)=delete</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_g_l_loader_1ac2bcf88d030f260c7d5602dc5b7dd0b7"/>bool <emphasis role="strong">isLoaded</emphasis> () const noexcept</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+engineOne/src/Core/GLLoader.h</section>

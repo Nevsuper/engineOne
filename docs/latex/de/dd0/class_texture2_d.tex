@@ -1,0 +1,38 @@
+\doxysection{Texture2D Class Reference}
+\hypertarget{class_texture2_d}{}\label{class_texture2_d}\index{Texture2D@{Texture2D}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_texture2_d_aa38331d2edebffe4ecb02e4031de1d6b}\label{class_texture2_d_aa38331d2edebffe4ecb02e4031de1d6b} 
+{\bfseries Texture2D} (int width, int height, void \texorpdfstring{$\ast$}{*}data, pixel\+Data\+Type type, Texture\+Internal\+Format internal\+Format, int mip\+Levels=1) noexcept
+\item 
+\Hypertarget{class_texture2_d_a682e145491f414cb38e08639a55202ef}\label{class_texture2_d_a682e145491f414cb38e08639a55202ef} 
+{\bfseries Texture2D} (const \mbox{\hyperlink{struct_texture2_d_data_create_info}{Texture2\+DData\+Create\+Info}} \&create\+Info) noexcept
+\item 
+\Hypertarget{class_texture2_d_ab3535df92375024c0f533d8aa29bcac3}\label{class_texture2_d_ab3535df92375024c0f533d8aa29bcac3} 
+{\bfseries Texture2D} (const \mbox{\hyperlink{class_texture2_d}{Texture2D}} \&)=delete
+\item 
+\Hypertarget{class_texture2_d_a8ead868d2091effe12af24648571789d}\label{class_texture2_d_a8ead868d2091effe12af24648571789d} 
+\mbox{\hyperlink{class_texture2_d}{Texture2D}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_texture2_d}{Texture2D}} \&)=delete
+\item 
+\Hypertarget{class_texture2_d_a13b44cbc76977555b120116cd0bd9752}\label{class_texture2_d_a13b44cbc76977555b120116cd0bd9752} 
+{\bfseries Texture2D} (\mbox{\hyperlink{class_texture2_d}{Texture2D}} \&\&other) noexcept
+\item 
+\Hypertarget{class_texture2_d_a9c4619c0d2c764ae8f402cc2cb7cc7b5}\label{class_texture2_d_a9c4619c0d2c764ae8f402cc2cb7cc7b5} 
+\mbox{\hyperlink{class_texture2_d}{Texture2D}} \& {\bfseries operator=} (\mbox{\hyperlink{class_texture2_d}{Texture2D}} \&\&other) noexcept
+\item 
+\Hypertarget{class_texture2_d_af8b99dd70bd8601aacdfb8fd35811b14}\label{class_texture2_d_af8b99dd70bd8601aacdfb8fd35811b14} 
+void {\bfseries Sub\+Image} (int width, int height, const void \texorpdfstring{$\ast$}{*}data, pixel\+Data\+Type type, Texture\+Base\+Format base\+Format, int level=0, int x\+Offfset=0, int y\+Offset=0) const noexcept
+\item 
+\Hypertarget{class_texture2_d_adc822f6b1595dbaea544b1d690989f96}\label{class_texture2_d_adc822f6b1595dbaea544b1d690989f96} 
+void {\bfseries Bind} (unsigned int slot=0) const noexcept
+\item 
+\Hypertarget{class_texture2_d_a360c02e74601a6ee6b223b8afe36366e}\label{class_texture2_d_a360c02e74601a6ee6b223b8afe36366e} 
+void {\bfseries Unbind} (unsigned int slot=0) const noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine\+One/src/\+Core/Texture.\+h\item 
+engine\+One/src/\+Core/Texture.\+cpp\end{DoxyCompactItemize}

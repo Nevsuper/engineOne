@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d7/d62/struct_vertex" kind="struct" language="C++" prot="public">
+    <compoundname>Vertex</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d7/d62/struct_vertex_1a030819fdc241743bbd3e180a6b132ed3" prot="public" static="no" mutable="no">
+        <type>glm::vec3</type>
+        <definition>glm::vec3 Vertex::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>Vertex::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="15" column="11" bodyfile="engineOne/src/Core/Application.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/d62/struct_vertex_1afa8e01935fde5cb9702075d25346e135" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Vertex::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <qualifiedname>Vertex::u</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="16" column="7" bodyfile="engineOne/src/Core/Application.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d7/d62/struct_vertex_1a6ef8693374fd8c435715b32fbbdc4e41" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Vertex::v</definition>
+        <argsstring></argsstring>
+        <name>v</name>
+        <qualifiedname>Vertex::v</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/Application.h" line="16" column="9" bodyfile="engineOne/src/Core/Application.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="engineOne/src/Core/Application.h" line="13" column="1" bodyfile="engineOne/src/Core/Application.h" bodystart="14" bodyend="17"/>
+    <listofallmembers>
+      <member refid="d7/d62/struct_vertex_1a030819fdc241743bbd3e180a6b132ed3" prot="public" virt="non-virtual"><scope>Vertex</scope><name>position</name></member>
+      <member refid="d7/d62/struct_vertex_1afa8e01935fde5cb9702075d25346e135" prot="public" virt="non-virtual"><scope>Vertex</scope><name>u</name></member>
+      <member refid="d7/d62/struct_vertex_1a6ef8693374fd8c435715b32fbbdc4e41" prot="public" virt="non-virtual"><scope>Vertex</scope><name>v</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

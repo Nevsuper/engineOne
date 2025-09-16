@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__window_8h_source" xml:lang="en-US">
+<title>Window.h</title>
+<indexterm><primary>engineOne/src/Core/Window.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="comment">//&#32;Window.h</emphasis>
+2 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&lt;Windows.h&gt;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+5 
+6 <emphasis role="keyword">class&#32;</emphasis>Window
+7 {
+8 <emphasis role="keyword">public</emphasis>:&#32;
+9 &#32;&#32;&#32;&#32;Window(HINSTANCE&#32;hInstance,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;windowClassName,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;title,&#32;<emphasis role="keywordtype">int</emphasis>&#32;width,&#32;<emphasis role="keywordtype">int</emphasis>&#32;height,&#32;DWORD&#32;windowStyle);
+10 &#32;&#32;&#32;&#32;~Window()&#32;<emphasis role="keyword">noexcept</emphasis>;
+11 
+12 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;ProcessMessages()&#32;<emphasis role="keyword">noexcept</emphasis>;
+13 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;ShouldClose()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_ShouldClose;&#32;}
+14 
+15 &#32;&#32;&#32;&#32;HDC&#32;GetDeviceContext()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;GetDC(m_hWnd);&#32;}
+16 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;GetWidth()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_Width;&#32;}
+17 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;GetHeight()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;mHeight;&#32;}
+18 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;GetAspectRatio()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_AspectRatio;&#32;}
+19 
+20 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Close()&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;m_ShouldClose&#32;=&#32;<emphasis role="keyword">true</emphasis>;&#32;}
+21 
+22 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isCreated()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_IsCreated;&#32;}
+23 &#32;&#32;&#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;bool()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_IsCreated;&#32;}
+24 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;LRESULT&#32;CALLBACK&#32;StaticWndProc(HWND&#32;hwnd,&#32;UINT&#32;msg,&#32;WPARAM&#32;wParam,&#32;LPARAM&#32;lParam)&#32;<emphasis role="keyword">noexcept</emphasis>;
+25 <emphasis role="keyword">private</emphasis>:
+26 &#32;&#32;&#32;&#32;LRESULT&#32;HandleMsg(HWND&#32;hWnd,&#32;UINT&#32;msg,&#32;WPARAM&#32;wParam,&#32;LPARAM&#32;lParam)&#32;<emphasis role="keyword">noexcept</emphasis>;
+27 
+28 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;DoesWindowClassExistsAndHavePrivateDCAndUsesCorrectWndProc(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;className,&#32;HINSTANCE&#32;hInstance&#32;)&#32;<emphasis role="keyword">noexcept</emphasis>;
+29 <emphasis role="keyword">private</emphasis>:
+30 
+31 
+32 &#32;&#32;&#32;&#32;HINSTANCE&#32;m_hInstance;
+33 &#32;&#32;&#32;&#32;HWND&#32;m_hWnd;
+34 &#32;&#32;&#32;&#32;std::string&#32;windowTitle;
+35 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;m_Width,&#32;mHeight;
+36 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;m_AspectRatio;
+37 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;m_ShouldClose;
+38 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;m_IsCreated;
+39 };
+</programlisting></section>

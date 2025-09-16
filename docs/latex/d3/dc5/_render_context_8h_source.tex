@@ -1,0 +1,72 @@
+\doxysection{Render\+Context.\+h}
+\hypertarget{_render_context_8h_source}{}\label{_render_context_8h_source}\index{engineOne/src/Core/RenderContext.h@{engineOne/src/Core/RenderContext.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Window.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}utils.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include<glad/gl.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }RenderContextCreateInfo}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_window}{Window}}\&\ window;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ majorVersion\ =\ 4;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ minorVersion\ =\ 5;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ debugContext\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ colorBits\ =\ 32;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ depthBits\ =\ 24;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ stencilBits\ =\ 8;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ samples\ =\ 0;\ \textcolor{comment}{//\ Number\ of\ samples\ for\ multisampling\ (0\ =\ no\ multisampling)}}
+\DoxyCodeLine{00017\ \ \ \ \ RenderContextCreateInfo(\mbox{\hyperlink{class_window}{Window}}\&\ win,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maj\ =\ 4,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ 5,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ debug\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ color\ =\ 32,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ depth\ =\ 24,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ stencil\ =\ 8,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sampleCount\ =\ 0)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ :\ window(win),}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ majorVersion(maj),}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ minorVersion(min),}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ debugContext(debug),}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ colorBits(color),}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ depthBits(depth),}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ stencilBits(stencil),}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ samples(sampleCount)}
+\DoxyCodeLine{00033\ \ \ \ \ \{\}}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }RenderContext}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ RenderContext(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_render_context_create_info}{RenderContextCreateInfo}}\&\ createInfo);}
+\DoxyCodeLine{00041\ \ \ \ \ RenderContext(\mbox{\hyperlink{class_window}{Window}}\&\ window,\textcolor{keywordtype}{int}\ majorVersion\ =\ 4,\ \textcolor{keywordtype}{int}\ minorVersion\ =\ 5,\ \textcolor{keywordtype}{bool}\ debug\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00042\ \ \ \ \ \string~RenderContext()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ RenderContext(\textcolor{keyword}{const}\ RenderContext\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00045\ \ \ \ \ RenderContext\&\ operator=(\textcolor{keyword}{const}\ RenderContext\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00046\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ MakeCurrent(\mbox{\hyperlink{class_window}{Window}}\&\ window)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ clearColor(\textcolor{keywordtype}{float}\ r,\ \textcolor{keywordtype}{float}\ g,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ a)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ glClearColor(r,\ g,\ b,\ a);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT\ |\ GL\_DEPTH\_BUFFER\_BIT\ |\ GL\_STENCIL\_BUFFER\_BIT);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Present()\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ SwapBuffers(m\_hDC);}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsNull()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ m\_hGLRC\ ==\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ bool()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ m\_hGLRC\ !=\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \ \ HDC\ m\_hDC;}
+\DoxyCodeLine{00064\ \ \ \ \ HGLRC\ m\_hGLRC;}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+
+\end{DoxyCode}

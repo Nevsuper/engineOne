@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="d5/d60/utils_8h" kind="file" language="C++">
+    <compoundname>utils.h</compoundname>
+    <includes local="no">type_traits</includes>
+    <includedby refid="d7/d1b/_buffer_8h" local="yes">engineOne/src/Core/Buffer.h</includedby>
+    <includedby refid="d3/dc5/_render_context_8h" local="yes">engineOne/src/Core/RenderContext.h</includedby>
+    <includedby refid="d8/d34/_shader_8h" local="yes">engineOne/src/Core/Shader.h</includedby>
+    <includedby refid="de/dbf/_texture_8h" local="yes">engineOne/src/Core/Texture.h</includedby>
+    <includedby refid="d3/d77/gl_types_8h" local="yes">engineOne/src/Core/glTypes.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>engineOne/src/Core/utils.h</label>
+        <link refid="d5/d60/utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>type_traits</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>engineOne/src/Core/Application.h</label>
+        <link refid="d9/da3/_application_8h_source"/>
+      </node>
+      <node id="2">
+        <label>engineOne/src/Core/Buffer.h</label>
+        <link refid="d7/d1b/_buffer_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>engineOne/src/Core/RenderContext.h</label>
+        <link refid="d3/dc5/_render_context_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>engineOne/src/Core/Shader.h</label>
+        <link refid="d8/d34/_shader_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>engineOne/src/Core/Texture.h</label>
+        <link refid="de/dbf/_texture_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>engineOne/src/Core/VertexArray.h</label>
+        <link refid="d0/df4/_vertex_array_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>engineOne/src/Core/glTypes.h</label>
+        <link refid="d3/d77/gl_types_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>engineOne/src/Core/utils.h</label>
+        <link refid="d5/d60/utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="d5/d60/utils_8h_1aa16917232fef08a80de7f63d388ede81" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename E</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto enumValue</definition>
+        <argsstring>(E e) noexcept</argsstring>
+        <name>enumValue</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/utils.h" line="4" column="16" bodyfile="engineOne/src/Core/utils.h" bodystart="4" bodyend="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;type_traits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>E&gt;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>enumValue(E<sp/>e)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">std::underlying_type_t&lt;E&gt;</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(e);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="engineOne/src/Core/utils.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8h_source" xml:lang="en-US">
+<title>utils.h</title>
+<indexterm><primary>engineOne/src/Core/utils.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&lt;type_traits&gt;</emphasis>
+3 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;E&gt;
+4 <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;enumValue(E&#32;e)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;{
+5 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">static_cast&lt;</emphasis>std::underlying_type_t&lt;E&gt;<emphasis role="keyword">&gt;</emphasis>(e);
+6 }
+</programlisting></section>

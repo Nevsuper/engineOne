@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="df/dd2/_g_l_loader_8cpp" kind="file" language="C++">
+    <compoundname>GLLoader.cpp</compoundname>
+    <includes refid="df/dc1/_g_l_loader_8h" local="yes">GLLoader.h</includes>
+    <includes local="no">glad/gl.h</includes>
+    <includes local="no">glad/wgl.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>engineOne/src/Core/GLLoader.cpp</label>
+        <link refid="df/dd2/_g_l_loader_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GLLoader.h</label>
+        <link refid="df/dc1/_g_l_loader_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Windows.h</label>
+      </node>
+      <node id="4">
+        <label>glad/gl.h</label>
+      </node>
+      <node id="5">
+        <label>glad/wgl.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="df/dd2/_g_l_loader_8cpp_1ac71d8a1bf622810ff36b1f6bc85572b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool loadModernOpenGLFunctions</definition>
+        <argsstring>(HINSTANCE hInstance)</argsstring>
+        <name>loadModernOpenGLFunctions</name>
+        <param>
+          <type>HINSTANCE</type>
+          <declname>hInstance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.cpp" line="6" column="6" bodyfile="engineOne/src/Core/GLLoader.cpp" bodystart="6" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dd2/_g_l_loader_8cpp_1aacf89925e05ebbaf873631f903909c54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void unloadModernOpenGLFunctions</definition>
+        <argsstring>()</argsstring>
+        <name>unloadModernOpenGLFunctions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="engineOne/src/Core/GLLoader.cpp" line="125" column="6" bodyfile="engineOne/src/Core/GLLoader.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;GLLoader.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;glad/gl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;glad/wgl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>loadModernOpenGLFunctions(HINSTANCE<sp/>hInstance)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>windowClassName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TempGLLoaderWindowClass&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>WNDCLASS<sp/>wc{};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>wc.lpfnWndProc<sp/>=<sp/>DefWindowProc;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>wc.hInstance<sp/>=<sp/>hInstance;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>wc.lpszClassName<sp/>=<sp/>windowClassName;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>wc.hbrBackground<sp/>=<sp/>(HBRUSH)(COLOR_WINDOW<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>wc.hCursor<sp/>=<sp/>LoadCursor(NULL,<sp/>IDC_ARROW);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>wc.hIcon<sp/>=<sp/>LoadIcon(NULL,<sp/>IDI_APPLICATION);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>wc.style<sp/>=<sp/>CS_OWNDC;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!RegisterClass(&amp;wc))</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>register<sp/>window<sp/>class<sp/>for<sp/>OpenGL<sp/>function<sp/>loading&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>HWND<sp/>hDummyWnd<sp/>=<sp/>CreateWindowEx(</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>windowClassName,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Dummy<sp/>OpenGL<sp/>Loader<sp/>Window&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WS_OVERLAPPEDWINDOW,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CW_USEDEFAULT,<sp/>CW_USEDEFAULT,<sp/>CW_USEDEFAULT,<sp/>CW_USEDEFAULT,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hInstance,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NULL</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!hDummyWnd)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>create<sp/>dummy<sp/>window<sp/>for<sp/>OpenGL<sp/>function<sp/>loading&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>HDC<sp/>hDummyDC<sp/>=<sp/>GetDC(hDummyWnd);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!hDummyDC)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>get<sp/>device<sp/>context<sp/>for<sp/>dummy<sp/>window&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DestroyWindow(hDummyWnd);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//create<sp/>opwngl<sp/>context</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>PIXELFORMATDESCRIPTOR<sp/>dummyPFD{};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>dummyPFD.nSize<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(PIXELFORMATDESCRIPTOR);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>dummyPFD.nVersion<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>dummyPFD.dwFlags<sp/>=<sp/>PFD_DRAW_TO_WINDOW<sp/>|<sp/>PFD_SUPPORT_OPENGL<sp/>|<sp/>PFD_DOUBLEBUFFER;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>dummyPFD.iPixelType<sp/>=<sp/>PFD_TYPE_RGBA;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>dummyPFD.cColorBits<sp/>=<sp/>32;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>dummyPFD.cDepthBits<sp/>=<sp/>24;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>dummyPFD.iLayerType<sp/>=<sp/>PFD_MAIN_PLANE;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dummyPixelFormat<sp/>=<sp/>ChoosePixelFormat(hDummyDC,<sp/>&amp;dummyPFD);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(dummyPixelFormat<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>choose<sp/>pixel<sp/>format<sp/>for<sp/>dummy<sp/>window&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DestroyWindow(hDummyWnd);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!SetPixelFormat(hDummyDC,<sp/>dummyPixelFormat,<sp/>&amp;dummyPFD))</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>set<sp/>pixel<sp/>format<sp/>for<sp/>dummy<sp/>window&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DestroyWindow(hDummyWnd);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>HGLRC<sp/>hDummyGLRC<sp/>=<sp/>wglCreateContext(hDummyDC);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!hDummyGLRC)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>create<sp/>OpenGL<sp/>context<sp/>for<sp/>dummy<sp/>window&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DestroyWindow(hDummyWnd);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!wglMakeCurrent(hDummyDC,<sp/>hDummyGLRC))</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>make<sp/>OpenGL<sp/>context<sp/>current<sp/>for<sp/>dummy<sp/>window&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wglDeleteContext(hDummyGLRC);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DestroyWindow(hDummyWnd);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!gladLoaderLoadWGL(hDummyDC))</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>load<sp/>WGL<sp/>functions&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wglMakeCurrent(NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wglDeleteContext(hDummyGLRC);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DestroyWindow(hDummyWnd);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!gladLoaderLoadGL())</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageBox(NULL,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>load<sp/>OpenGL<sp/>functions&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Error&quot;</highlight><highlight class="normal">,<sp/>MB_OK<sp/>|<sp/>MB_ICONERROR);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wglMakeCurrent(NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wglDeleteContext(hDummyGLRC);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DestroyWindow(hDummyWnd);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cleanup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>wglMakeCurrent(NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>wglDeleteContext(hDummyGLRC);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>DestroyWindow(hDummyWnd);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>UnregisterClass(windowClassName,<sp/>hInstance);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>unloadModernOpenGLFunctions()</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>gladLoaderUnloadGL();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="engineOne/src/Core/GLLoader.cpp"/>
+  </compounddef>
+</doxygen>

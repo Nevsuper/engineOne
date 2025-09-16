@@ -1,0 +1,163 @@
+\doxysection{key\+Codes.\+h}
+\hypertarget{key_codes_8h_source}{}\label{key_codes_8h_source}\index{engineOne/src/Core/keyCodes.h@{engineOne/src/Core/keyCodes.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }keyCode}
+\DoxyCodeLine{00004\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{comment}{//\ Mouse\ buttons}}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ mouse\_left\ =\ 0x01;}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ mouse\_right\ =\ 0x02;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ mouse\_middle\ =\ 0x04;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ mouse\_x1\ =\ 0x05;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ mouse\_x2\ =\ 0x06;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Keyboard\ keys}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_backspace\ =\ 0x08;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_tab\ =\ 0x09;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_clear\ =\ 0x0C;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_enter\ =\ 0x0D;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_shift\ =\ 0x10;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_ctrl\ =\ 0x11;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_alt\ =\ 0x12;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_pause\ =\ 0x13;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_caps\_lock\ =\ 0x14;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_esc\ =\ 0x1B;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_space\ =\ 0x20;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_page\_up\ =\ 0x21;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_page\_down\ =\ 0x22;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_end\ =\ 0x23;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_home\ =\ 0x24;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_arrow\_left\ =\ 0x25;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_arrow\_up\ =\ 0x26;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_arrow\_right\ =\ 0x27;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_arrow\_down\ =\ 0x28;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_select\ =\ 0x29;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_print\ =\ 0x2A;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_execute\ =\ 0x2B;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_print\_screen\ =\ 0x2C;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_insert\ =\ 0x2D;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_delete\ =\ 0x2E;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_help\ =\ 0x2F;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ Number\ keys\ 0-\/9}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_0\ =\ 0x30;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_1\ =\ 0x31;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_2\ =\ 0x32;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_3\ =\ 0x33;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_4\ =\ 0x34;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_5\ =\ 0x35;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_6\ =\ 0x36;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_7\ =\ 0x37;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_8\ =\ 0x38;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_9\ =\ 0x39;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ Alphabet\ keys\ A-\/Z}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_a\ =\ 0x41;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_b\ =\ 0x42;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_c\ =\ 0x43;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_d\ =\ 0x44;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_e\ =\ 0x45;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f\ =\ 0x46;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_g\ =\ 0x47;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_h\ =\ 0x48;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_i\ =\ 0x49;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_j\ =\ 0x4A;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_k\ =\ 0x4B;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_l\ =\ 0x4C;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_m\ =\ 0x4D;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_n\ =\ 0x4E;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_o\ =\ 0x4F;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_p\ =\ 0x50;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_q\ =\ 0x51;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_r\ =\ 0x52;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_s\ =\ 0x53;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_t\ =\ 0x54;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_u\ =\ 0x55;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_v\ =\ 0x56;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_w\ =\ 0x57;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_x\ =\ 0x58;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_y\ =\ 0x59;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_z\ =\ 0x5A;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ Numpad\ keys}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_0\ =\ 0x60;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_1\ =\ 0x61;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_2\ =\ 0x62;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_3\ =\ 0x63;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_4\ =\ 0x64;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_5\ =\ 0x65;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_6\ =\ 0x66;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_7\ =\ 0x67;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_8\ =\ 0x68;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_numpad\_9\ =\ 0x69;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_multiply\ =\ 0x6A;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_add\ =\ 0x6B;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_separator\ =\ 0x6C;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_subtract\ =\ 0x6D;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_decimal\ =\ 0x6E;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_divide\ =\ 0x6F;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ Function\ keys}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f1\ =\ 0x70;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f2\ =\ 0x71;}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f3\ =\ 0x72;}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f4\ =\ 0x73;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f5\ =\ 0x74;}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f6\ =\ 0x75;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f7\ =\ 0x76;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f8\ =\ 0x77;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f9\ =\ 0x78;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f10\ =\ 0x79;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f11\ =\ 0x7A;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f12\ =\ 0x7B;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f13\ =\ 0x7C;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f14\ =\ 0x7D;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f15\ =\ 0x7E;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f16\ =\ 0x7F;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f17\ =\ 0x80;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f18\ =\ 0x81;}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f19\ =\ 0x82;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f20\ =\ 0x83;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f21\ =\ 0x84;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f22\ =\ 0x85;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f23\ =\ 0x86;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_f24\ =\ 0x87;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ Other\ keys}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_num\_lock\ =\ 0x90;}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_scroll\_lock\ =\ 0x91;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_left\_shift\ =\ 0xA0;}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_right\_shift\ =\ 0xA1;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_left\_ctrl\ =\ 0xA2;}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_right\_ctrl\ =\ 0xA3;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_left\_alt\ =\ 0xA4;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_right\_alt\ =\ 0xA5;}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_semicolon\ =\ 0xBA;\ \ \ \textcolor{comment}{//\ ;:\ key}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_plus\ =\ 0xBB;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ =+\ key}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_comma\ =\ 0xBC;\ \ \ \ \ \ \ \textcolor{comment}{//\ ,<\ key}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_minus\ =\ 0xBD;\ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\_\ key}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_period\ =\ 0xBE;\ \ \ \ \ \ \textcolor{comment}{//\ .>\ key}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_slash\ =\ 0xBF;\ \ \ \ \ \ \ \textcolor{comment}{//\ /?\ key}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_grave\ =\ 0xC0;\ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}\string~\ key}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_bracket\_left\ =\ 0xDB;\ \ \textcolor{comment}{//\ [\{\ key}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_backslash\ =\ 0xDC;\ \ \ \textcolor{comment}{//\ \(\backslash\)|\ key}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_bracket\_right\ =\ 0xDD;\ \textcolor{comment}{//\ ]\}\ key}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_quote\ =\ 0xDE;\ \ \ \ \ \ \ \textcolor{comment}{//\ '"{}\ key}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_oem\_8\ =\ 0xDF;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_process\ =\ 0xE5;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_packet\ =\ 0xE7;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_attn\ =\ 0xF6;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_crsel\ =\ 0xF7;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_exsel\ =\ 0xF8;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_ereof\ =\ 0xF9;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_play\ =\ 0xFA;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_zoom\ =\ 0xFB;}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_noname\ =\ 0xFC;}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_pa1\ =\ 0xFD;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ key\_oem\_clear\ =\ 0xFE;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \}\ \textcolor{comment}{//\ namespace\ keyCode}}
+
+\end{DoxyCode}
