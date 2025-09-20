@@ -4,7 +4,7 @@
 
 #include<glad/gl.h>
 #include<glm/glm.hpp>
-#include "engineOne/Core/utils.h"
+#include "engineOne/utils/utils.h"
 
 enum class ShaderType : GLenum
 {
@@ -59,8 +59,8 @@ public:
 	bool loadFromFile(const std::string& filePath);
 	bool loadFromString(const std::string& shaderSrc);
 
-	inline ShaderType getType() const { return m_Type; }
-	inline unsigned int getID() const { return m_ID; }
+	 ShaderType getType() const { return m_Type; }
+	 unsigned int getID() const { return m_ID; }
 private:
 	bool checkCompileStatus();
 private:
@@ -91,8 +91,8 @@ public:
 	void Bind() const;
 	void Unbind() const;
 
-	inline unsigned int getID() const { return m_ID; }
-	inline bool isValid() const { return m_ID != 0; }
+	 unsigned int getID() const { return m_ID; }
+	 bool isValid() const { return m_ID != 0; }
 
 
 	bool checkLinkStatus();

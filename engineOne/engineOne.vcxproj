@@ -90,7 +90,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\engineOne\Core\Input\KeyBoard.cpp" />
+    <ClCompile Include="src\engineOne\Core\Engine.cpp" />
+    <ClCompile Include="src\engineOne\Core\Rendering\Mesh.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -124,7 +125,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\engineOne\Core\Input\KeyBoard.h" />
+    <ClInclude Include="src\engineOne\Core\Engine.h" />
+    <ClInclude Include="src\engineOne\Core\Rendering\Mesh.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\engineOne\Core\Input\Input.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\RenderContext.h" />
@@ -139,7 +141,7 @@
     <ClInclude Include="src\math\vec2.h" />
     <ClInclude Include="src\math\vec3.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Shader.h" />
-    <ClInclude Include="src\engineOne\Core\utils.h" />
+    <ClInclude Include="src\engineOne\utils\utils.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Buffer.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\VertexArray.h" />
     <ClInclude Include="src\math\vec4.h" />
@@ -154,15 +156,9 @@
   <ItemGroup>
     <None Include="assets\shaders\fragmentLit.glsl" />
     <None Include="assets\shaders\fragment.glsl" />
+    <None Include="assets\shaders\fragmentNoTex.glsl" />
     <None Include="assets\shaders\vertexLit.glsl" />
     <None Include="assets\shaders\vertex.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="assets\models\airboat.obj">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

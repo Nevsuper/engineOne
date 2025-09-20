@@ -3,13 +3,14 @@
 #include "Application.h"
 #include <future>
 #include "Input/Input.h"
-#include "Input/keyCodes.h"
+#include "Input/KeyCodes.h"
 
 #include<iostream>
 #include<glad/gl.h>
 #include<stb_image.h>
 #include<tiny_obj_loader.h>
 #include<glm/gtc/matrix_transform.hpp>
+#include "Engine.h"
 
 
 bool LoadTextureFromFile(const std::string& filename, Texture2DDataCreateInfo& createInfo)
@@ -29,7 +30,6 @@ bool LoadTextureFromFile(const std::string& filename, Texture2DDataCreateInfo& c
 		return false;
 	}
 
-	size_t dataSize = 0;
 	switch (channels)
 	{
 	case 1:
@@ -61,7 +61,7 @@ bool LoadTextureFromFile(const std::string& filename, Texture2DDataCreateInfo& c
 
 	//move data to textureData
 	  // Copy pixel data to textureData vector
-	
+
 	createInfo.data = data;
 	createInfo.mipLevels = 1;
 
@@ -69,9 +69,9 @@ bool LoadTextureFromFile(const std::string& filename, Texture2DDataCreateInfo& c
 	return true;
 }
 
-Application::Application(HINSTANCE hInstance, const std::string& appName) noexcept
-	: m_hInstance(hInstance),
-	m_ApplicationName(appName), m_OpenGLLoader(hInstance)
+Application::Application(const std::string& appName) noexcept
+	: 
+	m_ApplicationName(appName),m_Aspect(1.333f),m_pInput(nullptr)
 {
 }
 
@@ -79,46 +79,8 @@ Application::Application(HINSTANCE hInstance, const std::string& appName) noexce
 
 bool Application::Init() noexcept
 {
-	if (!RegisterWindowClass(m_hInstance))
-	{
-		std::cerr << "Failed to register window class\n";
-		return false;
-	}
-
-
-	if (!m_OpenGLLoader.isLoaded())
-	{
-		std::cerr << "Failed to load OpenGL functions\n";
-		return false;
-	}
-
-	const int windowWidth = 1200;
-	const int windowHeight = 900;
-
-	m_Window = std::make_unique<Window>(m_hInstance, s_WindowClassName, m_ApplicationName, windowWidth, windowHeight, WS_OVERLAPPEDWINDOW);
-
-	if (!m_Window->isCreated())
-	{
-		std::cerr << "Failed to create window\n";
-		return false;
-	}
-
-	m_RenderContext = std::make_unique<RenderContext>(*m_Window, 4, 5, true);
-
-	if (m_RenderContext->IsNull())
-	{
-		std::cerr << "Failed to create OpenGL context\n";
-		return false;
-	}
-
-	float aspect = m_Window->GetAspectRatio();
-	m_Camera.UpdateProjection(glm::radians(90.0f), aspect, 0.1f, 500.0f);
-
-	if (!InitGraphics())
-	{
-		std::cerr << "Failed to initialize graphics\n";
-		return false;
-	};
+	
+	m_Camera.UpdateProjection(glm::radians(90.0f), m_Aspect, 0.1f, 500.0f);
 	if (!InitResources())
 	{
 		std::cerr << "Failed to initialize resources\n";
@@ -126,38 +88,8 @@ bool Application::Init() noexcept
 	}
 
 	return true;
-
 }
-void Application::Run() noexcept
-{
-	while (!m_Window->ShouldClose())
-	{
-		m_Window->ProcessMessages();
-		float dt = static_cast<float>(m_Timer.elapsedAndReset());
-		ProcessInput(dt);
-		Update(dt);
-		Render();
-	}
-}
-bool Application::InitGraphics() noexcept
-{
-	std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
-	std::cout << "OpenGL Vendor: " << glGetString(GL_VENDOR) << std::endl;
-	std::cout << "OpenGL Renderer: " << glGetString(GL_RENDERER) << std::endl;
 
-	glViewport(0, 0, m_Window->GetWidth(), m_Window->GetHeight());
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LESS);
-	// Enable blending for alpha transparency
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDebugMessageCallback(Application::OpenGLDebugCallback, nullptr);
-	// Control which messages are reported (optional)
-	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
-
-	return true;
-
-}
 
 bool Application::InitResources() noexcept
 {
@@ -235,18 +167,19 @@ bool Application::InitResources() noexcept
 
 			//print number of triangles
 			std::cout << "Number of triangles: " << m_Mesh.indices.size() / 3 << "\n";
+			return true;
 		};
 
 
 	Timer loadTimer;
-	
+
 	auto modelFuture = std::async(std::launch::deferred, loadModel);
 	//load both textures
 
 	Texture2DDataCreateInfo diffuseCreateInfo, alphaCreateInfo;
-	auto texDataFuturw = std::async(std::launch::deferred, LoadTextureFromFile, "assets/textures/8k_texture.png",std::ref(diffuseCreateInfo));
+	auto texDataFuture = std::async(std::launch::deferred, LoadTextureFromFile, "assets/textures/8k_texture.png", std::ref(diffuseCreateInfo));
 	auto texAlphaDataFuture = std::async(std::launch::deferred, LoadTextureFromFile, "assets/textures/8k_texture_alpha.png", std::ref(alphaCreateInfo));
-	
+
 	//load Shader
 	m_ShaderProgram = std::make_unique<ShaderProgram>("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 
@@ -261,10 +194,16 @@ bool Application::InitResources() noexcept
 	{
 		return false;
 	}
+	m_ShaderProgramNoTex  = std::make_unique<ShaderProgram>("assets/shaders/vertex.glsl", "assets/shaders/fragmentNoTex.glsl");
+
+	if (!m_ShaderProgramNoTex->checkLinkStatus())
+	{
+		return false;
+	}
 
 	// --- Later, wait for all tasks to finish ---
 	bool isModelLoaded = modelFuture.get();
-	bool isTexLoaded = texDataFuturw.get();
+	bool isTexLoaded = texDataFuture.get();
 	bool isAlphaTexLoaded = texAlphaDataFuture.get();
 
 	if (!isModelLoaded)
@@ -360,40 +299,48 @@ void Application::ProcessInput(float deltaTime) noexcept
 	float cameraSpeed = 10.5f; // units per second
 	float cameraAnglularSpeed = 30.0f; // degrees per second
 
-	if (isKeyPressed(keyCode::key_w))
+	if (m_pInput->IsKeyDown(KeyCode::W))
 		m_Camera.MoveForward(deltaTime * cameraSpeed);
-	if (isKeyPressed(keyCode::key_a))
+	if (m_pInput->IsKeyDown(KeyCode::A))
 		m_Camera.MoveRight(-deltaTime * cameraSpeed);
-	if (isKeyPressed(keyCode::key_s))
+	if (m_pInput->IsKeyDown(KeyCode::S))
 		m_Camera.MoveForward(-deltaTime * cameraSpeed);
-	if (isKeyPressed(keyCode::key_d))
+	if (m_pInput->IsKeyDown(KeyCode::D))
 		m_Camera.MoveRight(deltaTime * cameraSpeed);
 
-	if (isKeyPressed(keyCode::key_space))
+	if (m_pInput->IsKeyDown(KeyCode::Space))
 		m_Camera.MoveUp(deltaTime * cameraSpeed);
-	if (isKeyPressed(keyCode::key_c))
+	if (m_pInput->IsKeyDown(KeyCode::C))
 		m_Camera.MoveUp(-deltaTime * cameraSpeed);
 
-	if (isKeyPressed(keyCode::key_arrow_left))
+	if (m_pInput->IsKeyDown(KeyCode::Arrowleft))
 		m_Camera.Yaw(deltaTime * cameraAnglularSpeed);
-	if (isKeyPressed(keyCode::key_arrow_right))
+	if (m_pInput->IsKeyDown(KeyCode::Arrowright))
 		m_Camera.Yaw(-deltaTime * cameraAnglularSpeed);
-	if (isKeyPressed(keyCode::key_arrow_up))
+	if (m_pInput->IsKeyDown(KeyCode::Arrowup))
 		m_Camera.Pitch(deltaTime * cameraAnglularSpeed);
-	if (isKeyPressed(keyCode::key_arrow_down))
+	if (m_pInput->IsKeyDown(KeyCode::Arrowdown))
 		m_Camera.Pitch(-deltaTime * cameraAnglularSpeed);
 
-	if (isKeyPressed(keyCode::key_q))
+	if (m_pInput->IsKeyDown(KeyCode::Q))
 		m_Camera.Roll(-deltaTime * cameraAnglularSpeed);
-	if (isKeyPressed(keyCode::key_e))
+	if (m_pInput->IsKeyDown(KeyCode::E))
 		m_Camera.Roll(deltaTime * cameraAnglularSpeed);
 
 
-	if (isKeyPressed(keyCode::key_r))
+	if (m_pInput->IsKeyPressed(KeyCode::R))
 		m_Camera.RestPosAndOrient();
 
-	if (isKeyPressed(keyCode::key_esc))
-		m_Window->Close();
+
+	if (m_pInput->IsKeyPressed(KeyCode::Ctrl))
+	{
+		m_IsWireMode = !m_IsWireMode;
+	}
+
+	if (m_pInput->IsKeyPressed(KeyCode::Shift))
+	{
+		m_IsTex = !m_IsTex;
+	}
 
 	auto& pos = m_Camera.GetPos();
 
@@ -402,19 +349,47 @@ void Application::ProcessInput(float deltaTime) noexcept
 
 void Application::Update(float deltaTime) noexcept
 {
-	
+	ProcessInput(deltaTime);
 
 }
-void Application::Render() noexcept
+void Application::OnRender() noexcept
 {
+
 	glm::mat4 model = glm::mat4(1.0f);
-	m_ShaderProgram->SetUniformMat4("u_Projection", m_Camera.GetProjectionMatrix());
-	m_ShaderProgram->SetUniformMat4("u_View", m_Camera.GetViewMatrix());
-	m_ShaderProgram->SetUniformMat4("u_Model", model);
-	m_ShaderProgram->SetUniform1i("u_Texture", 0);
-	m_ShaderProgram->SetUniform1i("u_AlphaTexture", 1);
-	m_ShaderProgram->SetUniform3f("u_lightPos", -2.0f, 120.0f, -20.0f);
-	m_ShaderProgram->SetUniformVec3("u_viewPos", m_Camera.GetPos());
+	if (m_IsTex)
+	{
+		m_ShaderProgram->SetUniformMat4("u_Projection", m_Camera.GetProjectionMatrix());
+		m_ShaderProgram->SetUniformMat4("u_View", m_Camera.GetViewMatrix());
+		m_ShaderProgram->SetUniformMat4("u_Model", model);
+		m_ShaderProgram->SetUniform1i("u_Texture", 0);
+		m_ShaderProgram->SetUniform1i("u_AlphaTexture", 1);
+		m_ShaderProgram->SetUniform3f("u_lightPos", -2.0f, 120.0f, -20.0f);
+		m_ShaderProgram->SetUniformVec3("u_viewPos", m_Camera.GetPos());
+		m_ShaderProgram->Bind();
+		m_Texture->Bind(0);
+		m_AlphaTexture->Bind(1);
+	}
+	else
+	{
+		m_ShaderProgramNoTex->SetUniformMat4("u_Projection", m_Camera.GetProjectionMatrix());
+		m_ShaderProgramNoTex->SetUniformMat4("u_View", m_Camera.GetViewMatrix());
+		m_ShaderProgramNoTex->SetUniformMat4("u_Model", model);
+		m_ShaderProgramNoTex->SetUniform3f("u_lightPos", -2.0f, 120.0f, -20.0f);
+		m_ShaderProgramNoTex->SetUniformVec3("u_viewPos", m_Camera.GetPos());
+
+		m_ShaderProgramNoTex->Bind();
+	}
+	m_VAO->Bind();
+	
+	if (m_IsWireMode)
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	}
+	else
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	}
+	glDrawElements(GL_TRIANGLES, m_EBO->getCount(), GLTypeToGLenum(GLType::UnsignedInt), reinterpret_cast<const void*>(0));
 
 	model = glm::translate(model, glm::vec3(-2.0f, 120.0f, -20.0f));
 
@@ -424,47 +399,12 @@ void Application::Render() noexcept
 	m_ShaderProgramLit->SetUniform4f("u_Color", 1.0f, 0.8f, 0.0f, 1.0f);
 
 
-	m_RenderContext->clearColor(0.1f, 0.1f, 0.1f, 1.0f);
-	m_ShaderProgram->Bind();
-	m_VAO->Bind();
-	m_Texture->Bind(0);
-	m_AlphaTexture->Bind(1);
-
-	glDrawElements(GL_TRIANGLES, m_EBO->getCount(), GLTypeToGLenum(GLType::UnsignedInt), reinterpret_cast<const void*>(0));
 
 	m_ShaderProgramLit->Bind();
 	m_VAOLit->Bind();
 	glDrawElements(GL_TRIANGLES, m_EBOLit->getCount(), GLTypeToGLenum(GLType::UnsignedInt), reinterpret_cast<const void*>(0));
-
-	m_RenderContext->Present();
 }
 
 
-bool Application::RegisterWindowClass(HINSTANCE hInstance) noexcept
-{
-	WNDCLASS wc{};
-	wc.hInstance = hInstance;
-	wc.lpszClassName = s_WindowClassName;
-	wc.lpfnWndProc = Window::StaticWndProc;
-	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-	wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-	wc.style = CS_OWNDC;
-	if (!RegisterClass(&wc))
-	{
-		return false;
-	}
-	return true;
-}
 
-void APIENTRY Application::OpenGLDebugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
-	// Filter out non-critical messages (optional)
-	if (type == GL_DEBUG_TYPE_OTHER || severity == GL_DEBUG_SEVERITY_LOW)
-		return;
 
-	// Output debug message
-	fprintf(stderr, "OpenGL Debug Message:\n"
-		"  Source: 0x%X\n  Type: 0x%X\n  ID: %d\n  Severity: 0x%X\n"
-		"  Message: %s\n\n",
-		source, type, id, severity, message);
-}

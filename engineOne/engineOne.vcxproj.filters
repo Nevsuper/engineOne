@@ -63,12 +63,18 @@
     <ClCompile Include="src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\engineOne\Core\Rendering\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engineOne\Core\Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\engineOne\Core\utils.h">
+    <ClInclude Include="src\engineOne\utils\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Buffer.h">
@@ -131,15 +137,21 @@
     <ClInclude Include="src\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\engineOne\Core\Rendering\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engineOne\Core\Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="assets\shaders\Text.txt" />
-    <Text Include="assets\models\airboat.obj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\fragmentLit.glsl" />
     <None Include="assets\shaders\vertexLit.glsl" />
     <None Include="assets\shaders\fragment.glsl" />
     <None Include="assets\shaders\vertex.glsl" />
+    <None Include="assets\shaders\fragmentNoTex.glsl" />
   </ItemGroup>
 </Project>

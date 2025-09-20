@@ -8,7 +8,7 @@ void unloadModernOpenGLFunctions();
 class GLLoader
 {
 public:
-	inline GLLoader(HINSTANCE hInstance) noexcept
+	 GLLoader(HINSTANCE hInstance) noexcept
 		:
 		m_IsLoaded(loadModernOpenGLFunctions(hInstance))
 	{} 

@@ -1,7 +1,7 @@
 #pragma once
 #include<glad/gl.h>
 #include "glTypes.h"
-#include "engineOne/Core/utils.h"
+#include "engineOne/utils/utils.h"
 
 // Simplified format categories
 enum class TextureInternalFormat : GLenum
@@ -87,8 +87,8 @@ inline constexpr GLenum PixelDataTypeToGLenum(pixelDataType format) noexcept
 
 struct Texture2DDataCreateInfo
 {
-	int width, height;
-	void* data;
+	int width = 0, height = 0;
+	void* data = nullptr;
 	pixelDataType type;
 	TextureInternalFormat internalFormat;
 	int mipLevels = 1;

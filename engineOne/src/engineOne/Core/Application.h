@@ -9,7 +9,7 @@
 #include "Camera.h"
 #include "Timer.h"
 #include "GLLoader.h"
-
+#include "Input/Input.h"
 struct Vertex
 {
 	glm::vec3 position; // 3D position
@@ -23,98 +23,41 @@ struct Mesh
 	std::vector<uint32_t> indices;
 };
 
-/**
- * @brief  class for runnning engine Application
- */
+
 class Application
 {
 public:
-	/**
-	 * @brief constructer  for creating Application object
-	 * @param hInstance HINSTANCE from WinMain
-	 * @param appName  Name of the application which will be used to set window name
-	 */
-	Application(HINSTANCE hInstance, const std::string& appName) noexcept;
+	Input* m_pInput;
+	float m_Aspect;
+	Application(const std::string& appName) noexcept;
 
 	Application(const Application&) = delete;
 	Application& operator=(const Application&) = delete;
 
 	virtual ~Application() noexcept = default;
 
-	/**
-	 * @brief Initialize the App class.
-	 * @return returns true if initalizetion succeeds and false otherwise
-	 */
+
 	bool Init() noexcept;
-	/**
-	 * @brief Run the application
-	 */
+
 	void Run() noexcept;
-private:
-	/**
-	 * @brief function to Initialize graphics which is called by the Init function
-	 * @return returns true if initalizetion succeeds and false otherwise
-	 */
-	bool InitGraphics() noexcept;
-	/**
-	 * @brief function ti Initialize Resources like textures and models which is called by the Init function
-	 * @return returns true if initalizetion succeeds and false otherwise
-	 */
-	bool InitResources() noexcept;
-	
-	/**
-	 * @brief function to handle inputs and is called by the Run function
-	 * @param deltaTime 
-	 */
-	void ProcessInput(float deltaTime) noexcept;
-
-	/**
-	 * @brief function to updates per frame and is called by the Run function
-	 * @param deltaTime 
-	 */
 	void Update(float deltaTime) noexcept;
-	/**
-	 * @brief function to Render and is called by the Run function
-	 */
-	void Render() noexcept;
-
+	void OnRender() noexcept;
 private:
-	/**
-	 * @brief static function which registers the window class (win32)
-	 * @param hInstance 
-	 * @return returns true upon succeeding and false otherwise
-	 */
-	static bool RegisterWindowClass(HINSTANCE hInstance) noexcept;
 
-	/**
-	 * @brief callback function which is called by opengl when enountering openglerrors
-	 * @param source 
-	 * @param type 
-	 * @param id 
-	 * @param severity 
-	 * @param length 
-	 * @param message 
-	 * @param userParam 
-	 * @return 
-	 */
-	static void APIENTRY OpenGLDebugCallback(
-		GLenum source, GLenum type, GLuint id, GLenum severity,
-		GLsizei length, const GLchar* message, const void* userParam);
-private:
-	inline static constexpr const char* s_WindowClassName = "MyEngineWindowClass";
+	bool InitResources() noexcept;
+	void ProcessInput(float deltaTime) noexcept;
+public:
+	const std::string& getName() const noexcept {return m_ApplicationName;}
 private:
 	//in the order of initialization and reverse order of destruction
-	HINSTANCE m_hInstance;
 	std::string m_ApplicationName;
 	CameraFPS m_Camera;
 	Timer m_Timer;
+	bool m_IsWireMode = false;
+	bool m_IsTex = true;
 
-
-
-	GLLoader m_OpenGLLoader;
-	std::unique_ptr<Window> m_Window;
-	std::unique_ptr<RenderContext> m_RenderContext;
 	std::unique_ptr<ShaderProgram> m_ShaderProgram;
+	std::unique_ptr<ShaderProgram> m_ShaderProgramNoTex;
 	std::unique_ptr<ShaderProgram> m_ShaderProgramLit;
 
 	Mesh m_Mesh;

@@ -1,6 +1,6 @@
 #pragma once
 #include <glad/gl.h>
-#include "engineOne/Core/utils.h"
+#include "engineOne/utils/utils.h"
 enum class BufferUsage : GLenum
 {
 	Static  =  GL_STATIC_DRAW,
@@ -36,7 +36,7 @@ public:
 	void Bind() const noexcept;
 	void Unbind() const noexcept;
 
-	inline unsigned int getID() const noexcept { return m_ID; }
+	unsigned int getID() const noexcept { return m_ID; }
 
 private:
 	unsigned int m_ID;
@@ -60,8 +60,8 @@ public:
 	void Bind() const noexcept;
 	void Unbind() const noexcept;
 
-	inline unsigned int getID() const noexcept { return m_ID; }
-	inline unsigned int getCount() const noexcept { return m_Count; }
+	 unsigned int getID() const noexcept { return m_ID; }
+	 unsigned int getCount() const noexcept { return m_Count; }
 
 private:
 	unsigned int m_ID;

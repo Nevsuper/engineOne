@@ -21,7 +21,7 @@ public:
 
 	void addAttribute(unsigned int index, int size, GLType type, bool normalized, int stride, const void* pointer) const noexcept;
 
-	inline unsigned int getID() const noexcept { return m_ID; }
+	 unsigned int getID() const noexcept { return m_ID; }
 private:
 	unsigned int m_ID;
 };

@@ -4,8 +4,9 @@
 #include<iostream>
 #include<stdexcept>
 
-Window::Window(HINSTANCE hInstance, const std::string& windowClassName, const std::string& title, int width, int height, DWORD windowStyle)
+Window::Window(Input& input,HINSTANCE hInstance, const std::string& windowClassName, const std::string& title, int width, int height, DWORD windowStyle)
 	:
+	m_Input(input),
 	m_hInstance(hInstance),
 	windowTitle(title),
 	m_Width(width),
@@ -63,6 +64,7 @@ Window::~Window() noexcept
 
 void Window::ProcessMessages() noexcept
 {
+	
 	MSG msg;
 	while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 	{
@@ -131,12 +133,24 @@ LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noe
 		m_AspectRatio = static_cast<float>(m_Width) / static_cast<float>(mHeight);
 		return 0;
 	}
+	case WM_KEYDOWN:
+	case WM_SYSKEYDOWN:
+	{
+		m_Input.OnKeyPressed(Win32VirtualKeyCodeToEngineKeyCode(wParam));
+		break;
+	}
+	case WM_KEYUP:
+	case WM_SYSKEYUP:
+	{
+		m_Input.OnKeyReleased(Win32VirtualKeyCodeToEngineKeyCode(wParam));
+	}
+		break;
 	case WM_CLOSE:
 		PostQuitMessage(0);
 		return 0;
 	default:
 		return DefWindowProc(hWnd, msg, wParam, lParam);
 	}
-	return 0l;
+	return 0;
 }
 

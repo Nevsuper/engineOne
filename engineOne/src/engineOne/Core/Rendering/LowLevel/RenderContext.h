@@ -1,8 +1,10 @@
 #pragma once
 #include "engineOne/Core/Window.h"
-#include "engineOne/Core/utils.h"
+#include "engineOne/utils/utils.h"
 
 #include<glad/gl.h>
+#include<glad/wgl.h>
+
 
 struct RenderContextCreateInfo
 {
@@ -30,7 +32,8 @@ struct RenderContextCreateInfo
 		depthBits(depth),
 		stencilBits(stencil),
 		samples(sampleCount)
-	{}
+	{
+	}
 };
 
 
@@ -38,27 +41,32 @@ class RenderContext
 {
 public:
 	RenderContext(const RenderContextCreateInfo& createInfo);
-	RenderContext(Window& window,int majorVersion = 4, int minorVersion = 5, bool debug = true);
+	RenderContext(Window& window, int majorVersion = 4, int minorVersion = 5, bool debug = true);
 	~RenderContext() noexcept;
 
 	RenderContext(const RenderContext&) = delete;
 	RenderContext& operator=(const RenderContext&) = delete;
-	
+
 	bool MakeCurrent(Window& window) noexcept;
 
-	inline void clearColor(float r, float g, float b, float a) noexcept
+	void clearColor(float r, float g, float b, float a) noexcept
 	{
 		glClearColor(r, g, b, a);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	}
 
-	inline void Present() noexcept
+	void Present() const noexcept
 	{
 		SwapBuffers(m_hDC);
 	}
 
-	inline bool IsNull() const noexcept { return m_hGLRC == nullptr; }
-	inline operator bool() const noexcept { return m_hGLRC != nullptr; }
+	void SetSwapInterval(int interval) const noexcept
+	{
+		wglSwapIntervalEXT(interval);
+	}
+
+	bool IsNull() const noexcept { return m_hGLRC == nullptr; }
+	operator bool() const noexcept { return m_hGLRC != nullptr; }
 private:
 	HDC m_hDC;
 	HGLRC m_hGLRC;

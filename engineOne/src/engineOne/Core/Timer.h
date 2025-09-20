@@ -18,24 +18,24 @@ public:
 	Timer(Timer&&) noexcept = default;
 	Timer& operator=(Timer&&) noexcept = default;
 
-	inline void reset()
+	 void reset()
 	{
 		QueryPerformanceCounter(&m_Time);
 	}
 
-	inline void resetFrequency() noexcept
+	 void resetFrequency() noexcept
 	{
 		QueryPerformanceFrequency(&m_Frequency);
 	}
 
 	
-	inline double elapsed() const noexcept
+	 double elapsed() const noexcept
 	{
 		LARGE_INTEGER currentTime;
 		QueryPerformanceCounter(&currentTime);
 		return static_cast<double>(currentTime.QuadPart - m_Time.QuadPart) / static_cast<double>(m_Frequency.QuadPart);
 	}
-	inline double elapsedAndReset() noexcept
+	 double elapsedAndReset() noexcept
 	{
 		LARGE_INTEGER currentTime;
 		QueryPerformanceCounter(&currentTime);

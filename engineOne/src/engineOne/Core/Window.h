@@ -2,11 +2,12 @@
 #pragma once
 #include <Windows.h>
 #include <string>
+#include "Input/Input.h"
 
 class Window
 {
 public: 
-    Window(HINSTANCE hInstance, const std::string& windowClassName, const std::string& title, int width, int height, DWORD windowStyle);
+    Window(Input& input,HINSTANCE hInstance, const std::string& windowClassName, const std::string& title, int width, int height, DWORD windowStyle = WS_OVERLAPPEDWINDOW | WS_VISIBLE);
     ~Window() noexcept;
 
     void ProcessMessages() noexcept;
@@ -28,7 +29,7 @@ private:
 	static bool DoesWindowClassExistsAndHavePrivateDCAndUsesCorrectWndProc(const std::string& className, HINSTANCE hInstance ) noexcept;
 private:
 
-
+    Input& m_Input;
     HINSTANCE m_hInstance;
     HWND m_hWnd;
     std::string windowTitle;

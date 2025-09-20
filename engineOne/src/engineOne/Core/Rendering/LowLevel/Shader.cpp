@@ -50,17 +50,27 @@ Shader& Shader::operator=(Shader&& other) noexcept
 
 bool Shader::loadFromFile(const std::string& filePath)
 {
-	std::ifstream file(filePath);
-	if (!file.is_open()) {
-		std::cerr << "Failed to open shader file: " << filePath << std::endl;
+	try {
+		std::ifstream file(filePath, std::ios::in);
+		// Make the stream throw on errors
+		file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+		std::stringstream buffer;
+		buffer << file.rdbuf();  // if reading fails, exception is thrown
+		auto src = buffer.str();
+
+		return loadFromString(src);
+	}
+	catch (const std::ios_base::failure& e) {
+		std::cerr << "I/O error while reading file '" << filePath
+			<< "': " << e.what() << std::endl;
 		return false;
 	}
-
-	std::stringstream buffer;
-	buffer << file.rdbuf();
-	file.close();
-	auto src = buffer.str();
-	return loadFromString(src);
+	catch (const std::exception& e) {
+		std::cerr << "Unexpected error while reading file '" << filePath
+			<< "': " << e.what() << std::endl;
+		return false;
+	}
 
 }
 

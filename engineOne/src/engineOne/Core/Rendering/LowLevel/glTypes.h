@@ -1,6 +1,6 @@
 #pragma once
 #include<glad/gl.h>
-#include "engineOne/Core/utils.h"
+#include "engineOne/utils/utils.h"
 
 enum class GLType : GLenum
 {
@@ -15,7 +15,7 @@ enum class GLType : GLenum
 };
 
 
-constexpr GLenum GLTypeToGLenum(GLType type) noexcept
+inline constexpr GLenum GLTypeToGLenum(GLType type) noexcept
 {
 	return enumValue(type);
 }
