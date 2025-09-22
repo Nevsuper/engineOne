@@ -3,7 +3,7 @@
 #include "Window.h"
 #include<iostream>
 #include<stdexcept>
-
+#include<windowsx.h>
 Window::Window(Input& input,HINSTANCE hInstance, const std::string& windowClassName, const std::string& title, int width, int height, DWORD windowStyle)
 	:
 	m_Input(input),
@@ -52,6 +52,9 @@ Window::Window(Input& input,HINSTANCE hInstance, const std::string& windowClassN
 	}
 	ShowWindow(m_hWnd, SW_NORMAL);
 	UpdateWindow(m_hWnd);
+
+	ShowCursor(FALSE);
+	SetCapture(m_hWnd);
 }
 
 Window::~Window() noexcept
@@ -124,6 +127,8 @@ LRESULT Window::StaticWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept
 {
+
+
 	switch (msg)
 	{
 	case WM_SIZE:
@@ -143,8 +148,35 @@ LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noe
 	case WM_SYSKEYUP:
 	{
 		m_Input.OnKeyReleased(Win32VirtualKeyCodeToEngineKeyCode(wParam));
-	}
 		break;
+	}
+
+	case WM_MOUSEMOVE:
+	{
+		// Current mouse pos
+		int x = GET_X_LPARAM(lParam);
+		int y = GET_Y_LPARAM(lParam);
+
+		// Center of client area
+		RECT rect;
+		GetClientRect(hWnd, &rect);
+		int cx = (rect.right - rect.left) / 2;
+		int cy = (rect.bottom - rect.top) / 2;
+
+		// Delta
+		int dx = x - cx;
+		int dy = y - cy;
+
+		if (dx != 0 || dy != 0) {
+			LOG_DEBUG("mouse move delta ({},{})", dx, dy);
+			m_Input.OnMouseMoved(dx, dy);
+			// Recenter cursor to window middle
+			POINT center{ cx, cy };
+			ClientToScreen(hWnd, &center);
+			SetCursorPos(center.x, center.y);
+		}
+		return 0;
+	}
 	case WM_CLOSE:
 		PostQuitMessage(0);
 		return 0;

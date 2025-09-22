@@ -1,6 +1,6 @@
-#include "pch.h"
+#include <engineOne/Core/Engine.h>
+#include <engineOne/Core/logger/Logger.h>
 #include "Application.h"
-#include "Engine.h"
 #include<iostream>
 
 int main(int argc, char** argv)
@@ -10,7 +10,7 @@ int main(int argc, char** argv)
 	Engine engine(hInstance, pApp);
 	if (!engine.Run())
 	{
-		std::cout << "Failed torun game." << std::endl;
+		LOG_FATAL("Failed torun game.");
 		return -1;
 	}
 	return 0;

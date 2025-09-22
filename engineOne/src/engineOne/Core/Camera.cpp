@@ -3,25 +3,24 @@
 #include "Camera.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/rotate_vector.hpp>
-CameraFPS::CameraFPS(float fov, float aspect, float zNear, float zFar) noexcept
+Camera::Camera(float fov, float aspect, float zNear, float zFar) noexcept
 	:m_Position(0.0f, 0.0f, 3.0f),
-	m_Front(0.0f, 0.0f, -1.0f),
-	m_Up(0.0f, 1.0f, 0.0f),
-	m_Right(1.0f, 0.0f, 0.0f),
+
 	m_Projection(1.0f), m_View(1.0f)
+	, m_Orientation(1.0f, 0.0f, 0.0f, 0.0f)
 
 {
 	UpdateProjection(fov, aspect, zNear, zFar);
 
 }
 
-void CameraFPS::MoveTo(const glm::vec3& position) noexcept
+void Camera::MoveTo(const glm::vec3& position) noexcept
 {
 	m_Position = position;
 	RecalculateView();
 }
 
-void CameraFPS::Translate(const glm::vec3& displacement) noexcept
+void Camera::Translate(const glm::vec3& displacement) noexcept
 {
 	m_Position += displacement;
 	RecalculateView();
@@ -29,58 +28,69 @@ void CameraFPS::Translate(const glm::vec3& displacement) noexcept
 
 
 
-void CameraFPS::Yaw(float angle) noexcept
+void Camera::Yaw(float angle) noexcept
 {
-	m_Front = glm::rotate(m_Front, glm::radians(angle), m_Up);
-	m_Right = glm::cross(m_Front, m_Up);
+	glm::quat q = glm::angleAxis(angle, m_Worldup);
+	m_Orientation = m_Orientation = glm::normalize(q * m_Orientation);
 	RecalculateView();
 }
 
-void CameraFPS::Pitch(float angle) noexcept
+void Camera::Pitch(float angle) noexcept
 {
-	m_Front = glm::rotate(m_Front, glm::radians(angle), m_Right);
-	m_Up = glm::cross(m_Right, m_Front);
+	glm::quat q = glm::angleAxis(angle, GetRight());
+	m_Orientation = glm::normalize(q * m_Orientation);
 	RecalculateView();
 }
 
-void CameraFPS::Roll(float angle) noexcept
+
+void Camera::MoveForward(float distance) noexcept
 {
-	m_Up = glm::rotate(m_Up, glm::radians(angle), m_Front);
-	m_Right = glm::cross(m_Front, m_Up);
-	RecalculateView();
+	Translate(GetForward() * distance);
 }
 
-void CameraFPS::MoveForward(float distance) noexcept
+void Camera::MoveRight(float distance) noexcept
 {
-	Translate(m_Front * distance);
+	Translate(GetRight() * distance);
 }
 
-void CameraFPS::MoveRight(float distance) noexcept
+void Camera::MoveUp(float distance) noexcept
 {
-	Translate(m_Right * distance);
+	Translate(m_Worldup * distance);
 }
 
-void CameraFPS::MoveUp(float distance) noexcept
-{
-	Translate(m_Up * distance);
-}
-
-void CameraFPS::UpdateProjection(float fov, float aspect, float zNear, float zFar) noexcept
+void Camera::UpdateProjection(float fov, float aspect, float zNear, float zFar) noexcept
 {
 	assert(aspect > 0.0f && "Aspect ratio must be greater than zero");
 	m_Projection = glm::perspective(fov, aspect, zNear, zFar);
 }
 
-void CameraFPS::RestPosAndOrient() noexcept
+void Camera::RestPosAndOrient() noexcept
 {
 	m_Position = glm::vec3(0.0f, 0.0f, 5.0f);
-	m_Front = glm::vec3(0.0f, 0.0f, -1.0f);
-	m_Up = glm::vec3(0.0f, 1.0f, 0.0f);
-	m_Right = glm::vec3(1.0f, 0.0f, 0.0f);
+	m_Orientation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
 	RecalculateView();
 }
 
-void CameraFPS::RecalculateView() noexcept
+inline glm::vec3 Camera::GetForward() const noexcept
 {
-	m_View = glm::lookAt(m_Position, m_Position + m_Front, m_Up);
+	glm::vec3 forward = glm::rotate(m_Orientation, m_WorldFront);
+	forward.y = 0;
+	return glm::normalize(forward);
+}
+
+inline glm::vec3 Camera::GetRight() const noexcept
+{
+	glm::vec3 right = glm::rotate(m_Orientation, m_WorldRight);
+	right.y = 0;
+	return glm::normalize(right);
+}
+
+
+
+void Camera::RecalculateView() noexcept
+{
+
+	glm::vec3 forward = glm::rotate(m_Orientation, m_WorldFront);
+	glm::vec3 up = glm::rotate(m_Orientation, m_Worldup);
+	m_View = glm::lookAt(m_Position, m_Position + forward, up);
 }

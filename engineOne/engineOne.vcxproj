@@ -19,13 +19,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -44,12 +44,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(Platform)-$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(Platform)-$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\engineOne\Core\logger\Logger.cpp" />
     <ClCompile Include="src\engineOne\Core\Engine.cpp" />
     <ClCompile Include="src\engineOne\Core\Rendering\Mesh.cpp" />
     <ClCompile Include="src\pch.cpp">
@@ -97,9 +98,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\engineOne\Core\Input\Input.cpp" />
-    <ClCompile Include="src\engineOne\Core\main.cpp" />
     <ClCompile Include="src\engineOne\Core\Rendering\LowLevel\RenderContext.cpp" />
-    <ClCompile Include="src\engineOne\Core\Application.cpp" />
     <ClCompile Include="src\engineOne\Core\Rendering\LowLevel\Buffer.cpp" />
     <ClCompile Include="src\engineOne\Core\Camera.cpp" />
     <ClCompile Include="src\engineOne\Core\GLLoader.cpp" />
@@ -125,12 +124,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\engineOne\Core\logger\Logger.h" />
     <ClInclude Include="src\engineOne\Core\Engine.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\Mesh.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\engineOne\Core\Input\Input.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\RenderContext.h" />
-    <ClInclude Include="src\engineOne\Core\Application.h" />
+    <ClInclude Include="src\engineOne\Core\ApplicationBase.h" />
     <ClInclude Include="src\engineOne\Core\GLLoader.h" />
     <ClInclude Include="src\engineOne\Core\Camera.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\glTypes.h" />
@@ -147,6 +147,7 @@
     <ClInclude Include="src\math\vec4.h" />
     <ClInclude Include="src\engineOne\Core\Window.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Texture.h" />
+    <ClInclude Include="src\WindowsLean.h" />
     <ClInclude Include="thirdParty\stb_image\stb_image.h" />
     <ClInclude Include="src\engineOne\Core\Timer.h" />
   </ItemGroup>

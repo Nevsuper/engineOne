@@ -1,18 +1,20 @@
 #pragma once
+#define GLM_ENABLE_EXPERIMENTAL
 #include<glm/glm.hpp>
-
-class CameraFPS
+#include<glm/gtc/quaternion.hpp>
+#include <glm/gtx/quaternion.hpp>
+class Camera
 {
 public:
 
-	CameraFPS(float fov = 60.0f, float aspect = 4.0f/3.0f, float zNear = 0.1f, float zFar = 100.0f) noexcept;
+	Camera(float fov = 60.0f, float aspect = 4.0f/3.0f, float zNear = 0.1f, float zFar = 100.0f) noexcept;
 
 	void MoveTo(const glm::vec3& position) noexcept;
 	void Translate(const glm::vec3& displacement) noexcept;
 
-	void Yaw(float angle) noexcept;   // rotate around the up vector
-	void Pitch(float angle) noexcept; // rotate around the right vector
-	void Roll(float angle) noexcept;  // rotate around the front vector
+	void Yaw(float angle) noexcept;  
+	void Pitch(float angle) noexcept; 
+	
 
 	void MoveForward(float distance) noexcept;
 	void MoveRight(float distance) noexcept;
@@ -27,13 +29,19 @@ public:
 
 	const glm::vec3& GetPos() const noexcept {	return m_Position;}
 private:
+
+	glm::vec3 GetForward() const noexcept;
+	glm::vec3 GetRight() const noexcept;
+
+
+
 	void RecalculateView() noexcept;
 private:
 	glm::mat4 m_View, m_Projection;
 	glm::vec3 m_Position;
-	glm::vec3 m_Front;
-	glm::vec3 m_Up;
-	glm::vec3 m_Right;
-
+	glm::quat m_Orientation;
+	const glm::vec3 m_Worldup = glm::vec3(0.0f, 1.0f, 0.0f);
+	const glm::vec3 m_WorldFront = glm::vec3(0.0f, 0.0f, -1.0f);
+	const glm::vec3 m_WorldRight = glm::vec3(1.0f, 0.0f, 0.0f);
 };
 

@@ -5,90 +5,40 @@
 
 VertexBuffer::VertexBuffer(const void* data, unsigned int size, BufferUsage usage) noexcept
 	:
-	m_ID(0)
-{
-	glGenBuffers(1, &m_ID);
-	glBindBuffer(GL_ARRAY_BUFFER, m_ID);
-	glBufferData(GL_ARRAY_BUFFER, size, data, BufferUsageToGLenum(usage));
-}
+	BufferBase(data, size, usage)
+{}
 
 VertexBuffer::VertexBuffer(VertexBuffer&& other) noexcept
-	: m_ID(other.m_ID)
-{
-	other.m_ID = 0;
-}
+	: BufferBase(std::move(other))
+{}
 
-VertexBuffer::~VertexBuffer()
-{
-	SafeDeleteGLBuffer(m_ID);
-}
+
 
 VertexBuffer& VertexBuffer::operator=(VertexBuffer&& other) noexcept
 {
-	if (this != &other)
-	{
-		SafeDeleteGLBuffer(m_ID);
-		m_ID = other.m_ID;
-		other.m_ID = 0;
-	}
+	BufferBase::operator=(std::move(other));
 	return *this;
 }
 
 
 
-void VertexBuffer::Bind() const noexcept
-{
-	glBindBuffer(GL_ARRAY_BUFFER, m_ID);
-}
-
-void VertexBuffer::Unbind() const noexcept
-{
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-}
-
-
-
-
-IndexBuffer::IndexBuffer(const void* data, unsigned int size, BufferUsage usage) noexcept
+IndexBuffer::IndexBuffer(const void* data, unsigned int size, GLType type, BufferUsage usage) noexcept
 	:
-	m_ID(0), m_Count(size)
+	 m_Count(size/getSizeofGLType(type)),m_Type(type),
+	BufferBase(data, size, usage)
 {
-	glGenBuffers(1, &m_ID);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ID);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_Count, data, BufferUsageToGLenum(usage));
 }
 
 IndexBuffer::IndexBuffer(IndexBuffer&& other) noexcept
 	:
-	m_ID(other.m_ID)
-{
-	other.m_ID = 0;
-}
+	BufferBase(std::move(other))
+{}
 
 
-IndexBuffer::~IndexBuffer()
-{
-	SafeDeleteGLBuffer(m_ID);
-}
 
 IndexBuffer& IndexBuffer::operator=(IndexBuffer&& other) noexcept
 {
-	if (this != &other)
-	{
-		SafeDeleteGLBuffer(m_ID);
-		m_ID = other.m_ID;
-		other.m_ID = 0;
-	}
+	BufferBase::operator=(std::move(other));
 	return *this;
 }
 
-void IndexBuffer::Bind() const noexcept
-{
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ID);
-}
-
-void IndexBuffer::Unbind() const noexcept
-{
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-}

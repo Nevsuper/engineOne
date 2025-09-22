@@ -48,16 +48,10 @@
     <ClCompile Include="thirdParty\tiny_obj_loader\tiny_obj_loader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engineOne\Core\Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\engineOne\Core\Rendering\LowLevel\RenderContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engineOne\Core\Input\Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engineOne\Core\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">
@@ -67,6 +61,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engineOne\Core\Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engineOne\Core\logger\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,7 +122,7 @@
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\engineOne\Core\Application.h">
+    <ClInclude Include="src\engineOne\Core\ApplicationBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\engineOne\Core\Rendering\LowLevel\RenderContext.h">
@@ -141,6 +138,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\engineOne\Core\Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engineOne\Core\logger\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WindowsLean.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

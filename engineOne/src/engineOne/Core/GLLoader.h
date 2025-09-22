@@ -1,6 +1,8 @@
 #pragma once
 
-#include<Windows.h>
+
+
+#include<WindowsLean.h>
 
 bool loadModernOpenGLFunctions(HINSTANCE hInstance);
 void unloadModernOpenGLFunctions();

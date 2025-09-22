@@ -1,16 +1,17 @@
+#include "Application.h"
 #include "pch.h"
 
 #include "Application.h"
 #include <future>
-#include "Input/Input.h"
-#include "Input/KeyCodes.h"
+#include <engineOne/Core/Input/Input.h>
+#include <engineOne/Core/Input/KeyCodes.h>
 
 #include<iostream>
 #include<glad/gl.h>
 #include<stb_image.h>
 #include<tiny_obj_loader.h>
 #include<glm/gtc/matrix_transform.hpp>
-#include "Engine.h"
+#include <engineOne/Core/Engine.h>
 
 
 bool LoadTextureFromFile(const std::string& filename, Texture2DDataCreateInfo& createInfo)
@@ -65,19 +66,19 @@ bool LoadTextureFromFile(const std::string& filename, Texture2DDataCreateInfo& c
 	createInfo.data = data;
 	createInfo.mipLevels = 1;
 
-	std::cout << "Loaded texture: " << filename << " (" << createInfo.width << "x" << createInfo.height << ", " << channels << " channels)\n";
+	LOG_INFO("Texture ({}) loaded and has {} channels", filename, channels);
 	return true;
 }
 
 Application::Application(const std::string& appName) noexcept
 	: 
-	m_ApplicationName(appName),m_Aspect(1.333f),m_pInput(nullptr)
+	ApplicationBase(appName)
 {
 }
 
 
 
-bool Application::Init() noexcept
+bool Application::Init() noexcept 
 {
 	
 	m_Camera.UpdateProjection(glm::radians(90.0f), m_Aspect, 0.1f, 500.0f);
@@ -106,12 +107,12 @@ bool Application::InitResources() noexcept
 
 			if (!reader.ParseFromFile(inputfile, reader_config)) {
 				if (!reader.Error().empty()) {
-					std::cerr << "TinyObjReader: " << reader.Error();
+					LOG_ERROR( "TinyObjReader: {} " , reader.Error() ) ;
 				}
 				return false;
 			}
 			if (!reader.Warning().empty()) {
-				std::cout << "TinyObjReader: " << reader.Warning();
+				LOG_WARN("TinyObjReader: {} ", reader.Warning());
 			}
 
 			auto& attrib = reader.GetAttrib();
@@ -139,8 +140,6 @@ bool Application::InitResources() noexcept
 					}
 					else
 					{
-						// No texcoord available  set default
-					/*	std::cout << "No texture coordinate available for vertex " << index.vertex_index << "\n";*/
 						vertex.texCoords.x = 0.0f;
 						vertex.texCoords.y = 0.0f;
 					}
@@ -166,19 +165,19 @@ bool Application::InitResources() noexcept
 			}
 
 			//print number of triangles
-			std::cout << "Number of triangles: " << m_Mesh.indices.size() / 3 << "\n";
+			LOG_INFO( "Number of triangles: {}" , m_Mesh.indices.size() / 3 );
 			return true;
 		};
 
 
 	Timer loadTimer;
 
-	auto modelFuture = std::async(std::launch::deferred, loadModel);
+	auto modelFuture = std::async(std::launch::async, loadModel);
 	//load both textures
 
 	Texture2DDataCreateInfo diffuseCreateInfo, alphaCreateInfo;
-	auto texDataFuture = std::async(std::launch::deferred, LoadTextureFromFile, "assets/textures/8k_texture.png", std::ref(diffuseCreateInfo));
-	auto texAlphaDataFuture = std::async(std::launch::deferred, LoadTextureFromFile, "assets/textures/8k_texture_alpha.png", std::ref(alphaCreateInfo));
+	auto texDataFuture = std::async(std::launch::async, LoadTextureFromFile, "assets/textures/8k_texture.png", std::ref(diffuseCreateInfo));
+	auto texAlphaDataFuture = std::async(std::launch::async, LoadTextureFromFile, "assets/textures/8k_texture_alpha.png", std::ref(alphaCreateInfo));
 
 	//load Shader
 	m_ShaderProgram = std::make_unique<ShaderProgram>("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
@@ -208,7 +207,7 @@ bool Application::InitResources() noexcept
 
 	if (!isModelLoaded)
 	{
-		std::cout << "Model Load Failed";
+		LOG_ERROR( "Model Load Failed" ) ;
 		return false;
 	}
 
@@ -224,13 +223,13 @@ bool Application::InitResources() noexcept
 
 	else
 	{
-		std::cout << "Texture Load Failed" << std::endl;
+		LOG_ERROR( "Texture Load Failed" );
 		return false;
 	}
 
 	auto loadTime = loadTimer.elapsed();
 
-	std::cout << " Took " << loadTime << "s" << "to load resources" << std::endl;
+	LOG_DEBUG(" Took {}s to load resources", loadTime);
 	//village model 
 	m_VAO = std::make_unique<VertexArray>();
 	m_VAO->Bind();
@@ -239,7 +238,7 @@ bool Application::InitResources() noexcept
 	m_VAO->addAttribute(0, 3, GLType::Float, false, sizeof(Vertex), (void*)0);
 	m_VAO->addAttribute(1, 3, GLType::Float, false, sizeof(Vertex), reinterpret_cast<const void*>(3 * sizeof(float)));
 	m_VAO->addAttribute(2, 2, GLType::Float, false, sizeof(Vertex), reinterpret_cast<const void*>(6 * sizeof(float)));
-	m_EBO = std::make_unique<IndexBuffer>(m_Mesh.indices.data(), m_Mesh.indices.size() * sizeof(m_Mesh.indices[0]));
+	m_EBO = std::make_unique<IndexBuffer>(m_Mesh.indices.data(), m_Mesh.indices.size() * sizeof(m_Mesh.indices[0]),GLType::UnsignedInt);
 	m_EBO->Bind();
 	// lit cube
 
@@ -287,7 +286,7 @@ bool Application::InitResources() noexcept
 	m_VBOLit = std::make_unique<VertexBuffer>(cubeVertices.data(), cubeVertices.size() * sizeof(glm::vec3));
 	m_VBOLit->Bind();
 	m_VAOLit->addAttribute(0, 3, GLType::Float, false, sizeof(glm::vec3), (void*)0);
-	m_EBOLit = std::make_unique<IndexBuffer>(cubeIndices.data(), cubeIndices.size() * sizeof(cubeIndices[0]));
+	m_EBOLit = std::make_unique<IndexBuffer>(cubeIndices.data(), cubeIndices.size() * sizeof(cubeIndices[0]),GLType::UnsignedInt);
 	m_EBOLit->Bind();
 
 	return true;
@@ -296,8 +295,13 @@ void Application::ProcessInput(float deltaTime) noexcept
 {
 
 
-	float cameraSpeed = 10.5f; // units per second
-	float cameraAnglularSpeed = 30.0f; // degrees per second
+	float cameraSpeed = 30.5f; // units per second
+	float cameraAnglularSpeed = glm::radians(30.0f); // degrees per second
+
+	float mouseSensitivity = 1.0f;
+
+	int dx = m_pInput->GetMouseMoveDeltaX();
+	int dy = m_pInput->GetMouseMoveDeltaY();
 
 	if (m_pInput->IsKeyDown(KeyCode::W))
 		m_Camera.MoveForward(deltaTime * cameraSpeed);
@@ -313,20 +317,10 @@ void Application::ProcessInput(float deltaTime) noexcept
 	if (m_pInput->IsKeyDown(KeyCode::C))
 		m_Camera.MoveUp(-deltaTime * cameraSpeed);
 
-	if (m_pInput->IsKeyDown(KeyCode::Arrowleft))
-		m_Camera.Yaw(deltaTime * cameraAnglularSpeed);
-	if (m_pInput->IsKeyDown(KeyCode::Arrowright))
-		m_Camera.Yaw(-deltaTime * cameraAnglularSpeed);
-	if (m_pInput->IsKeyDown(KeyCode::Arrowup))
-		m_Camera.Pitch(deltaTime * cameraAnglularSpeed);
-	if (m_pInput->IsKeyDown(KeyCode::Arrowdown))
-		m_Camera.Pitch(-deltaTime * cameraAnglularSpeed);
+	
 
-	if (m_pInput->IsKeyDown(KeyCode::Q))
-		m_Camera.Roll(-deltaTime * cameraAnglularSpeed);
-	if (m_pInput->IsKeyDown(KeyCode::E))
-		m_Camera.Roll(deltaTime * cameraAnglularSpeed);
-
+	m_Camera.Yaw(deltaTime * (static_cast<float>(-dx) * mouseSensitivity) * cameraAnglularSpeed);
+	m_Camera.Pitch(deltaTime * (static_cast<float>(-dy) * mouseSensitivity) * cameraAnglularSpeed);
 
 	if (m_pInput->IsKeyPressed(KeyCode::R))
 		m_Camera.RestPosAndOrient();
@@ -344,8 +338,9 @@ void Application::ProcessInput(float deltaTime) noexcept
 
 	auto& pos = m_Camera.GetPos();
 
-	//std::cout << "Camera Position is" << "{" << pos.x << ","<<pos.y << "," << pos.z  << "}" << std::endl;
 }
+
+
 
 void Application::Update(float deltaTime) noexcept
 {

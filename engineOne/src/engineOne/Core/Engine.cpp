@@ -1,11 +1,11 @@
 #include "pch.h"
 #include "Engine.h"
 
-#include "Application.h"
+#include "ApplicationBase.h"
 #include <engineOne/utils/utils.h>
 
 
-Engine::Engine(HINSTANCE hInstance, Application* app) noexcept
+Engine::Engine(HINSTANCE hInstance, ApplicationBase* app) noexcept
 	:
 m_OpenGLLoader(hInstance), m_pApp(app), m_hInstance(hInstance)
 {
@@ -24,7 +24,7 @@ bool Engine::Run() noexcept
 	{
 		return false;
 	};
-	std::cout <<"Engine Running" << std::endl;
+	LOG_INFO( "Engine Running");
 	m_pRenderContext->SetSwapInterval(1);
 	while ( !m_pWindow->ShouldClose())
 	{
@@ -58,9 +58,10 @@ bool Engine::Init() noexcept
 
 	if (m_pRenderContext->IsNull()) return false;
 
-	std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
-	std::cout << "OpenGL Vendor: " << glGetString(GL_VENDOR) << std::endl;
-	std::cout << "OpenGL Renderer: " << glGetString(GL_RENDERER) << std::endl;
+	LOG_INFO("OpenGL Version: {}", reinterpret_cast<const char*>(glGetString(GL_VERSION)));
+	LOG_INFO("OpenGL Vendor: {}", reinterpret_cast<const char*>(glGetString(GL_VENDOR)));
+	LOG_INFO("OpenGL Renderer: {}", reinterpret_cast<const char*>(glGetString(GL_RENDERER)));
+
 
 	glViewport(0, 0, m_pWindow->GetWidth(), m_pWindow->GetHeight());
 	glEnable(GL_DEPTH_TEST);

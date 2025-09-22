@@ -67,13 +67,13 @@ RenderContext::RenderContext(const RenderContextCreateInfo& createInfo)
 	}
 	if (wglMakeCurrent(m_hDC, m_hGLRC) == FALSE)
 	{
-		std::cerr << "Failed to make OpenGL context current\n";
+		LOG_FATAL("Failed to make OpenGL context current");
 		wglDeleteContext(m_hGLRC);
 		m_hGLRC = nullptr;
 		return;
 	}
 
-	std::cout << "OpenGL context created successfully\n";
+	LOG_DEBUG("OpenGL context created successfully");
 }
 
 RenderContext::RenderContext(Window& window, int majorVersion, int minorVersion, bool debug)

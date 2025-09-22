@@ -12,4 +12,11 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include <Windows.h>
+#include <WindowsLean.h>
+#include <glad/gl.h>
+#include <glad/wgl.h>
+
+#include<tiny_obj_loader.h>
+#include<stb_image.h>
+
+#include "engineOne/Core/logger/Logger.h"

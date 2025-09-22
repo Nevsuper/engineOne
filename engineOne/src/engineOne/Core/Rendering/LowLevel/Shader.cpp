@@ -93,7 +93,7 @@ bool Shader::checkCompileStatus()
 	if (!success)
 	{
 		glGetShaderInfoLog(m_ID, 1024, NULL, infoLog);
-		std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << shaderTypeToString(m_Type) << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+		LOG_WARN("ERROR::SHADER_COMPILATION_ERROR of type: {} \n {}", shaderTypeToString(m_Type), infoLog);
 		return false;
 	}
 	return true;
@@ -122,19 +122,19 @@ ShaderProgram::ShaderProgram(const std::string& vertexPath, const std::string& f
 {
 	Shader vertexShader(ShaderType::VERTEX);
 	if (!vertexShader.loadFromFile(vertexPath)) {
-		std::cerr << "Failed to load vertex shader from file: " << vertexPath << std::endl;
+		LOG_WARN("Failed to load vertex shader from file: {}", vertexPath);
 		return;
 	}
 	Shader fragmentShader(ShaderType::FRAGMENT);
 	if (!fragmentShader.loadFromFile(fragmentPath)) {
-		std::cerr << "Failed to load fragment shader from file: " << fragmentPath << std::endl;
+		LOG_WARN("Failed to load fragment shader from file: {}", fragmentPath );
 		return;
 	}
 	m_ID = glCreateProgram();
 	attachShader(vertexShader);
 	attachShader(fragmentShader);
 	if (!link()) {
-		std::cerr << "Failed to link shader program." << std::endl;
+		LOG_WARN( "Failed to link shader program.");
 	}
 }
 
@@ -144,7 +144,7 @@ ShaderProgram::ShaderProgram(Shader& vertexShader, Shader& fragmentShader)
 	attachShader(vertexShader);
 	attachShader(fragmentShader);
 	if (!link()) {
-		std::cerr << "Failed to link shader program." << std::endl;
+		LOG_WARN("Failed to link shader program.");
 	}
 }
 
@@ -190,7 +190,7 @@ bool ShaderProgram::checkLinkStatus()
 	if (!success)
 	{
 		glGetProgramInfoLog(m_ID, 1024, NULL, infoLog);
-		std::cout << "ERROR::PROGRAM_LINKING_ERROR\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+		LOG_WARN( "ERROR::PROGRAM_LINKING_ERROR\n {} \n --------------------------------------------------- -- " ,infoLog);
 		return false;
 	}
 	return true;
@@ -262,7 +262,7 @@ unsigned int ShaderProgram::GetUniformLocation(const std::string& uniformName) n
 	auto loc = glGetUniformLocation(m_ID, uniformName.c_str());
 	if (loc == -1)
 	{
-		std::cerr << "uniform" << uniformName << "  does not exist " << std::endl;
+		LOG_WARN( "uniform : {} does not exist", uniformName );
 		return -1;
 	}
 	m_UniformCache[uniformName] = loc;

@@ -1,6 +1,6 @@
 // Window.h
 #pragma once
-#include <Windows.h>
+#include <WindowsLean.h>
 #include <string>
 #include "Input/Input.h"
 

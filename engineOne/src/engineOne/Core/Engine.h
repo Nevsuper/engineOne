@@ -1,16 +1,17 @@
 #pragma once
 
 #include "Window.h"
+#include "ApplicationBase.h"
 #include "Rendering/LowLevel/RenderContext.h"
 #include "GLLoader.h"
 #include "Timer.h"
 #include<memory>
-class Application;
+class ApplicationBase;
 
 class Engine
 {
 public:
-	Engine(HINSTANCE hInstance, Application* app) noexcept;
+	Engine(HINSTANCE hInstance, ApplicationBase* app) noexcept;
 	bool Run() noexcept;
 	~Engine() noexcept;
 private:
@@ -31,6 +32,6 @@ private:
 	std::unique_ptr<Window> m_pWindow;
 	std::unique_ptr<RenderContext> m_pRenderContext;
 
-	Application* m_pApp;
+	ApplicationBase* m_pApp;
 };
 
