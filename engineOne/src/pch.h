@@ -16,7 +16,6 @@
 #include <glad/gl.h>
 #include <glad/wgl.h>
 
-#include<tiny_obj_loader.h>
-#include<stb_image.h>
+
 
 #include "engineOne/Core/logger/Logger.h"

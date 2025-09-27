@@ -6,8 +6,8 @@
 int main(int argc, char** argv)
 {
 	HINSTANCE hInstance = GetModuleHandle(NULL);
-	Application* pApp = new Application("My 3D Application");
-	Engine engine(hInstance, pApp);
+	std::unique_ptr<Application> pApp = std::make_unique<Application>("My 3D Application");
+	Engine engine(hInstance, std::move(pApp));
 	if (!engine.Run())
 	{
 		LOG_FATAL("Failed torun game.");

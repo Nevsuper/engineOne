@@ -1,27 +1,18 @@
 #pragma once
+#include <engineOne/Core/ApplicationBase.h>
+
 #include <memory>
+
+
 #include <engineOne/Core/Rendering/LowLevel/Buffer.h>
 #include <engineOne/Core/Rendering/LowLevel/Shader.h>
 #include <engineOne/Core/Rendering/LowLevel/VertexArray.h>
 #include <engineOne/Core/Rendering/LowLevel/Texture.h>
-#include <engineOne/Core/Rendering/LowLevel/RenderContext.h>
+#include <engineOne/Core/Rendering/Mesh.h>
+
 #include <engineOne/Core/Camera.h>
 #include <engineOne/Core/Timer.h>
-#include <engineOne/Core/GLLoader.h>
 #include <engineOne/Core/Input/Input.h>
-#include <engineOne/Core/ApplicationBase.h>
-struct Vertex
-{
-	glm::vec3 position; // 3D position
-	glm::vec3 normal;
-	glm::vec2 texCoords;
-};
-
-struct Mesh
-{
-	std::vector<Vertex> vertices;
-	std::vector<uint32_t> indices;
-};
 
 
 class Application : public ApplicationBase
@@ -55,7 +46,7 @@ private:
 	std::unique_ptr<ShaderProgram> m_ShaderProgramNoTex;
 	std::unique_ptr<ShaderProgram> m_ShaderProgramLit;
 
-	Mesh m_Mesh;
+	std::unique_ptr<Mesh> m_pMesh;
 
 	std::unique_ptr<VertexArray> m_VAO;
 	std::unique_ptr<VertexBuffer> m_VBO;

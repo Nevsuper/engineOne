@@ -7,20 +7,10 @@
 #include <engineOne/Core/Rendering/LowLevel/RenderContext.h>
 #include <engineOne/Core/Camera.h>
 #include <engineOne/Core/Timer.h>
-#include <engineOne/Core/GLLoader.h>
+
 #include <engineOne/Core/Input/Input.h>
 #include <engineOne/Core/ApplicationBase.h>
-struct Vertex
-{
-	glm::vec3 position; // 3D position
-	glm::vec3 normal;
-};
-
-struct Mesh
-{
-	std::vector<Vertex> vertices;
-	std::vector<uint32_t> indices;
-};
+#include <engineOne/Core/Rendering/Mesh.h>
 
 
 class Application : public ApplicationBase

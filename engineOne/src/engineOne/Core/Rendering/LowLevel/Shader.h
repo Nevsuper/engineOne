@@ -35,16 +35,12 @@ constexpr GLenum shaderTypeToGLenum(ShaderType type)
 	return enumValue(type);
 }
 
-enum class ShaderLoadOption
-{
-	String,
-	File
-};
+
 class Shader
 {
 public:
 	Shader(ShaderType type) noexcept;
-	Shader(ShaderType type, std::string& data, ShaderLoadOption loadOption);
+	Shader(ShaderType type, const std::string& data);
 	Shader(Shader&&) noexcept;
 
 	~Shader() noexcept;
@@ -56,12 +52,10 @@ public:
 
 	Shader& operator=(Shader&&) noexcept;
 
-	bool loadFromFile(const std::string& filePath);
 	bool loadFromString(const std::string& shaderSrc);
 
 	 ShaderType getType() const { return m_Type; }
 	 unsigned int getID() const { return m_ID; }
-private:
 	bool checkCompileStatus();
 private:
 	unsigned int m_ID;
@@ -74,8 +68,6 @@ class ShaderProgram
 public:
 	ShaderProgram() noexcept;
 	ShaderProgram(ShaderProgram&&)noexcept;
-	ShaderProgram(const std::string& vertexPath, const std::string& fragmentPath);
-	ShaderProgram(Shader& vertexShader, Shader& fragmentShader);
 
 	~ShaderProgram() noexcept;
 

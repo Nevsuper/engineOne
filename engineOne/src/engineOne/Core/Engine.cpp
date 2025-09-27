@@ -5,17 +5,11 @@
 #include <engineOne/utils/utils.h>
 
 
-Engine::Engine(HINSTANCE hInstance, ApplicationBase* app) noexcept
+Engine::Engine(HINSTANCE hInstance, std::unique_ptr<ApplicationBase>&& pApp) noexcept
 	:
-m_OpenGLLoader(hInstance), m_pApp(app), m_hInstance(hInstance)
-{
+m_OpenGLLoader(hInstance), m_pApp(std::move(pApp)), m_hInstance(hInstance)
+{}
 
-}
-
-Engine::~Engine()
-{
-	SafeDeletePtr(m_pApp);
-}
 
 
 bool Engine::Run() noexcept
@@ -45,6 +39,8 @@ bool Engine::Run() noexcept
 	return true;
 }
 
+
+
 bool Engine::Init() noexcept
 {
 	if (!RegisterWindowClass(m_hInstance)) return false;
@@ -73,8 +69,19 @@ bool Engine::Init() noexcept
 	// Control which messages are reported (optional)
 	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 
+
+	m_pAssetManager = std::make_unique<AssetManager>();
+
+	if (!m_pAssetManager)
+	{
+		LOG_FATAL("Failed to create Resource Manager");
+		return false;
+	}
+
 	m_pApp->m_Aspect = m_pWindow->GetAspectRatio();
 	m_pApp->m_pInput = &m_Input;
+	m_pApp->m_pEngine = this;
+
 	if (!m_pApp->Init()) return false;
 
 	return true;
@@ -104,8 +111,8 @@ inline void APIENTRY Engine::OpenGLDebugCallback(GLenum source, GLenum type, GLu
 		return;
 
 	// Output debug message
-	fprintf(stderr, "OpenGL Debug Message:\n"
-		"  Source: 0x%X\n  Type: 0x%X\n  ID: %d\n  Severity: 0x%X\n"
-		"  Message: %s\n\n",
+	LOG_DEBUG( "OpenGL Debug Message:\n"
+		"  Source: 0x{:X}\n  Type: 0x{:X}\n  ID: {}\n  Severity: 0x{:X}\n"
+		"  Message: {}\n\n",
 		source, type, id, severity, message);
 }

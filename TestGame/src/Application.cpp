@@ -95,115 +95,58 @@ bool Application::Init() noexcept
 bool Application::InitResources() noexcept
 {
 
-	auto loadModel = [&]() ->bool
-		{
-			std::string inputfile = "assets/models/Big Village.obj";
-			tinyobj::ObjReaderConfig reader_config;
-			reader_config.triangulate = true; // Triangulate faces;
-
-			tinyobj::ObjReader reader;
-
-
-
-			if (!reader.ParseFromFile(inputfile, reader_config)) {
-				if (!reader.Error().empty()) {
-					LOG_ERROR( "TinyObjReader: {} " , reader.Error() ) ;
-				}
-				return false;
-			}
-			if (!reader.Warning().empty()) {
-				LOG_WARN("TinyObjReader: {} ", reader.Warning());
-			}
-
-			auto& attrib = reader.GetAttrib();
-			auto& shapes = reader.GetShapes();
-			auto& materials = reader.GetMaterials();
-
-			m_Mesh.vertices.clear();
-			m_Mesh.indices.clear();
-
-			for (const auto& shape : shapes)
-			{
-				for (const auto& index : shape.mesh.indices)
-				{
-					Vertex vertex{};
-					vertex.position = glm::vec3
-					(
-						attrib.vertices[3 * index.vertex_index + 0],
-						attrib.vertices[3 * index.vertex_index + 1],
-						attrib.vertices[3 * index.vertex_index + 2]
-					);
-					if (index.texcoord_index >= 0)
-					{
-						vertex.texCoords.x = attrib.texcoords[2 * index.texcoord_index + 0];
-						vertex.texCoords.y = attrib.texcoords[2 * index.texcoord_index + 1];
-					}
-					else
-					{
-						vertex.texCoords.x = 0.0f;
-						vertex.texCoords.y = 0.0f;
-					}
-
-					if (index.normal_index >= 0)
-					{
-
-						vertex.normal = glm::vec3
-						(
-							attrib.normals[3 * index.normal_index + 0],
-							attrib.normals[3 * index.normal_index + 1],
-							attrib.normals[3 * index.normal_index + 2]
-						);
-					}
-					else
-					{
-						vertex.normal = glm::vec3(0.0f, 1.0f, 0.0f);
-					}
-
-					m_Mesh.vertices.push_back(vertex);
-					m_Mesh.indices.push_back(static_cast<uint32_t>(m_Mesh.indices.size()));
-				}
-			}
-
-			//print number of triangles
-			LOG_INFO( "Number of triangles: {}" , m_Mesh.indices.size() / 3 );
-			return true;
-		};
-
-
 	Timer loadTimer;
 
-	auto modelFuture = std::async(std::launch::async, loadModel);
+	auto modelFuture = std::async(std::launch::async, [&]()->bool 
+		{
+			m_pMesh = m_pEngine->getAssetManager().LoadMesh("assets/models/Big Village.obj");
+			if (m_pMesh == nullptr) return false;
+			return true;
+
+		});
 	//load both textures
 
-	Texture2DDataCreateInfo diffuseCreateInfo, alphaCreateInfo;
-	auto texDataFuture = std::async(std::launch::async, LoadTextureFromFile, "assets/textures/8k_texture.png", std::ref(diffuseCreateInfo));
-	auto texAlphaDataFuture = std::async(std::launch::async, LoadTextureFromFile, "assets/textures/8k_texture_alpha.png", std::ref(alphaCreateInfo));
+
+	Texture2DDataCreateInfo alphaInfo, diffuseInfo;
+	auto texDiffuseFuture = std::async(std::launch::async, [&]()->bool
+		{
+			return  m_pEngine->getAssetManager().LoadTexture("assets/textures/8k_texture.png", diffuseInfo);
+	
+		}
+	);
+	auto texAlphaFuture = std::async(std::launch::async, [&]()->bool
+		{
+			return  m_pEngine->getAssetManager().LoadTexture("assets/textures/8k_texture_alpha.png",alphaInfo);
+		}
+	);
 
 	//load Shader
-	m_ShaderProgram = std::make_unique<ShaderProgram>("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
+	m_ShaderProgram = m_pEngine->getAssetManager().LoadShader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 
 
-	if (!m_ShaderProgram->checkLinkStatus())
+	if (!m_ShaderProgram)
 	{
 		return false;
 	}
-	m_ShaderProgramLit = std::make_unique<ShaderProgram>("assets/shaders/vertexLit.glsl", "assets/shaders/fragmentLit.glsl");
 
-	if (!m_ShaderProgramLit->checkLinkStatus())
+	m_ShaderProgramLit = m_pEngine->getAssetManager().LoadShader("assets/shaders/vertexLit.glsl", "assets/shaders/fragmentLit.glsl");
+
+	if (!m_ShaderProgramLit)
 	{
 		return false;
 	}
-	m_ShaderProgramNoTex  = std::make_unique<ShaderProgram>("assets/shaders/vertex.glsl", "assets/shaders/fragmentNoTex.glsl");
 
-	if (!m_ShaderProgramNoTex->checkLinkStatus())
+	m_ShaderProgramNoTex  = m_pEngine->getAssetManager().LoadShader("assets/shaders/vertex.glsl", "assets/shaders/fragmentNoTex.glsl");
+
+	if (!m_ShaderProgramNoTex)
 	{
 		return false;
 	}
 
 	// --- Later, wait for all tasks to finish ---
 	bool isModelLoaded = modelFuture.get();
-	bool isTexLoaded = texDataFuture.get();
-	bool isAlphaTexLoaded = texAlphaDataFuture.get();
+	bool isTexLoaded = texDiffuseFuture.get();
+	bool isAlphaTexLoaded = texAlphaFuture.get();
 
 	if (!isModelLoaded)
 	{
@@ -213,17 +156,14 @@ bool Application::InitResources() noexcept
 
 	if (isTexLoaded && isAlphaTexLoaded)
 	{
-		// Now safe to create your Texture and Model objects
-		m_Texture = std::make_unique<Texture2D>(diffuseCreateInfo);
-		m_AlphaTexture = std::make_unique<Texture2D>(alphaCreateInfo);
-
-		stbi_image_free(diffuseCreateInfo.data);
-		stbi_image_free(alphaCreateInfo.data);
+		m_Texture = std::make_unique<Texture2D>(diffuseInfo);
+		m_AlphaTexture = std::make_unique<Texture2D>(alphaInfo);
+		
 	}
 
 	else
 	{
-		LOG_ERROR( "Texture Load Failed" );
+		LOG_ERROR("Texture Load Failed brbrbr");
 		return false;
 	}
 
@@ -233,12 +173,12 @@ bool Application::InitResources() noexcept
 	//village model 
 	m_VAO = std::make_unique<VertexArray>();
 	m_VAO->Bind();
-	m_VBO = std::make_unique<VertexBuffer>(m_Mesh.vertices.data(), m_Mesh.vertices.size() * sizeof(Vertex));
+	m_VBO = std::make_unique<VertexBuffer>(m_pMesh->vertices.data(), m_pMesh->vertices.size() * sizeof(Vertex));
 	m_VBO->Bind();
 	m_VAO->addAttribute(0, 3, GLType::Float, false, sizeof(Vertex), (void*)0);
 	m_VAO->addAttribute(1, 3, GLType::Float, false, sizeof(Vertex), reinterpret_cast<const void*>(3 * sizeof(float)));
 	m_VAO->addAttribute(2, 2, GLType::Float, false, sizeof(Vertex), reinterpret_cast<const void*>(6 * sizeof(float)));
-	m_EBO = std::make_unique<IndexBuffer>(m_Mesh.indices.data(), m_Mesh.indices.size() * sizeof(m_Mesh.indices[0]),GLType::UnsignedInt);
+	m_EBO = std::make_unique<IndexBuffer>(m_pMesh->indices.data(), m_pMesh->indices.size() * sizeof(m_pMesh->indices[0]),GLType::UnsignedInt);
 	m_EBO->Bind();
 	// lit cube
 

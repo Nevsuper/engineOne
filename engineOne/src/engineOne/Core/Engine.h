@@ -5,15 +5,20 @@
 #include "Rendering/LowLevel/RenderContext.h"
 #include "GLLoader.h"
 #include "Timer.h"
+#include "AssetManager.h"
 #include<memory>
 class ApplicationBase;
 
 class Engine
 {
 public:
-	Engine(HINSTANCE hInstance, ApplicationBase* app) noexcept;
+	Engine(HINSTANCE hInstance, std::unique_ptr<ApplicationBase>&& pApp) noexcept;
 	bool Run() noexcept;
-	~Engine() noexcept;
+	~Engine() noexcept = default;
+
+//getters
+
+	AssetManager& getAssetManager() noexcept { assert(m_pAssetManager != nullptr); return *m_pAssetManager; };
 private:
 	bool Init() noexcept;
 private:
@@ -31,7 +36,8 @@ private:
 	GLLoader m_OpenGLLoader;
 	std::unique_ptr<Window> m_pWindow;
 	std::unique_ptr<RenderContext> m_pRenderContext;
+	std::unique_ptr<AssetManager> m_pAssetManager;
 
-	ApplicationBase* m_pApp;
+	std::unique_ptr<ApplicationBase> m_pApp;
 };
 

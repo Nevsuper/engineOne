@@ -1,5 +1,6 @@
 #pragma once
 #include <type_traits>
+#include<string>
 template <typename E>
 inline constexpr auto enumValue(E e) noexcept {
 	return static_cast<std::underlying_type_t<E>>(e);
@@ -19,3 +20,5 @@ inline void SafeDeletePtr(T*& ptr) noexcept
         ptr = nullptr;
     }
 }
+
+bool LoadStringFromFile(const std::string& fileName, std::string& fileAsString);

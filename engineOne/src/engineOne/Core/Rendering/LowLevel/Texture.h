@@ -93,6 +93,7 @@ struct Texture2DDataCreateInfo
 	TextureInternalFormat internalFormat;
 	int mipLevels = 1;
 };
+
 class Texture2D
 {
 public:

@@ -12,15 +12,12 @@ Shader::Shader(ShaderType type) noexcept
 	m_ID = glCreateShader(shaderTypeToGLenum(m_Type));
 }
 
-Shader::Shader(ShaderType type, std::string& data, ShaderLoadOption loadOption)
-	: Shader(type)
+Shader::Shader(ShaderType type, const std::string& data)
+	:
+	Shader(type)
 {
-	if (loadOption == ShaderLoadOption::File) {
-		loadFromFile(data);
-	}
-	else if (loadOption == ShaderLoadOption::String) {
-		loadFromString(data);
-	}
+
+	loadFromString(data);
 }
 
 Shader::~Shader() noexcept
@@ -48,31 +45,6 @@ Shader& Shader::operator=(Shader&& other) noexcept
 	return *this;
 }
 
-bool Shader::loadFromFile(const std::string& filePath)
-{
-	try {
-		std::ifstream file(filePath, std::ios::in);
-		// Make the stream throw on errors
-		file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-
-		std::stringstream buffer;
-		buffer << file.rdbuf();  // if reading fails, exception is thrown
-		auto src = buffer.str();
-
-		return loadFromString(src);
-	}
-	catch (const std::ios_base::failure& e) {
-		std::cerr << "I/O error while reading file '" << filePath
-			<< "': " << e.what() << std::endl;
-		return false;
-	}
-	catch (const std::exception& e) {
-		std::cerr << "Unexpected error while reading file '" << filePath
-			<< "': " << e.what() << std::endl;
-		return false;
-	}
-
-}
 
 bool Shader::loadFromString(const std::string& shaderSrc)
 {
@@ -114,38 +86,8 @@ ShaderProgram::ShaderProgram(ShaderProgram&& other) noexcept
 	: m_ID(other.m_ID)
 {
 	other.m_ID = 0;
-}
 
-ShaderProgram::ShaderProgram(const std::string& vertexPath, const std::string& fragmentPath)
-	:
-	m_ID(0)
-{
-	Shader vertexShader(ShaderType::VERTEX);
-	if (!vertexShader.loadFromFile(vertexPath)) {
-		LOG_WARN("Failed to load vertex shader from file: {}", vertexPath);
-		return;
-	}
-	Shader fragmentShader(ShaderType::FRAGMENT);
-	if (!fragmentShader.loadFromFile(fragmentPath)) {
-		LOG_WARN("Failed to load fragment shader from file: {}", fragmentPath );
-		return;
-	}
-	m_ID = glCreateProgram();
-	attachShader(vertexShader);
-	attachShader(fragmentShader);
-	if (!link()) {
-		LOG_WARN( "Failed to link shader program.");
-	}
-}
-
-ShaderProgram::ShaderProgram(Shader& vertexShader, Shader& fragmentShader)
-{
-	m_ID = glCreateProgram();
-	attachShader(vertexShader);
-	attachShader(fragmentShader);
-	if (!link()) {
-		LOG_WARN("Failed to link shader program.");
-	}
+	m_UniformCache = std::move(other.m_UniformCache);
 }
 
 ShaderProgram& ShaderProgram::operator=(ShaderProgram&& other) noexcept
@@ -156,6 +98,7 @@ ShaderProgram& ShaderProgram::operator=(ShaderProgram&& other) noexcept
 
 		m_ID = other.m_ID;
 		other.m_ID = 0;
+		m_UniformCache = std::move(other.m_UniformCache);
 	}
 	return *this;
 }
@@ -190,7 +133,7 @@ bool ShaderProgram::checkLinkStatus()
 	if (!success)
 	{
 		glGetProgramInfoLog(m_ID, 1024, NULL, infoLog);
-		LOG_WARN( "ERROR::PROGRAM_LINKING_ERROR\n {} \n --------------------------------------------------- -- " ,infoLog);
+		LOG_WARN("ERROR::PROGRAM_LINKING_ERROR\n {} \n --------------------------------------------------- -- ", infoLog);
 		return false;
 	}
 	return true;
@@ -203,7 +146,7 @@ void ShaderProgram::SetUniform1i(const std::string& uniformName, int v) noexcept
 
 void ShaderProgram::SetUniform1f(const std::string& uniformName, float v) noexcept
 {
-	glProgramUniform1f(m_ID,GetUniformLocation(uniformName), v);
+	glProgramUniform1f(m_ID, GetUniformLocation(uniformName), v);
 }
 
 void ShaderProgram::SetUniform2f(const std::string& uniformName, float v0, float v1) noexcept
@@ -225,32 +168,32 @@ void ShaderProgram::SetUniform4f(const std::string& uniformName, float v0, float
 
 void ShaderProgram::SetUniformVec2(const std::string& uniformName, const glm::vec2& vec) noexcept
 {
-	glProgramUniform2fv(m_ID,GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
+	glProgramUniform2fv(m_ID, GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
 }
 
 void ShaderProgram::SetUniformVec3(const std::string& uniformName, const glm::vec3& vec) noexcept
 {
-	glProgramUniform3fv(m_ID,GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
+	glProgramUniform3fv(m_ID, GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
 }
 
 void ShaderProgram::SetUniformVec4(const std::string& uniformName, const glm::vec4& vec) noexcept
 {
-	glProgramUniform4fv(m_ID,GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
+	glProgramUniform4fv(m_ID, GetUniformLocation(uniformName), 1, glm::value_ptr(vec));
 }
 
 void ShaderProgram::SetUniformMat2(const std::string& uniformName, const glm::mat2& mat) noexcept
 {
-	glProgramUniformMatrix2fv(m_ID,GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
+	glProgramUniformMatrix2fv(m_ID, GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
 }
 
 void ShaderProgram::SetUniformMat3(const std::string& uniformName, const glm::mat3& mat) noexcept
 {
-	glProgramUniformMatrix3fv(m_ID,GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
+	glProgramUniformMatrix3fv(m_ID, GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
 }
 
 void ShaderProgram::SetUniformMat4(const std::string& uniformName, const glm::mat4& mat) noexcept
 {
-	glProgramUniformMatrix4fv(m_ID,GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
+	glProgramUniformMatrix4fv(m_ID, GetUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(mat));
 }
 
 unsigned int ShaderProgram::GetUniformLocation(const std::string& uniformName) noexcept
@@ -262,7 +205,7 @@ unsigned int ShaderProgram::GetUniformLocation(const std::string& uniformName) n
 	auto loc = glGetUniformLocation(m_ID, uniformName.c_str());
 	if (loc == -1)
 	{
-		LOG_WARN( "uniform : {} does not exist", uniformName );
+		LOG_WARN("uniform : {} does not exist", uniformName);
 		return -1;
 	}
 	m_UniformCache[uniformName] = loc;

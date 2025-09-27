@@ -47,23 +47,23 @@ bool Application::InitResources() noexcept
 	//load both textures
 
 
-	m_ShaderProgramLit = std::make_unique<ShaderProgram>("assets/shaders/vertexLit.glsl", "assets/shaders/fragmentLit.glsl");
+	m_ShaderProgramLit = m_pEngine->getAssetManager().LoadShader("assets/shaders/vertexLit.glsl", "assets/shaders/fragmentLit.glsl");
 
-	if (!m_ShaderProgramLit->checkLinkStatus())
+	if (!m_ShaderProgramLit)
 	{
 		return false;
 	}
-	m_ShaderProgramTerrain = std::make_unique<ShaderProgram>("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 
-	if (!m_ShaderProgramTerrain->checkLinkStatus())
+
+	m_ShaderProgramTerrain = m_pEngine->getAssetManager().LoadShader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
+
+	if (!m_ShaderProgramTerrain)
 	{
 		return false;
 	}
 
 
 	GenerateTerrain();
-
-
 
 	double loadTime = loadTimer.elapsed();
 	LOG_DEBUG(" Took {} s to load resources", loadTime);
@@ -133,15 +133,14 @@ void Application::ProcessInput(float deltaTime) noexcept
 {
 
 
-	float cameraSpeed1 = 100.5f; // units per second
-	float cameraAnglularSpeed = 30.0f; // degrees per second
-	float cameraSpeed2 = 10000.0f;
-	float cameraSpeed = cameraSpeed1;
+	float cameraSpeed = 100.5f; // units per second
+	constexpr float cameraAnglularSpeed = glm::radians(30.0f); // degrees per second
 
-	if (m_pInput->IsKeyDown(KeyCode::Leftshift))
-	{
-		cameraSpeed = cameraSpeed2;
-	}
+	float mouseSensitivity = 1.0f;
+
+	int dx = m_pInput->GetMouseMoveDeltaX();
+	int dy = m_pInput->GetMouseMoveDeltaY();
+
 	if (m_pInput->IsKeyDown(KeyCode::W))
 		m_Camera.MoveForward(deltaTime * cameraSpeed);
 	if (m_pInput->IsKeyDown(KeyCode::A))
@@ -156,14 +155,10 @@ void Application::ProcessInput(float deltaTime) noexcept
 	if (m_pInput->IsKeyDown(KeyCode::C))
 		m_Camera.MoveUp(-deltaTime * cameraSpeed);
 
-	if (m_pInput->IsKeyDown(KeyCode::Arrowleft))
-		m_Camera.Yaw(deltaTime * cameraAnglularSpeed);
-	if (m_pInput->IsKeyDown(KeyCode::Arrowright))
-		m_Camera.Yaw(-deltaTime * cameraAnglularSpeed);
-	if (m_pInput->IsKeyDown(KeyCode::Arrowup))
-		m_Camera.Pitch(deltaTime * cameraAnglularSpeed);
-	if (m_pInput->IsKeyDown(KeyCode::Arrowdown))
-		m_Camera.Pitch(-deltaTime * cameraAnglularSpeed);
+
+
+	m_Camera.Yaw(deltaTime * (static_cast<float>(-dx) * mouseSensitivity) * cameraAnglularSpeed);
+	m_Camera.Pitch(deltaTime * (static_cast<float>(-dy) * mouseSensitivity) * cameraAnglularSpeed);
 
 	if (m_pInput->IsKeyPressed(KeyCode::R))
 		m_Camera.RestPosAndOrient();
@@ -174,7 +169,7 @@ void Application::ProcessInput(float deltaTime) noexcept
 		m_IsWireMode = !m_IsWireMode;
 	}
 
-	if (m_pInput->IsKeyPressed(KeyCode::Rightshift)) 
+	if (m_pInput->IsKeyPressed(KeyCode::Shift))
 	{
 		m_IsTex = !m_IsTex;
 	}

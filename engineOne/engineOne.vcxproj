@@ -90,9 +90,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\engineOne\Core\AssetManager.cpp" />
     <ClCompile Include="src\engineOne\Core\logger\Logger.cpp" />
     <ClCompile Include="src\engineOne\Core\Engine.cpp" />
     <ClCompile Include="src\engineOne\Core\Rendering\Mesh.cpp" />
+    <ClCompile Include="src\engineOne\utils\utils.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -124,6 +126,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\engineOne\Core\AssetManager.h" />
     <ClInclude Include="src\engineOne\Core\logger\Logger.h" />
     <ClInclude Include="src\engineOne\Core\Engine.h" />
     <ClInclude Include="src\engineOne\Core\Rendering\Mesh.h" />
